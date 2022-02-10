@@ -21,6 +21,6 @@ from app_ticket.views import ticket_view_a, ticket_view_b
 urlpatterns = [
     path('', home_view, name='url_home'),
     path('admin/', admin.site.urls),
-    path('ticket/', ticket_view_a, 'url_ticket', name='url_ticket'),
-    path('ticket_form/', ticket_view_b, 'url_ticket_form', name='url_ticket_form'),
+    path('ticket/', ticket_view_a, name='url_ticket'),
+    path('ticket_form/', ticket_view_b, name='url_ticket_form'),
 ]
