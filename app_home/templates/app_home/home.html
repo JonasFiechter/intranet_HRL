@@ -6,14 +6,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'app_home/vendor/css/styles.css' %}">
-    <title>Document</title>
+    <title>Intranet HRL</title>
 </head>
 <body>
-    <section class="body_1">
-        <h1>Teste Home</h1>
-        <ul>
-            <li class="upper_menu"><a href="/admin">Área administrativa</a></li>
-        </ul>
-    </section>
+    <div class="container">
+        <div class="grid">
+            <div class="header">
+                <h1>HRL</h1>
+                <nav>
+                    <ul class="header_menu">
+                        <li class="upper_menu"><a href="{% url 'url_ticket_form' %}">Abrir um chamado</a></li>
+                        <li class="upper_menu"><a href="{% url 'url_ticket' %}">Central de Chamados</a></li>
+                        <li class="upper_menu"><a href="/admin">Area administrativa</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="left">
+                <a href="#">Item 1</a>
+                <a href="#">Item 2</a>
+                <a href="#">Item 3</a>
+                <a href="#">Item 4</a>
+                <a href="#">Item 5</a>
+                <a href="#">Item 6</a>
+                <a href="#">Item 7</a>
+                <a href="#">Item 8</a>
+                <a href="#">Item 9</a>
+                <a href="#">Item 10</a>
+            </div>
+            <div class="center">
+                <div>
+                    <h1>Test CENTER</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos odio 
+                        vero quia velit excepturi et, maxime tempore quisquam soluta hic? Inventore 
+                        hic aliquam aperiam ipsum velit quisquam nam molestiae repellendus?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos odio 
+                        vero quia velit excepturi et, maxime tempore quisquam soluta hic? Inventore 
+                        hic aliquam aperiam ipsum velit quisquamLorem ipsum dolor sit amet consectetur 
+                        adipisicing elit. Dignissimos odio 
+                        vero quia velit excepturi et, maxime tempore quisquam soluta hic? Inventore 
+                        hic aliquam aperiam ipsum velit quisquam nam molestiae repellendus? nam 
+                        molestiae repellendus?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dignissimos odio vero quia velit excepturi et, maxime tempore quisquam 
+                        soluta hic? Inventore hic aliquam aperiam ipsum velit Lorem ipsum dolor sit 
+                        amet consectetur adipisicing elit. Dignissimos odio 
+                        vero quia velit excepturi et, maxime tempore quisquam soluta hic? Inventore 
+                        hic aliquam aperiam ipsum velit quisquam nam molestiae repellendus?quisquam 
+                        nam molestiae repellendus?</p>
+                </div>
+            </div>
+            <div>
+                <div class="footer">
+                    <ul>
+                        <li>(41)-3420-7400</li>
+                        <li>(41)-3420-7400</li>
+                        <li>example@emailsesa.pr.gov.br</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        Other Things
+    </div>
 </body>
 </html>
