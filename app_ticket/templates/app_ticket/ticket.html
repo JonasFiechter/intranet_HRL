@@ -9,6 +9,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ticket a WORKS!</h1>
+    <h1>NUIAS Ticket system</h1>
+    <ul>
+        {% for ticket in tickets %}
+        <li>{{ticket.id}} - 
+            {{ ticket.description }} - 
+            {{ ticket.date }} - 
+            {{ ticket.sector }} - 
+            {{ ticket.requester_name }}
+        </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
