@@ -1,5 +1,4 @@
-from unicodedata import category
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Ticket
 from .forms import TicketForm
 
@@ -16,5 +15,6 @@ def ticket_view_nuias_form(request):
 
     if form.is_valid():
         form.save()
+        return redirect('url_home')
 
     return render(request, 'app_ticket/ticket_form.html', data)
