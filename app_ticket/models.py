@@ -34,7 +34,7 @@ class Ticket(models.Model):
                                        (t_answered,'atendido'),
                                        (t_closed,'finalizado')], default=t_open)
 
-    description = models.TextField(max_length=500, )
+    description = models.TextField(max_length=500)
     date = models.DateTimeField(auto_now_add=True)
     requester_name = models.CharField(max_length=255)
     machine_number = models.IntegerField()
