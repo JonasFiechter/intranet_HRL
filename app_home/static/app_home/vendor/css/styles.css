@@ -55,11 +55,17 @@ a {
 
 .menu-content h1:hover{
     border-bottom: 0.2rem solid orange;
+    color: orange;
     transition: 200ms ease-in;
 }
 
-.menu-content ul {
-    display: flex;
+.menu-content ul li {
+    position: relative;
+    float:left;
+}
+
+.menu-content ul li ul{
+    display: none;
 }
 
 .menu-content ul li a{
@@ -70,6 +76,7 @@ a {
 
 .menu-content ul li a:hover{
     border-bottom: 0.2rem solid orange;
+    color: orange;
     transition: 200ms ease-in;
 }
 
@@ -82,4 +89,16 @@ a {
     display: flex;
     margin: 0 auto;
     padding-top: 8rem;
+}
+
+.menu li ul {
+    position: absolute;
+    background-color: rgb(18, 8, 71);
+    top: 6rem;
+    display:none;
+    }
+
+.menu li:hover ul, .menu li.over ul {
+    display:grid;
+    min-width: 14.2rem;
 }

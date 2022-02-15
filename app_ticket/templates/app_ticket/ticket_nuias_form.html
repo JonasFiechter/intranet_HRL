@@ -13,7 +13,7 @@
             <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
             <nav>
                 <ul>
-                    <li><a href="{% url 'url_ticket_form' %}">Abrir Chamado</a></li>
+                    <li><a href="{% url 'url_ticket_nuias_form' %}">Abrir Chamado</a></li>
                     <li><a href="{% url 'url_ticket' %}">Central de Chamados</a></li>
                     <li><a href="#">Gallery</a></li>
                     <li><a href="#">Work</a></li>
@@ -38,5 +38,6 @@
             </ul>
         </form>
     </section>
+    {% block 'example' %}{% endblock %}
 </body>
 </html>

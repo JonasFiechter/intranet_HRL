@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/app_ticket/css/styles_ticket.css">
+    <title>Document</title>
+</head>
+<body>
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'url_ticket_nuias_form' %}">Abrir Chamado</a></li>
+                    <li><a href="{% url 'url_ticket' %}">Central de Chamados</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <section class="section main-bg">
+        <div>
+            <h1>Formulário de Chamado - Infraestrutura</h1>
+        </div>
+        <form method="POST" class="ticket-form">
+            {% csrf_token %}
+            <ul>
+                <li>Descrição do problema {{ form.description }}</li>
+                <li>Categoria do problema {{ form.category }}</li>
+                <li>Setor para atendimento {{ form.sector }}</li>
+                <li>Número da máquina {{ form.machine_number }}</li>
+                <li>Nome do usuário {{ form.requester_name }}</li>
+                <li><button type="submit">Enviar</button></li>
+            </ul>
+        </form>
+    </section>
+</body>
+</html>
