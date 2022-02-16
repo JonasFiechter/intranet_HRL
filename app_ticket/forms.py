@@ -4,7 +4,9 @@ from .models import Ticket
 class TicketForm(ModelForm):
     class Meta:
         model = Ticket
-        fields = ['description', 'category', 'sector', 'machine_number', 'requester_name']
+        fields = ['description', 'sector', 'machine_number', 'requester_name', 'category']
+        hidden_fields = ['category']
         widgets = {
-          'description': Textarea(attrs={'rows':3, 'cols':50}),
+          'description': Textarea(attrs={'rows':4, 'cols':50}),
+          'requester_name': Textarea(attrs={'rows':1, 'cols':50}),
         }
