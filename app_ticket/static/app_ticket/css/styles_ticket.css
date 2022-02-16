@@ -102,3 +102,26 @@ li {
     border-bottom: 0.2rem solid orange;
     transition: 200ms ease-in;
 }
+
+.message-success {
+    display: flex;
+    max-width: 60rem;
+    margin: 0 auto;
+    font-size: 2rem;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(83, 248, 152);
+}
+
+.message-button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.message-button a button {
+    min-height: 5rem;
+    min-width: 8rem;
+}

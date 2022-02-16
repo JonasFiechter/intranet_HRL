@@ -23,19 +23,33 @@
     <section class="section main-bg">
         <div>
             <h1>Formulário de Chamado - Nuias</h1>
+
         </div>
         <form method="POST" class="ticket-form">
             {% csrf_token %}
+            {% if not is_valid %}
             <ul>
                 <li>Descrição do problema {{ form.description }}</li>
                 <li>Setor para atendimento {{ form.sector }}</li>
                 <li>Número da máquina {{ form.machine_number }}</li>
                 <li>Nome do usuário {{ form.requester_name }}</li>
                         {{form.category}}
-                <li><button type="submit">Enviar</button></li>
+                
+                    <li><button type="submit">Enviar</button></li>
             </ul>
+            {% endif %}
         </form>
+
+            {% if is_valid %}
+                    <dev class="message-success">
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    </dev>
+                    <dev class="message-button">
+                        <a href="{% url 'url_home' %}"><button type="button">Ok</button></a>
+                    </dev>            
+            {% endif %}
     </section>
-    {% block 'example' %}{% endblock %}
 </body>
 </html>
