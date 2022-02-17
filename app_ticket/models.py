@@ -8,15 +8,25 @@ class Sector(models.Model):
     def __str__(self) -> str:
         return self.sector_name
 
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField(max_length=500)
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "categories"
+
 
 class Ticket(models.Model):
 
     def __str__(self) -> str:
         return self.description
 
-    t_open = 'aberto'
-    t_answered = 'atendido'
-    t_closed = 'finalizado'
+    t_open = 'Aberto'
+    t_answered = 'Atendido'
+    t_closed = 'Finalizado'
 
     status = models.CharField(max_length=100,
                               choices=[(t_open, 'Aberto'),
@@ -28,4 +38,4 @@ class Ticket(models.Model):
     requester_name = models.CharField(max_length=255)
     machine_number = models.IntegerField()
     sector = models.ForeignKey(Sector, on_delete=models.DO_NOTHING)
-    category = models.CharField(max_length=255, default='TESTE')
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)

@@ -86,6 +86,7 @@ li {
 .menu-content h1:hover{
     border-bottom: 0.2rem solid orange;
     transition: 200ms ease-in;
+    color: orange;
 }
 
 .menu-content ul {
@@ -101,6 +102,7 @@ li {
 .menu-content ul li a:hover{
     border-bottom: 0.2rem solid orange;
     transition: 200ms ease-in;
+    color: orange;
 }
 
 .message-success {

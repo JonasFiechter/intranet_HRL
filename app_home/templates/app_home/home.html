@@ -14,14 +14,15 @@
             <a href="#"><h1>HRL - Hospital Regional do Litoral</h1></a>
             <nav>
                 <ul class="menu_ul">
-                    <li><a href="">Abrir Chamado</a>
+                    <li><a href="{% url 'url_ticket_form' %}">Abrir Chamado</a>
+                    </li>
+                    <li><a href="">Central de Chamados</a>
                         <ul>
-                            <li><a href="{% url 'url_ticket_nuias_form' %}">Informática</a></li>
-                            <li><a href="{% url 'url_ticket_infra_form' %}">Infraestrutura</a></li>
+                            <li><a href="{% url 'url_ticket_center_nuias' %}">Informática</a></li>
+                            <li><a href="#">Infraestrutura</a></li>
                             <li><a href="#">Motoristas</a></li>
                         </ul>
                     </li>
-                    <li><a href="{% url 'url_ticket_center_nuias' %}">Central de Chamados</a></li>
                     <li><a href="#">Gallery</a></li>
                     <li><a href="#">Work</a></li>
                     <li><a href="/admin">Admin</a></li>

@@ -100,5 +100,5 @@ a {
 
 .menu li:hover ul, .menu li.over ul {
     display:grid;
-    min-width: 14.2rem;
+    min-width: 19rem;
 }

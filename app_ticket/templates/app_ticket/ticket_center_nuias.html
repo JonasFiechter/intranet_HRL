@@ -14,8 +14,6 @@
             <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
             <nav>
                 <ul>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Work</a></li>
                     <li><a href="/admin">Admin</a></li>
                 </ul>
             </nav>
@@ -24,18 +22,38 @@
     <section class="section main-bg">
         <div><h1>Central de chamados - NUIAS</h1></div>
         <div class="data-list">
+            <div class="list-title">
+                <ul>
+                    <li>ID</li>
+                    <li>Descrição</li>
+                    <li>Nome</li>
+                    <li>Data</li>
+                    <li>Setor</li>
+                    <li>Status</li>
+                </ul>
+            </div>
             <ul>
                 {% for ticket in tickets %}
-                    {% if ticket.category == 'Nuias' %}
-                        <li>
-                            <a href="">{{ticket.id}}</a> 
-                            <a href="">{{ ticket.description }}</a> 
-                            <a href="">{{ ticket.date }}</a> 
-                            <a href="">{{ ticket.sector }}</a> 
-                            <a href="">{{ ticket.requester_name }}</a> 
-                            <a href="">{{ ticket.category }}</a> 
-                            <a href="">{{ ticket.status }}</a> 
-                        </li>
+                    {% if ticket.category == 'Nuias'%}
+                        {% if not ticket.status == 'atendido' %}
+                            <li>
+                                <a class="normal" href="">{{ ticket.id }}</a> 
+                                <a class="normal" href="">{{ ticket.description }}</a> 
+                                <a class="normal" href="">{{ ticket.requester_name }}</a> 
+                                <a class="normal" href="">{{ ticket.date }}</a> 
+                                <a class="normal" href="">{{ ticket.sector }}</a> 
+                                <a class="normal" href="">{{ ticket.status }}</a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a class="answered" href="">{{ ticket.id }}</a> 
+                                <a class="answered" href="">{{ ticket.description }}</a> 
+                                <a class="answered" href="">{{ ticket.requester_name }}</a> 
+                                <a class="answered" href="">{{ ticket.date }}</a> 
+                                <a class="answered" href="">{{ ticket.sector }}</a> 
+                                <a class="answered" href="">{{ ticket.status }}</a>
+                            </li>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
             </ul>

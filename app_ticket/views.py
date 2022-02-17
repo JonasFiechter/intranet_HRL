@@ -10,7 +10,7 @@ def ticket_center_view_nuias(request):
     return render(request, 'app_ticket/ticket_center_nuias.html', {'tickets': Ticket.objects.all()})
 
 
-def ticket_view_nuias_form(request):
+def ticket_view_form(request):
     form = TicketForm(request.POST or None)
 
     if form.is_valid():
@@ -25,24 +25,5 @@ def ticket_view_nuias_form(request):
         messages.success(request, message=f'{id_}')
         form.clean()
 
-        return render(request, 'app_ticket/ticket_nuias_form.html', {'form': form, 'is_valid': is_valid})
-    return render(request, 'app_ticket/ticket_nuias_form.html', {'form': form})
-
-
-def ticket_view_infra_form(request):
-    form = TicketForm(request.POST or None)
-
-    if form.is_valid():
-        ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get('sector'), 
-                              machine_number=request.POST.get('machine_number'), 
-                              requester_name=request.POST.get('requester_name'), 
-                              category='Infraestrutura')
-        id_ = ticket.id
-        is_valid = True
-        ticket.save()
-        messages.success(request, message=f'{id_}')
-        form.clean()
-        
-        return render(request, 'app_ticket/ticket_infra_form.html', {'form': form, 'is_valid': is_valid})
-    return render(request, 'app_ticket/ticket_infra_form.html',  {'form': form})
+        return render(request, 'app_ticket/ticket_form.html', {'form': form, 'is_valid': is_valid})
+    return render(request, 'app_ticket/ticket_form.html', {'form': form})
