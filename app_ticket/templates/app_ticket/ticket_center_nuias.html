@@ -5,23 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'app_ticket/css/styles_ticket.css' %}">
+    <link rel="stylesheet" href="{% static 'app_ticket/css/styles_ticket_center.css' %}">
     <title>Document</title>
 </head>
 <body>
-    <h1>NUIAS Ticket system</h1>
-    <ul>
-        {% for ticket in tickets %}
-            {% if ticket.category == 'Nuias' %}
-                <li>{{ticket.id}} - 
-                    {{ ticket.description }} - 
-                    {{ ticket.date }} - 
-                    {{ ticket.sector }} - 
-                    {{ ticket.requester_name }} - 
-                    {{ ticket.category }}
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <section class="section main-bg">
+        <div><h1>Central de chamados - NUIAS</h1></div>
+        <div class="data-list">
+            <ul>
+                {% for ticket in tickets %}
+                    {% if ticket.category == 'Nuias' %}
+                        <li>
+                            <a href="">{{ticket.id}}</a> 
+                            <a href="">{{ ticket.description }}</a> 
+                            <a href="">{{ ticket.date }}</a> 
+                            <a href="">{{ ticket.sector }}</a> 
+                            <a href="">{{ ticket.requester_name }}</a> 
+                            <a href="">{{ ticket.category }}</a> 
+                            <a href="">{{ ticket.status }}</a> 
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
 </body>
 </html>
