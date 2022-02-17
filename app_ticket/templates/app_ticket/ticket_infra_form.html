@@ -40,7 +40,8 @@
             {% if is_valid %}
                     <dev class="message-success">
                         {% for message in messages %}
-                            <p>{{ message }}</p>
+                            <p>Chamado enviado com sucesso! Anote o número do chamado: </p><br>
+                            <p class="message-id">{{ message }}</p>
                         {% endfor %}
                     </dev>
                     <dev class="message-button">

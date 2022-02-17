@@ -104,14 +104,25 @@ li {
 }
 
 .message-success {
-    display: flex;
-    max-width: 60rem;
+    font-style: italic;
+    font-weight: 350;
+    display: grid;
+    max-width: 70rem;
     margin: 0 auto;
-    font-size: 2rem;
-    color: black;
+    font-size: 2.5rem;
+    color: rgb(0, 255, 21);
     justify-content: center;
     align-items: center;
-    background-color: rgb(83, 248, 152);
+}
+
+.message-success p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-id {
+   font-weight: 750;
 }
 
 .message-button a {

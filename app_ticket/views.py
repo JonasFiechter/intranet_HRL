@@ -6,9 +6,8 @@ from django.db.models.functions import Cast
 
 # Create your views here.
 
-def ticket_view_nuias(request):
-    data = {'tickets': Ticket.objects.all()}
-    return render(request, 'app_ticket/ticket.html', data)
+def ticket_center_view_nuias(request):
+    return render(request, 'app_ticket/ticket_center_nuias.html', {'tickets': Ticket.objects.all()})
 
 
 def ticket_view_nuias_form(request):
@@ -23,8 +22,7 @@ def ticket_view_nuias_form(request):
         id_ = ticket.id
         is_valid = True
         ticket.save()
-        messages.success(request, message=f'Chamado enviado com sucesso! '
-                                          f'Anote o número do chamado: {id_}')
+        messages.success(request, message=f'{id_}')
         form.clean()
 
         return render(request, 'app_ticket/ticket_nuias_form.html', {'form': form, 'is_valid': is_valid})
@@ -43,8 +41,7 @@ def ticket_view_infra_form(request):
         id_ = ticket.id
         is_valid = True
         ticket.save()
-        messages.success(request, message=f'Chamado enviado com sucesso! '
-                                          f'Anote o número do chamado: {id_}')
+        messages.success(request, message=f'{id_}')
         form.clean()
         
         return render(request, 'app_ticket/ticket_infra_form.html', {'form': form, 'is_valid': is_valid})

@@ -12,12 +12,15 @@
     <h1>NUIAS Ticket system</h1>
     <ul>
         {% for ticket in tickets %}
-        <li>{{ticket.id}} - 
-            {{ ticket.description }} - 
-            {{ ticket.date }} - 
-            {{ ticket.sector }} - 
-            {{ ticket.requester_name }}
-        </li>
+            {% if ticket.category == 'Nuias' %}
+                <li>{{ticket.id}} - 
+                    {{ ticket.description }} - 
+                    {{ ticket.date }} - 
+                    {{ ticket.sector }} - 
+                    {{ ticket.requester_name }} - 
+                    {{ ticket.category }}
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
 </body>
