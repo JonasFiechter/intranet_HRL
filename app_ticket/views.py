@@ -19,11 +19,12 @@ def ticket_view_form(request):
     
     try:
         cat_id = form.data['category']
+        print(f'this is cat_id: {cat_id}')
         stage = 2
     except:
         pass
 
-    if stage == 2 and len(request.POST.get('description')) > 10:
+    try:
         ticket = Ticket.objects.create(description=request.POST.get('description'), 
                               sector_id=request.POST.get('sector'), 
                               machine_number=request.POST.get('machine_number'), 
@@ -35,4 +36,6 @@ def ticket_view_form(request):
         messages.success(request, message=f'{id_}')
 
         return render(request, 'app_ticket/ticket_form.html', {'is_valid': is_valid})
+    except:
+        pass
     return render(request, 'app_ticket/ticket_form.html', {'form': form, 'stage': stage, 'cat_id': cat_id})

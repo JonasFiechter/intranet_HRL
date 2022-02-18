@@ -21,7 +21,8 @@
     <section class="section main-bg">
         <div>
             <h1>Formulário de Chamado</h1>
-
+        </div>
+        <div class="message-error">
         </div>
         <form method="POST" class="ticket-form">
             {% csrf_token %}
@@ -30,9 +31,11 @@
                 <li>Nome do usuário {{ form.requester_name }}</li>
                 <li>Setor para atendimento {{ form.sector }}</li>
                 <li>Tipo de atendimento {{ form.category }}</li>
-                <li><button type="submit">Avançar</button></li>
+                {% if stage == 1 %}
+                    <li><button type="submit">Avançar</button></li>
+                {% endif %}
                 {% if stage == 2 %}
-                    {% if cat_id == 2 %}
+                    {% if cat_id == '2' %}
                         <li>Número da máquina {{ form.machine_number }}</li>
                     {% endif %}
                     <li>Descrição do problema {{ form.description }}</li>
@@ -41,15 +44,16 @@
             </ul>
         </form>
             {% else %}
-                    <dev class="message-success">
+                    <div class="message-success">
                         {% for message in messages %}
                             <p>Chamado enviado com sucesso! Anote o número do chamado:</p>
                             <p class="message-id">{{ message }}</p>
                         {% endfor %}
-                    </dev>
-                    <dev class="message-button">
-                        <a href="{% url 'url_home' %}"><button type="button">Ok</button></a>
-                    </dev>            
+                        <div class="message-button">
+                            <a href="{% url 'url_home' %}"><button type="button">Ok</button></a>
+                        </div>
+                    </div>
+          
             {% endif %}
     </section>
 </body>
