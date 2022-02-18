@@ -29,16 +29,16 @@
             <ul>
                 <li>Descrição do problema {{ form.description }}</li>
                 <li>Setor para atendimento {{ form.sector }}</li>
-                <li>Número da máquina {{ form.machine_number }}</li>
+                <li>Tipo de atendimento {{ form.category }}</li>
+                {% if form.category == 2 %}
+                    <li>Número da máquina {{ form.machine_number }}</li>
+                {% endif %}
                 <li>Nome do usuário {{ form.requester_name }}</li>
-                        {{form.category}}
-                
-                    <li><button type="submit">Enviar</button></li>
+                <li><button type="submit">Enviar</button></li>
             </ul>
-            {% endif %}
         </form>
 
-            {% if is_valid %}
+            {% else %}
                     <dev class="message-success">
                         {% for message in messages %}
                             <p>Chamado enviado com sucesso! Anote o número do chamado:</p>

@@ -1,5 +1,6 @@
+from unicodedata import category
 from django.shortcuts import render, redirect
-from .models import Ticket
+from .models import Ticket, Category
 from .forms import TicketForm
 from django.contrib import messages
 from django.db.models.functions import Cast
@@ -12,18 +13,19 @@ def ticket_center_view_nuias(request):
 
 def ticket_view_form(request):
     form = TicketForm(request.POST or None)
+    print(form.data)
 
     if form.is_valid():
         ticket = Ticket.objects.create(description=request.POST.get('description'), 
                               sector_id=request.POST.get('sector'), 
                               machine_number=request.POST.get('machine_number'), 
-                              requester_name=request.POST.get('requester_name'), 
-                              category='Nuias')
+                              requester_name=request.POST.get('requester_name'),
+                              category=request.POST.get('category'))
         id_ = ticket.id
         is_valid = True
         ticket.save()
         messages.success(request, message=f'{id_}')
         form.clean()
 
-        return render(request, 'app_ticket/ticket_form.html', {'form': form, 'is_valid': is_valid})
+        return render(request, 'app_ticket/ticket_form.html', {'is_valid': is_valid})
     return render(request, 'app_ticket/ticket_form.html', {'form': form})

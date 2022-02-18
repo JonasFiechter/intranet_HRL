@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Sector(models.Model):
-    sector_name = models.CharField(max_length=100)
+    sector_name = models.CharField(max_length=100, default='.')
 
     def __str__(self) -> str:
         return self.sector_name
@@ -11,9 +11,10 @@ class Sector(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(max_length=500)
+    sector = models.ForeignKey(Sector, on_delete=models.DO_NOTHING, default=1)
 
     def __str__(self) -> str:
-        return self.name
+        return self.name + f' ({self.description})'
 
     class Meta:
         verbose_name_plural = "categories"
