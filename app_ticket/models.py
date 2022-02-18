@@ -37,6 +37,6 @@ class Ticket(models.Model):
     description = models.TextField(max_length=500)
     date = models.DateTimeField(auto_now_add=True)
     requester_name = models.CharField(max_length=255)
-    machine_number = models.IntegerField()
+    machine_number = models.IntegerField(null=True)
     sector = models.ForeignKey(Sector, on_delete=models.DO_NOTHING)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)

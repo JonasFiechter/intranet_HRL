@@ -34,7 +34,7 @@
             </div>
             <ul>
                 {% for ticket in tickets %}
-                    {% if ticket.category == 'Nuias'%}
+                    {% if ticket.category %}
                         {% if not ticket.status == 'atendido' %}
                             <li>
                                 <a class="normal" href="">{{ ticket.id }}</a> 
