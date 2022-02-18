@@ -14,7 +14,7 @@ class Category(models.Model):
     sector = models.ForeignKey(Sector, on_delete=models.DO_NOTHING, default=1)
 
     def __str__(self) -> str:
-        return self.name + f' ({self.description})' + f' [{self.sector}]'
+        return self.name
 
     class Meta:
         verbose_name_plural = "categories"

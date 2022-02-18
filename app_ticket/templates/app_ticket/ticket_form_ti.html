@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/app_ticket/css/styles_ticket.css">
+    <title>Ticket Nuias</title>
+</head>
+<body>
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <section class="section main-bg">
+        <div>
+            <h1>Formulário de Chamado</h1>
+        </div>
+        <div class="message-error">
+        </div>
+        <form method="POST" class="ticket-form">
+            {% csrf_token %}
+            {% if not is_valid %}
+            <ul>
+                <li>Nome do usuário {{ form.requester_name }}</li>
+                <li>Setor para atendimento {{ form.sector }}</li>
+                <li>Tipo de atendimento {{ form.category }}</li>
+                <li>Número da máquina {{ form.machine_number }}</li>
+                <li>Descrição do problema {{ form.description }}</li>
+                <li><button type="submit">Enviar</button></li>
+            </ul>
+        </form>
+            {% else %}
+                    <div class="message-success">
+                        {% for message in messages %}
+                            <p>Chamado enviado com sucesso! Anote o número do chamado:</p>
+                            <p class="message-id">{{ message }}</p>
+                        {% endfor %}
+                        <div class="message-button">
+                            <a href="{% url 'url_home' %}"><button type="button">Ok</button></a>
+                        </div>
+                    </div>
+          
+            {% endif %}
+    </section>
+</body>
+</html>

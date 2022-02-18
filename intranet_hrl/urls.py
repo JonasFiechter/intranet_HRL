@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app_home.views import home_view
-from app_ticket.views import ticket_center_view_nuias, ticket_view_form
+from app_ticket.views import ticket_center_view_ti, ticket_view_form_ti, ticket_view_form_infraestrutura
 
 
 urlpatterns = [
     path('', home_view, name='url_home'),
     path('admin/', admin.site.urls),
-    path('ticket_center_nuias/', ticket_center_view_nuias, name='url_ticket_center_nuias'),
-    path('ticket_form/', ticket_view_form, name='url_ticket_form'),
+    path('ticket_center_ti/', ticket_center_view_ti, name='url_ticket_center_ti'),
+    path('ticket_form_ti/', ticket_view_form_ti, name='url_ticket_form_ti'),
+    path('ticket_form_infra/', ticket_view_form_infraestrutura, name='url_ticket_form_infraestrutura'),
 ]
