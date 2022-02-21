@@ -1,3 +1,4 @@
+from platform import machine
 from django.db import models
 
 # Create your models here.
@@ -29,3 +30,4 @@ class Ticket(models.Model):
     machine_number = models.IntegerField(null=True)
     sector = models.ForeignKey(Sector, on_delete=models.DO_NOTHING)
     category = models.CharField(max_length=255)
+    patrimony = models.CharField(max_length=255)

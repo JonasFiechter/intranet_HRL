@@ -91,14 +91,26 @@ a {
     padding-top: 8rem;
 }
 
-.menu li ul {
+.menu li .ul_1 {
     position: absolute;
     background-color: rgb(18, 8, 71);
     top: 6rem;
     display:none;
     }
 
-.menu li:hover ul, .menu li.over ul {
+.menu li:hover .ul_1, .menu li.over .ul_1 {
+    display:grid;
+    min-width: 16rem;
+}
+
+.menu li .ul_2 {
+    position: absolute;
+    background-color: rgb(18, 8, 71);
+    top: 6rem;
+    display:none;
+    }
+
+.menu li:hover .ul_2, .menu li.over .ul_2 {
     display:grid;
     min-width: 19rem;
 }
