@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Ticket, Category
+from .models import Ticket
 from .forms import TicketForm
 from django.contrib import messages
 
@@ -30,7 +30,7 @@ def ticket_view_form_ti(request):
                               sector_id=request.POST.get('sector'), 
                               machine_number=request.POST.get('machine_number'), 
                               requester_name=request.POST.get('requester_name'),
-                              category='TI')
+                              category='NUIAS')
         id_ = ticket.id
         is_valid = True
         ticket.save()
@@ -49,4 +49,4 @@ def ticket_view_form_infraestrutura(request):
                               sector_id=request.POST.get('sector'), 
                               machine_number=request.POST.get('machine_number'), 
                               requester_name=request.POST.get('requester_name'),
-                              category='TI')
+                              category='Infraestrutura')

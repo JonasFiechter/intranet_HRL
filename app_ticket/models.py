@@ -3,21 +3,10 @@ from django.db import models
 # Create your models here.
 
 class Sector(models.Model):
-    sector_name = models.CharField(max_length=100, default='.')
+    sector_name = models.CharField(max_length=100)
 
     def __str__(self) -> str:
         return self.sector_name
-
-class Category(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField(max_length=500)
-    sector = models.ForeignKey(Sector, on_delete=models.DO_NOTHING, default=1)
-
-    def __str__(self) -> str:
-        return self.name
-
-    class Meta:
-        verbose_name_plural = "categories"
 
 
 class Ticket(models.Model):
@@ -39,4 +28,4 @@ class Ticket(models.Model):
     requester_name = models.CharField(max_length=255)
     machine_number = models.IntegerField(null=True)
     sector = models.ForeignKey(Sector, on_delete=models.DO_NOTHING)
-    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
+    category = models.CharField(max_length=255)

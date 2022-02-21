@@ -11,6 +11,15 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+# Path to a secure hash txt file
+secret_key_path = r'C:\Users\USER\Desktop\DEV\secure_\SECRET_KEY.txt'
+
+# Little function to read the hash into the path
+def secret_key_reader(path_):
+    file = open(path_)
+    return file.read()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s^ri9j@)7y7r&u8_*lz*^m7cu542g=^-af=j=^@k5%6h*3s2oi'
+SECRET_KEY = secret_key_reader(secret_key_path)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
