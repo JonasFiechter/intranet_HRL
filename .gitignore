@@ -1,2 +1,2 @@
-intranet_hrl/settings.py
 *.db
+settings.py
