@@ -100,7 +100,7 @@ a {
 
 .menu li:hover .ul_1, .menu li.over .ul_1 {
     display:grid;
-    min-width: 16rem;
+    min-width: 15rem;
 }
 
 .menu li .ul_2 {

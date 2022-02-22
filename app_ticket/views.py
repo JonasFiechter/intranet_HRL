@@ -6,7 +6,7 @@ from django.contrib import messages
 
 def ticket_center_view_ti(request):
     return render(request, 'app_ticket/ticket_center_ti.html', 
-                            {'tickets': Ticket.objects.all()})
+                            {'tickets': Ticket.objects.order_by('-id')})
 
 
 def ticket_center_view_infraestrutura(request):

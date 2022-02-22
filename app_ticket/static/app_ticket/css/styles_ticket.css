@@ -35,11 +35,13 @@ li {
 }
 
 .section div h1 {
+    font-size: 3rem;
     margin-bottom: 4rem;
     text-align: center;
 }
 
 .ticket-form {
+    font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
