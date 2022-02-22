@@ -1,4 +1,3 @@
-from platform import machine
 from django.db import models
 
 # Create your models here.

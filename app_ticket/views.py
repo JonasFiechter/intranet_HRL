@@ -3,7 +3,6 @@ from .models import Ticket
 from .forms import TicketForm
 from django.contrib import messages
 
-# Create your views here.
 
 def ticket_center_view_ti(request):
     return render(request, 'app_ticket/ticket_center_ti.html', 
@@ -13,6 +12,13 @@ def ticket_center_view_ti(request):
 def ticket_center_view_infraestrutura(request):
     return render(request, 'app_ticket/ticket_center_infraestructura.html', 
                             {'tickets': Ticket.objects.all()})
+
+
+def ticket_single_view(request, ticket_id):
+    ticket = Ticket.objects.get(id=ticket_id)
+    return render(request, 'app_ticket/single_ticket.html', {
+        'ticket': ticket
+    })
 
 
 def ticket_view_form_ti(request):
@@ -40,6 +46,7 @@ def ticket_view_form_ti(request):
     except:
         pass
     return render(request, 'app_ticket/ticket_form_ti.html', {'form': form, 'cat_id': cat_id,})
+
 
 def ticket_view_form_infraestrutura(request):
     form = TicketForm(request.POST or None)

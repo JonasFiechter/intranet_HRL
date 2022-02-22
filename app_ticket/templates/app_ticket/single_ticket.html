@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app_ticket/css/styles_single_ticket.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <section class="section ticket-info main-bg">
+        <div class="ticket-view-block">
+            <nav>
+                <div class="status">
+                    <h4>Status</h4>{{ ticket.status }}
+                </div>
+                <ul class="ticket-view">
+                    <li><h4>Data</h4>{{ ticket.date|date:'d/m/Y H:i:s' }}</li>
+                    <li><h4>Nome do requisitante</h4>{{ ticket.requester_name }}</li>
+                    <li><h4>Setor requisitante</h4>{{ ticket.sector }}</li>
+                    <li><h4>Número da máquina</h4>{{ ticket.machine_number }}</li>
+                </ul>
+                <div class="description">
+                    <h4>Descrição do Chamado</h4>{{ ticket.description }}
+                </div>
+                <div class="buttons-block">
+                    <a href="javascript:history.back()">Voltar</a>
+                    {% if ticket.status == 'Aberto' %}
+                        <a href="#">Atender</a>
+                    {% elif ticket.status == 'Atendido' %}
+                        <a href="#">Finalizar</a>
+                    {% else %}
+                        <a href="#">Imprimir</a>
+                    {% endif %}
+                </div>
+            </nav>
+        </div>
+    </section>

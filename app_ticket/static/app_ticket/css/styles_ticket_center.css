@@ -62,9 +62,9 @@ li {
 }
 
 .main-bg {
-    background-image: url('../img/protruding-squares.svg');
+    background-image: url('../img/subtle-prism.svg');
     background-position: center center;
-    color: #000000;
+    color: #ffffff;
 }
 
 .section {
@@ -73,7 +73,7 @@ li {
 }
 
 .section div h1 {
-    padding-top: 8rem;
+    padding-top: 7rem;
     margin-bottom: 4rem;
     text-align: center;
 }
@@ -84,7 +84,8 @@ li {
 
 .data-list {
     margin: 0 auto;
-    padding: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .data-list ul li {
