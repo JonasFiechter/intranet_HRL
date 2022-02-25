@@ -26,5 +26,9 @@ urlpatterns = [
     path('ticket_center_ti/', ticket_center_view_ti, name='url_ticket_center_ti'),
     path('ticket_form_ti/', ticket_view_form_ti, name='url_ticket_form_ti'),
     path('ticket_form_infra/', ticket_view_form_infraestrutura, name='url_ticket_form_infraestrutura'),
-    path('<int:ticket_id>', ticket_single_view, name='url_single_ticket')
+    path('<int:ticket_id>', ticket_single_view, name='url_single_ticket'),
+    path('login/', accounts_login_view, name='url_login'),
+    path('logout/', ccounts_logout_view, name='url_logout'),
+    path('dashboard/', accounts_dashboard_view, name='url_dashboard'),
+    path('signup/', accounts_signup_view, name='url_signup'),
 ]
