@@ -1,12 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app_accounts/css/styles.css' %}">
     <title>Document</title>
 </head>
 <body>
-    <h1>Login Test</h1>
+    <section class="main-bg section-1">
+        <div class="title"><h1>Login Test</h1></div>
+        <form method="POST" action="url 'url_login'">
+            <div class="form-group">
+                <label for="input-user">Username</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label for="input-password">Password</label>
+                <input type="password">
+            </div>
+            <div class="form-group"><button type="submit">Entrar</button></div>
+        </form>
+    </section>
 </body>
 </html>

@@ -18,6 +18,8 @@ from django.urls import path
 from app_home.views import home_view
 from app_ticket.views import ticket_center_view_ti, ticket_view_form_ti, \
 ticket_view_form_infraestrutura, ticket_single_view
+from app_accounts.views import accounts_login_view, accounts_logout_view, accounts_dashboard_view, \
+accounts_signup_view
 
 
 urlpatterns = [
@@ -28,7 +30,7 @@ urlpatterns = [
     path('ticket_form_infra/', ticket_view_form_infraestrutura, name='url_ticket_form_infraestrutura'),
     path('<int:ticket_id>', ticket_single_view, name='url_single_ticket'),
     path('login/', accounts_login_view, name='url_login'),
-    path('logout/', ccounts_logout_view, name='url_logout'),
+    path('logout/', accounts_logout_view, name='url_logout'),
     path('dashboard/', accounts_dashboard_view, name='url_dashboard'),
     path('signup/', accounts_signup_view, name='url_signup'),
 ]
