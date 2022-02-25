@@ -11,7 +11,8 @@
 <body>
     <section class="main-bg section-1">
         <div class="title"><h1>Login Test</h1></div>
-        <form method="POST" action="url 'url_login'">
+        <form method="POST" action="{% url 'url_login' %}">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="input-user">Username</label>
                 <input type="text">
