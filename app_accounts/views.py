@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 
@@ -28,17 +28,21 @@ def accounts_signup_view(request):
     
     if User.objects.filter(email=email).exists():
         messages.error(request, message='Email already exists!')
+        return render(request, 'app_accounts/signup.html')
 
     if password != password2:
         messages.error(request, message="Passwords don't match!")
+        return render(request, 'app_accounts/signup.html')
 
     else:
+        messages.success(request, 'Registrado com sucesso! Faça login.')
+
         user = User.objects.create_user(username=email, 
                                     email=email, 
                                     first_name=first_name,
                                     last_name=last_name,
                                     password=password)
 
-    print(user)
+        return redirect('url_login')
 
     return render(request, 'app_accounts/signup.html')
