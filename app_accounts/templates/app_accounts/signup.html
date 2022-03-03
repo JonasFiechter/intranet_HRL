@@ -9,8 +9,19 @@
     <title>Document</title>
 </head>
 <body>
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
     <section class="main-bg section-1">
-        <div class="title"><h1>SignUp Test</h1></div>
+        <div class="margin-top"></div>
+        <div class="title"><h1>Cadastro Intranet</h1></div>
         <form method="POST" action="{% url 'url_signup' %}">
             {% csrf_token %}
             <div class="form-group">

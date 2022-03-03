@@ -19,16 +19,30 @@ a {
     color: #FFFFFF;
 }
 
+input {
+    min-width: 30rem;
+    margin-right: 4rem;
+}
+
 .main-bg {
     background-image: url('../img/subtle-prism.svg');
 }
 
 .section-1 {
-    padding-top: 10rem;
     min-height: 100vh;
     justify-content: center;
     align-items: center;
     background-color: aliceblue;
+}
+
+.section-1 .margin-top {
+    background: none;
+    padding-top: 16rem;
+}
+
+.section-1 .title {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .section-1 div {
@@ -84,20 +98,22 @@ a {
 }
 
 .form-group {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     display: flex;
     margin: 0 auto;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .form-group label {
-    padding: 1rem;
+    padding-left: 3rem;
+    padding-bottom: 1.4rem;
 }
 
 .form-group button {
     min-width: 10rem;
     min-height: 3rem;
+    margin: 0 auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
