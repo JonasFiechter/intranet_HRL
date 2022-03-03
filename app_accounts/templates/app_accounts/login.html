@@ -9,20 +9,32 @@
     <title>Document</title>
 </head>
 <body>
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
     <section class="main-bg section-1">
-        <div class="title"><h1>Login Test</h1></div>
-        <form method="POST" action="{% url 'url_login' %}">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="input-user">Username</label>
-                <input type="text">
-            </div>
-            <div class="form-group">
-                <label for="input-password">Password</label>
-                <input type="password">
-            </div>
-            <div class="form-group"><button type="submit">Entrar</button></div>
-        </form>
+        <div>
+            <div class="title"><h1>Login Test</h1></div>
+            <form method="POST" action="{% url 'url_login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="input-user">Username</label>
+                    <input type="text">
+                </div>
+                <div class="form-group">
+                    <label for="input-password">Password</label>
+                    <input type="password">
+                </div>
+                <div class="form-group"><button type="submit">Entrar</button></div>
+            </form>
+        </div>
     </section>
 </body>
 </html>
