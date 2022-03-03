@@ -14,22 +14,31 @@
         <form method="POST" action="{% url 'url_signup' %}">
             {% csrf_token %}
             <div class="form-group">
-                <label for="input-password2">E-mail</label>
-                <input type="email">
+                <label for="input-email">E-mail</label>
+                <input name="email" type="email">
             </div>
             <div class="form-group">
-                <label for="input-user">Username</label>
-                <input type="text">
+                <label for="input-user">First name</label>
+                <input name="first_name" type="text">
+            </div>
+            <div class="form-group">
+                <label for="input-user">Last Name</label>
+                <input name="last_name" type="text">
             </div>
             <div class="form-group">
                 <label for="input-password">Password</label>
-                <input type="password">
+                <input name="password" type="password">
             </div>
             <div class="form-group">
-                <label for="input-password">Repeat Password</label>
-                <input type="password">
+                <label for="input-password2">Repeat Password</label>
+                <input name="password2" type="password">
             </div>
-            <div class="form-group"><button type="submit">Entrar</button></div>
+            <div class="form-group"><button type="submit">Enviar</button></div>
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="message-id">{{ message }}</p>
+                {% endfor %}
+            </div>
         </form>
     </section>
 </body>

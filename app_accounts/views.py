@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 
@@ -15,4 +17,28 @@ def accounts_dashboard_view(request):
 
 
 def accounts_signup_view(request):
+    if request.method != 'POST':
+        return render(request, 'app_accounts/signup.html')
+
+    email = request.POST.get('email')
+    first_name = request.POST.get('first_name')
+    last_name = request.POST.get('last_name')
+    password = request.POST.get('password')
+    password2 = request.POST.get('password2')
+    
+    if User.objects.filter(email=email).exists():
+        messages.error(request, message='Email already exists!')
+
+    if password != password2:
+        messages.error(request, message="Passwords don't match!")
+
+    else:
+        user = User.objects.create_user(username=email, 
+                                    email=email, 
+                                    first_name=first_name,
+                                    last_name=last_name,
+                                    password=password)
+
+    print(user)
+
     return render(request, 'app_accounts/signup.html')
