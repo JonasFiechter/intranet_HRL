@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{% static 'app_ticket/css/styles_single_ticket.css' %}">
     <title>Document</title>
 </head>
+<script>
+    function example() {console.log('TESTING OK')}
+</script>
 <body>
     <aside class="menu">
         <section class="menu-content">
@@ -37,7 +40,7 @@
                 <div class="buttons-block">
                     <a href="javascript:history.back()">Voltar</a>
                     {% if ticket.status == 'Aberto' %}
-                        <a href="#">Atender</a>
+                        <a href="#" onclick="example()">Atender</a>
                     {% elif ticket.status == 'Atendido' %}
                         <a href="#">Finalizar</a>
                     {% else %}
