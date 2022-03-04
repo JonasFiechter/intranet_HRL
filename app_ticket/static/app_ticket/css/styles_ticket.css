@@ -22,6 +22,14 @@ li {
     list-style: none;
 }
 
+input {
+    min-width: 3rem;
+}
+
+.username-field textarea {
+    max-height: 1.8rem;
+}
+
 .main-bg {
     background-image: url('../img/subtle-prism.svg');
     background-position: center center;
@@ -34,7 +42,13 @@ li {
     display: block;
 }
 
+.section div {
+    margin: 0 auto;
+    max-width: 100rem;
+}
+
 .section div h1 {
+    padding-top: 2rem;
     font-size: 3rem;
     margin-bottom: 4rem;
     text-align: center;
@@ -61,10 +75,16 @@ li {
     align-items: center;
 }
 
+.ticket-form .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .ticket-form button {
     float: right;
     min-width: 10rem;
-    min-height: 6rem;
+    min-height: 4rem;
 }
 
 .menu {
@@ -134,9 +154,15 @@ li {
     align-items: center;
     justify-content: center;
     padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .message-button a button {
     min-height: 5rem;
     min-width: 8rem;
+
+}
+
+.bg-1 {
+    background-color: rgba(0, 0, 0, 0.548);
 }

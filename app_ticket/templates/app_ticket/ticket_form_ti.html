@@ -19,34 +19,35 @@
         </section>
     </aside>
     <section class="section main-bg">
-        <div>
-            <h1>Formulário de Chamado - Informática</h1>
-        </div>
-        <div class="message-error">
-        </div>
-        <form method="POST" class="ticket-form">
-            {% csrf_token %}
-            {% if not is_valid %}
-            <ul>
-                <li>Nome do usuário {{ form.requester_name }}</li>
-                <li>Setor para atendimento {{ form.sector }}</li>
-                <li>Número da máquina {{ form.machine_number }}</li>
-                <li>Descrição do problema {{ form.description }}</li>
-                <li><button type="submit">Enviar</button></li>
-            </ul>
-        </form>
-            {% else %}
-                    <div class="message-success">
-                        {% for message in messages %}
-                            <p>Chamado enviado com sucesso! Anote o número do chamado:</p>
-                            <p class="message-id">{{ message }}</p>
-                        {% endfor %}
-                        <div class="message-button">
-                            <a href="{% url 'url_home' %}"><button type="button">Ok</button></a>
+        <div class="bg-1">
+            <div>
+                <h1>Formulário de Chamado - Informática</h1>
+            </div>
+            <div class="message-error">
+            </div>
+            <form method="POST" class="ticket-form">
+                {% csrf_token %}
+                {% if not is_valid %}
+                <ul>
+                    <li class="username-field">Nome do usuário {{ form.requester_name }}</li>
+                    <li>Setor para atendimento {{ form.sector }}</li>
+                    <li>Número da máquina {{ form.machine_number }}</li>
+                    <li>Descrição do problema {{ form.description }}</li>
+                    <li class="button"><button type="submit">Enviar</button></li>
+                </ul>
+            </form>
+                {% else %}
+                        <div class="message-success">
+                            {% for message in messages %}
+                                <p>Chamado enviado com sucesso! Anote o número do chamado:</p>
+                                <p class="message-id">{{ message }}</p>
+                            {% endfor %}
+                            <div class="message-button">
+                                <a href="{% url 'url_home' %}"><button type="button">Ok</button></a>
+                            </div>
                         </div>
-                    </div>
-          
-            {% endif %}
+                {% endif %}
+        </div>
     </section>
 </body>
 </html>

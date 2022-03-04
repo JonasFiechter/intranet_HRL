@@ -122,6 +122,18 @@ input {
     font-size: 3rem;
     margin: 0 auto;
     display: block;
-    max-width: 1000px;
+    max-width: 100rem;
     text-align: center;
+}
+
+.messages {
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.messages p {
+    color: yellow;
 }
