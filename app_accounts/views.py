@@ -25,8 +25,8 @@ def accounts_login_view(request):
     return render(request, 'app_accounts/login.html')
 
 def accounts_logout_view(request):
-    return render(request, 'app_accounts/logout.html')
-
+    auth.logout(request)
+    return redirect('url_home')
 
 @login_required(redirect_field_name='url_login')
 def accounts_dashboard_view(request):

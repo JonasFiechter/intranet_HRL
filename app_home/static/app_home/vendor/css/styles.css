@@ -48,6 +48,11 @@ a {
     align-items: center;
 }
 
+.menu-content div {
+    display: block;
+    float: left;
+}
+
 .menu-content h1 {
     padding: 1.8rem;
     border-bottom: 0.2rem solid rgb(18, 8, 71);

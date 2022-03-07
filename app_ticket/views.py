@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Ticket
 from .forms import TicketForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(redirect_field_name='url_login')
 def ticket_center_view_ti(request):
     return render(request, 'app_ticket/ticket_center_ti.html', 
                             {'tickets': Ticket.objects.order_by('-id')})
