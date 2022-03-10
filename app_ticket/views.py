@@ -7,8 +7,13 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_ti(request):
-    return render(request, 'app_ticket/ticket_center_ti.html', 
-                            {'tickets': Ticket.objects.order_by('-id')})
+    if request.user.groups.filter(name='GROUP-NUIAS').exists():
+        print('WORKING')
+        return render(request, 'app_ticket/ticket_center_ti.html', 
+                                {'tickets': Ticket.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
 
 
 def ticket_center_view_infraestrutura(request):
