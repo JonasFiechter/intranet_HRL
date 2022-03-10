@@ -5,14 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/app_accounts/css/styles.css">    
     <title>Document</title>
 </head>
 <body>
-    <h1>Olá, {{ user.first_name }} {{ user.last_name }}</h1>
-    <div>
-        {% for message in messages %}
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <section class="main-bg">
+        <div class="container">
+            <h1>Olá, {{ user.first_name }} {{ user.last_name }}</h1>
+            {% for message in messages %}
             <h2>{{ message }}</h2>
-        {% endfor %}
-    </div>
+            {% endfor %}
+            <div class="grid">
+                <div>
+                    <p>Personal info here</p>
+                </div>
+                <div>
+                    <p>Personal estatistics here</p>
+                </div>
+                <div>
+                    <p>Other data here</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

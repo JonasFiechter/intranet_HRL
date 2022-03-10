@@ -90,10 +90,7 @@ a {
 }
 
 .section-screen div {
-    max-width: 120rem;
-    display: flex;
-    margin: 0 auto;
-    padding-top: 8rem;
+    padding-top: 12rem;
 }
 
 .menu li .ul_1 {
@@ -118,4 +115,24 @@ a {
 .menu li:hover .ul_2, .menu li.over .ul_2 {
     display:grid;
     min-width: 19rem;
+}
+
+.grid {
+    min-height: 70vh;
+    max-width: 120rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 25rem 1fr;
+}
+
+.grid div {
+    background-color: rgba(128, 128, 128, 0.623);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid div:nth-child(1) {
+    grid-row: span 2;
 }

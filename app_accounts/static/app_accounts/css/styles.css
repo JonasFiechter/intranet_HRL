@@ -137,3 +137,36 @@ input {
 .messages p {
     color: yellow;
 }
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.container h1 {
+    color: #000000;
+    padding-top: 10rem;
+}
+
+.grid {
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
+    grid-template-areas: 'header header' 'estatistics estatistics' 'baseboard baseboard';
+}
+
+.grid div {
+    display: flex;
+    min-height: 30vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.699);
+}
+
+.grid div:nth-child(3) {
+    grid-column: span 2;
+    min-height: 50vh;
+}
