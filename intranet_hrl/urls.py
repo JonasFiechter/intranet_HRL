@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app_home.views import home_view
-from app_ticket.views import ticket_center_view_ti, ticket_view_form_ti, \
+from app_ticket.views import ticket_center_view_ti, ticket_center_view_ti_history, ticket_view_form_ti, \
 ticket_view_form_infraestrutura, ticket_single_view
 from app_accounts.views import accounts_login_view, accounts_logout_view, accounts_dashboard_view, \
 accounts_signup_view
@@ -26,6 +26,7 @@ urlpatterns = [
     path('', home_view, name='url_home'),
     path('admin/', admin.site.urls),
     path('ticket_center_ti/', ticket_center_view_ti, name='url_ticket_center_ti'),
+    path('ticket_center_ti_history/', ticket_center_view_ti_history, name='url_ticket_center_ti_history'),
     path('ticket_form_ti/', ticket_view_form_ti, name='url_ticket_form_ti'),
     path('ticket_form_infra/', ticket_view_form_infraestrutura, name='url_ticket_form_infraestrutura'),
     path('<int:ticket_id>', ticket_single_view, name='url_single_ticket'),

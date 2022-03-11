@@ -22,8 +22,7 @@ def accounts_login_view(request):
         auth.login(request, user)
         messages.success(request, 'Você fez login com sucesso.')
         return redirect('url_dashboard')
-    
-    return render(request, 'app_accounts/login.html')
+
 
 def accounts_logout_view(request):
     auth.logout(request)
@@ -76,5 +75,3 @@ def accounts_signup_view(request):
                                         password=password)
 
         return redirect('url_login')
-
-    return render(request, 'app_accounts/signup.html')

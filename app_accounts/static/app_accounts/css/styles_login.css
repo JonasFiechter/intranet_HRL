@@ -174,3 +174,8 @@ input {
     grid-column: span 2;
     min-height: 50vh;
 }
+
+.not-account-redirect {
+    display: flex;
+    justify-content: center;
+}

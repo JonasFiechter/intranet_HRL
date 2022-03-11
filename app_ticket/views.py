@@ -8,8 +8,17 @@ from django.contrib.auth.decorators import login_required
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_ti(request):
     if request.user.groups.filter(name='GROUP-NUIAS').exists():
-        print('WORKING')
         return render(request, 'app_ticket/ticket_center_ti.html', 
+                                {'tickets': Ticket.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
+
+
+@login_required(redirect_field_name='url_login')
+def ticket_center_view_ti_history(request):
+    if request.user.groups.filter(name='GROUP-NUIAS').exists():
+        return render(request, 'app_ticket/ticket_center_ti_history.html', 
                                 {'tickets': Ticket.objects.order_by('-id')})
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')
@@ -18,7 +27,7 @@ def ticket_center_view_ti(request):
 
 def ticket_center_view_infraestrutura(request):
     return render(request, 'app_ticket/ticket_center_infraestructura.html', 
-                            {'tickets': Ticket.objects.all()})
+                                {'tickets': Ticket.objects.all()})
 
 
 def ticket_single_view(request, ticket_id):

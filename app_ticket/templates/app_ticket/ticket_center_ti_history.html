@@ -16,18 +16,19 @@
                 <a href="{% url 'url_dashboard' %}"> {{ user.first_name }} {{ user.last_name }} </a>
                 {% if user.first_name %}
                     -
-                    <a style="color: orange" href="logout/"> Sair</a>
+                    <a style="color: orange" href="{% url 'url_logout' %}"> Sair</a>
                 {% endif %}
             </div>
             <nav>
                 <ul>
+                    <li><a href="{% url 'url_ticket_center_ti' %}">Central</a></li>
                     <li><a href="/admin">Admin</a></li>
                 </ul>
             </nav>
         </section>
     </aside>
     <section class="section main-bg">
-        <div><h1>Central de chamados - Infraestrutura</h1></div>
+        <div><h1>Central de chamados - NUIAS</h1></div>
         <div class="data-list">
             <div class="list-title">
                 <ul>
@@ -42,23 +43,14 @@
             <ul>
                 {% for ticket in tickets %}
                     {% if ticket.category == 'NUIAS' %}
-                        {% if not ticket.status == 'atendido' %}
+                        {% if ticket.status == 'Finalizado' %}
                             <li>
-                                <a class="normal" href="">{{ ticket.id }}</a> 
-                                <a class="normal" href="">{{ ticket.description }}</a> 
-                                <a class="normal" href="">{{ ticket.requester_name }}</a> 
-                                <a class="normal" href="">{{ ticket.date }}</a> 
-                                <a class="normal" href="">{{ ticket.sector }}</a> 
-                                <a class="normal" href="">{{ ticket.status }}</a>
-                            </li>
-                        {% else %}
-                            <li>
-                                <a class="answered" href="">{{ ticket.id }}</a> 
-                                <a class="answered" href="">{{ ticket.description }}</a> 
-                                <a class="answered" href="">{{ ticket.requester_name }}</a> 
-                                <a class="answered" href="">{{ ticket.date }}</a> 
-                                <a class="answered" href="">{{ ticket.sector }}</a> 
-                                <a class="answered" href="">{{ ticket.status }}</a>
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.id }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.description|slice:":150" }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.requester_name }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.sector }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.status }}</a>
                             </li>
                         {% endif %}
                     {% endif %}
