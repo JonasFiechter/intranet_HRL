@@ -16,7 +16,7 @@
                 <a href="{% url 'url_dashboard' %}"> {{ user.first_name }} {{ user.last_name }} </a>
                 {% if user.first_name %}
                     -
-                    <a style="color: orange" href="logout/"> Sair</a>
+                    <a style="color: orange" href="{% url 'url_logout' %}"> Sair</a>
                 {% endif %}
             </div>
             <nav>
