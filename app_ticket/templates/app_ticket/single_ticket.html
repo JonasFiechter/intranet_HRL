@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="{% static 'app_ticket/css/styles_single_ticket.css' %}">
     <title>Document</title>
 </head>
-<script>
-    function example() {console.log('TESTING OK')}
-</script>
 <body>
     <aside class="menu">
         <section class="menu-content">
             <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <div>
+                <a href="{% url 'url_dashboard' %}"> {{ user.first_name }} {{ user.last_name }} </a>
+                {% if user.first_name %}
+                    -
+                    <a style="color: orange" href="{% url 'url_logout' %}"> Sair</a>
+                {% endif %}
+            </div>
             <nav>
                 <ul>
                     <li><a href="/admin">Admin</a></li>
@@ -37,14 +41,19 @@
                 <div class="description">
                     <h4>Descrição do Chamado</h4>{{ ticket.description }}
                 </div>
-                <div class="buttons-block">
-                    <a href="javascript:history.back()">Voltar</a>
-                    {% if ticket.status == 'Aberto' %}
-                        <a href="#" onclick="example()">Atender</a>
-                    {% elif ticket.status == 'Atendido' %}
-                        <a href="#">Finalizar</a>
+                <div>
+                    {% if not is_valid and ticket.status == 'Aberto' %}
+                        <form method="POST">{% csrf_token %}
+                            <ul>
+                                <li>Responsável técnico {{ form.response_user }}</li>
+                                <li><button href="" type="submit">ANTENDER</button></li>
+                            </ul>
+                        </form>
                     {% else %}
-                        <a href="#">Imprimir</a>
+                        {% for message in messages %}
+                            <h1 style="font-size: 3rem;">{{ message }}</h1>
+                            <a href="{% url 'url_ticket_center_ti' %}">OK</a>
+                        {% endfor %}
                     {% endif %}
                 </div>
             </nav>

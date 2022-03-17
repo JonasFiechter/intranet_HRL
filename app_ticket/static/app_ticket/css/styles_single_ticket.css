@@ -23,7 +23,7 @@ li {
 }
 
 h4 {
-    color: rgb(18, 8, 71);
+    color: rgb(184, 184, 184);
 }
 
 .main-bg {
@@ -91,7 +91,7 @@ h4 {
     font-size: 2rem;
     display: grid;
     padding-top: 2rem;
-    background-color: rgba(18, 8, 71, 0.562);
+    background-color: rgba(0, 0, 0, 0.700);
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-content: center;
@@ -116,7 +116,7 @@ h4 {
 
 .description {
     font-size: 2rem;
-    background-color: rgba(18, 8, 71, 0.562);
+    background-color: rgba(0, 0, 0, 0.700);
     margin-top: 2rem;
     padding: 2rem;
     display: grid;
@@ -131,7 +131,7 @@ h4 {
 
 .status {
     font-size: 3rem;
-    background-color: rgba(18, 8, 71, 0.562);
+    background-color: rgba(0, 0, 0, 0.700);
     padding: 2rem;
     display: grid;
     justify-content: center;

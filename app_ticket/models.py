@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -30,3 +31,4 @@ class Ticket(models.Model):
     sector = models.ForeignKey(Sector, on_delete=models.DO_NOTHING)
     category = models.CharField(max_length=255)
     patrimony = models.CharField(max_length=255)
+    response_user = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True)

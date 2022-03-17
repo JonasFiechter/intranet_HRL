@@ -3,7 +3,7 @@ from app_ticket.models import Ticket, Sector
 
 
 class TicketAdmin(admin.ModelAdmin):
-    list_display = ['id', 'requester_name', 'sector', 'date', 'description', 'category', 'status']
+    list_display = ['id', 'requester_name', 'sector', 'date', 'description', 'category', 'response_user', 'status']
 
 
 class SectorAdmin(admin.ModelAdmin):

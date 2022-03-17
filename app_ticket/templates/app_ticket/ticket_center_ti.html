@@ -36,6 +36,7 @@
                     <li>Descrição</li>
                     <li>Nome</li>
                     <li>Data</li>
+                    <li>Responsável</li>
                     <li>Setor</li>
                     <li>Status</li>
                 </ul>
@@ -48,7 +49,8 @@
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.id }}</a> 
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.description|slice:":150" }}</a> 
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.requester_name }}</a> 
-                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a>
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}"></a>
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.sector }}</a> 
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.status }}</a>
                             </li>
@@ -58,6 +60,7 @@
                                 <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.description|slice:":150" }}</a> 
                                 <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.requester_name }}</a> 
                                 <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a> 
+                                <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.response_user }}</a> 
                                 <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.sector }}</a> 
                                 <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.status }}</a>
                             </li>

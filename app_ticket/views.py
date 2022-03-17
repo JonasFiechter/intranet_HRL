@@ -32,8 +32,26 @@ def ticket_center_view_infraestrutura(request):
 
 def ticket_single_view(request, ticket_id):
     ticket = Ticket.objects.get(id=ticket_id)
+    form = TicketForm(request.POST or None)
+    is_valid = False
+
+    if request.POST.get('response_user'):
+        try:
+            ticket.response_user_id = request.POST.get('response_user')
+            ticket.status = 'Atendido'
+            ticket.save()
+            messages.success(request, message='Chamado atendido com sucesso!')
+            is_valid = True
+
+            if ticket.category == 'NUIAS':
+                return render(request, 'app_ticket/single_ticket.html', {
+                    'ticket': ticket, 'form': form, 'is_valid':is_valid
+                })
+        except:
+            pass
+
     return render(request, 'app_ticket/single_ticket.html', {
-        'ticket': ticket
+        'ticket': ticket, 'form': form
     })
 
 
@@ -41,12 +59,6 @@ def ticket_view_form_ti(request):
     form = TicketForm(request.POST or None)
     cat_id = 0
     
-    try:
-        cat_id = form.data['category']
-        print(f'this is cat_id: {cat_id}')
-    except:
-        pass
-
     try:
         ticket = Ticket.objects.create(description=request.POST.get('description'), 
                               sector_id=request.POST.get('sector'), 
