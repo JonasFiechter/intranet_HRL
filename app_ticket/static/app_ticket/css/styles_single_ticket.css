@@ -189,7 +189,9 @@ h4 {
     background-color: rgba(0, 0, 0, 0.700);
     font-size: 1.5rem;
     min-width: 32rem;
+    min-height: 100%;
 }
+
 
 .lower select:hover {
     color: orange;
@@ -205,6 +207,13 @@ h4 {
 .lower .content form div {
     display: flex;
     justify-content: space-between;
+}
+
+.ticket-username-info p {
+    display: flex;
+    font-size: 2rem;
+    align-items: center;
+    min-height: 100%;
 }
 
 .message {

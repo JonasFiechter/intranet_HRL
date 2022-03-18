@@ -46,7 +46,7 @@
                     {% if ticket.status == 'Aberto' %}
                         <div class="content">
                             <form method="POST">{% csrf_token %}
-                                <div>{{ user.first_name }} {{ user.last_name }}</div>
+                                <div class="ticket-username-info"><p>{{ user.first_name }} {{ user.last_name }}</p></div>
                                 <input style="display: none;" id="answer-btn" name="answer-btn" type="text" value="True">
                                 <button class="btn" type="submit" onclick="return confirm('Confirmar?');">Atender</button>
                             </form>
