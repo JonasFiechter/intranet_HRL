@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Ticket
-from .forms import TicketForm
+from .forms import TicketForm, UserForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
 @login_required(redirect_field_name='url_login')
@@ -32,26 +33,31 @@ def ticket_center_view_infraestrutura(request):
 
 def ticket_single_view(request, ticket_id):
     ticket = Ticket.objects.get(id=ticket_id)
-    form = TicketForm(request.POST or None)
     is_valid = False
+    users = User.objects.filter(groups=1)
 
-    if request.POST.get('response_user'):
+    if request.POST.get('answer-btn'):
+        print(f'{request.POST.get("answer-btn")}')
+
+    if request.POST.get('user-input'):
+        user_input = request.POST.get('user-input')
+        user_id = User.objects.filter(first_name=user_input.split(' ')[0])[0].id
         try:
-            ticket.response_user_id = request.POST.get('response_user')
+            ticket.response_user_id = user_id
             ticket.status = 'Atendido'
             ticket.save()
-            messages.success(request, message='Chamado atendido com sucesso!')
+            messages.success(request, message='')
             is_valid = True
 
             if ticket.category == 'NUIAS':
                 return render(request, 'app_ticket/single_ticket.html', {
-                    'ticket': ticket, 'form': form, 'is_valid':is_valid
+                    'ticket': ticket, 'is_valid':is_valid
                 })
         except:
             pass
 
     return render(request, 'app_ticket/single_ticket.html', {
-        'ticket': ticket, 'form': form
+        'ticket': ticket, 'users':users
     })
 
 

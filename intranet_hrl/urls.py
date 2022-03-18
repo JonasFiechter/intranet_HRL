@@ -24,6 +24,7 @@ accounts_signup_view
 
 urlpatterns = [
     path('intranet/', home_view, name='url_home'),
+    path('', home_view, name='url_home'),
     path('admin/', admin.site.urls),
     path('ticket_center_ti/', ticket_center_view_ti, name='url_ticket_center_ti'),
     path('ticket_center_ti_history/', ticket_center_view_ti_history, name='url_ticket_center_ti_history'),
