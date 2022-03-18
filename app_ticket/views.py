@@ -37,16 +37,22 @@ def ticket_single_view(request, ticket_id):
     users = User.objects.filter(groups=1)
 
     if request.POST.get('answer-btn'):
-        print(f'{request.POST.get("answer-btn")}')
+        ticket.response_user_id = request.user.id
+        ticket.status = 'Atendido'
+        ticket.save()
+        messages.success(request, message='Chamado atendido!')
+        return render(request, 'app_ticket/single_ticket.html', {
+            'ticket': ticket, 'users':users
+            })
 
     if request.POST.get('user-input'):
         user_input = request.POST.get('user-input')
         user_id = User.objects.filter(first_name=user_input.split(' ')[0])[0].id
         try:
             ticket.response_user_id = user_id
-            ticket.status = 'Atendido'
+            ticket.status = 'Finalizado'
             ticket.save()
-            messages.success(request, message='')
+            messages.success(request, message='Chamado Finalizado!')
             is_valid = True
 
             if ticket.category == 'NUIAS':

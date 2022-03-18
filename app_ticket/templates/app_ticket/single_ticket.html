@@ -44,26 +44,35 @@
                 </div>
                 <div class="lower">
                     {% if ticket.status == 'Aberto' %}
-                        <div>{{ user.first_name }} {{ user.last_name }}</div>
-                        <form method="POST">{% csrf_token %}
-                            <input style="display: none;" id="answer-btn" name="answer-btn" type="text" value="True">
-                            <button class="btn" type="submit">Atender</button>
-                        </form>
+                        <div class="content">
+                            <form method="POST">{% csrf_token %}
+                                <div>{{ user.first_name }} {{ user.last_name }}</div>
+                                <input style="display: none;" id="answer-btn" name="answer-btn" type="text" value="True">
+                                <button class="btn" type="submit" onclick="return confirm('Confirmar?');">Atender</button>
+                            </form>
+                        </div>
                     {% elif not is_valid and ticket.status == 'Atendido' %}
-                        <form method="POST">{% csrf_token %}
-                            <select name="user-input" id="user-input">
-                                {% for user in users %}
-                                    <option value="{{ user }}">{{ user }}</option>
-                                {% endfor %}
-                            </select>
-                            <button class="btn" type="submit">FINALIZAR</button>
-                        </form>
+                        <div class="content">
+                            <form method="POST">{% csrf_token %}
+                                <div>
+                                    <select name="user-input" id="user-input">
+                                        {% for user in users %}
+                                            <option selected="{{ user }}" value="{{ user }}">{{ user }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div>
+                                    <button class="btn" type="submit" onclick="return confirm('{{ user }} \n Confirmar?');">FINALIZAR</button>
+                                </div>
+                            </form>
+                        </div>
                     {% else %}
-                        {% for message in messages %}
-                            <h1 style="font-size: 3rem;">{{ message }}</h1>
-                            <a href="{% url 'url_ticket_center_ti' %}">OK</a>
-                        {% endfor %}
                     {% endif %}
+                </div>
+                <div class="message">
+                    {% for message in messages %}
+                        <p style="font-size: 3rem;">{{ message }}</p>
+                    {% endfor %}
                 </div>
             </nav>
         </div>

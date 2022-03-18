@@ -168,17 +168,56 @@ h4 {
 }
 
 .lower {
+    margin: 0 auto;
     display: flex;
     padding-top: 1rem;
-    padding-left: 4rem;
     justify-content: space-between;
     align-items: center;
 }
 
-.lower div {
+.lower .content {
     text-transform: uppercase;
-    font-size: 2rem;
     color: black;
+    display: flex;
+    min-width: 100%;
+}
+
+.lower select {
+    border-style: none;
+    border-color: rgba(0, 0, 0, 0.700);
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.700);
+    font-size: 1.5rem;
+    min-width: 32rem;
+}
+
+.lower select:hover {
+    color: orange;
+    transition: 200ms ease-in;
+}
+
+.lower .content form {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lower .content form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message {
+    padding-top: 1rem;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.message a {
+    min-width: 10rem;
+    background-color: rgb(18, 8, 71);
 }
 
 .btn {
@@ -189,6 +228,7 @@ h4 {
     min-height: 4rem;
     color: #FFFFFF;
     background-color: rgb(18, 8, 71);
+    border-bottom: 0.2rem solid rgb(18, 8, 71);
 }
 
 .btn:hover {
