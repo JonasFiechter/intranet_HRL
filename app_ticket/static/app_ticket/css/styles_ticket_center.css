@@ -90,7 +90,7 @@ li {
 
 .data-list ul li {
     display: grid;
-    grid-template-columns: 4% 1fr 16% 12% 14% 8% 5%;
+    grid-template-columns: 4% 1fr 4% 14% 12% 14% 8% 5%;
 }
 
 .data-list a {
@@ -117,7 +117,7 @@ li {
 
 .list-title ul {
     display: grid;
-    grid-template-columns: 4% 1fr 16% 12% 14% 8% 5%;
+    grid-template-columns: 4% 1fr 4% 14% 12% 14% 8% 5%;
 }
 
 .list-title ul li {

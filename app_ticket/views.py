@@ -3,7 +3,7 @@ from .models import Ticket
 from .forms import TicketForm, UserForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 
 
 @login_required(redirect_field_name='url_login')
@@ -31,10 +31,14 @@ def ticket_center_view_infraestrutura(request):
                                 {'tickets': Ticket.objects.all()})
 
 
+def get_group_id(group_name):
+    return Group.objects.get(name=group_name).id
+
+
 def ticket_single_view(request, ticket_id):
     ticket = Ticket.objects.get(id=ticket_id)
     is_valid = False
-    users = User.objects.filter(groups=1)
+    users = User.objects.filter(groups=get_group_id('GROUP-' + ticket.category))
 
     if request.POST.get('answer-btn'):
         ticket.response_user_id = request.user.id
@@ -55,9 +59,8 @@ def ticket_single_view(request, ticket_id):
             messages.success(request, message='Chamado Finalizado!')
             is_valid = True
 
-            if ticket.category == 'NUIAS':
-                return render(request, 'app_ticket/single_ticket.html', {
-                    'ticket': ticket, 'is_valid':is_valid
+            return render(request, 'app_ticket/single_ticket.html', {
+                'ticket': ticket, 'is_valid':is_valid
                 })
         except:
             pass
