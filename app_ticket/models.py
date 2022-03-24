@@ -31,4 +31,4 @@ class Ticket(models.Model):
     sector = models.ForeignKey(Sector, on_delete=models.DO_NOTHING)
     category = models.CharField(max_length=255)
     patrimony = models.CharField(max_length=255)
-    response_user = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True)
+    response_user = models.CharField(max_length=255, null=True)

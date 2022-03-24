@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'app_ticket/css/styles_ticket_center.css' %}">
+    <link rel="stylesheet" href="{% static 'app_ticket/css/styles_ticket_center_infra.css' %}">
     <title>Document</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="{% url 'url_ticket_center_ti' %}">Central</a></li>
+                    <li><a href="{% url 'url_ticket_center_infra' %}">Central</a></li>
                     <li><a href="/admin">Admin</a></li>
                 </ul>
             </nav>
@@ -43,7 +43,7 @@
             </div>
             <ul>
                 {% for ticket in tickets %}
-                    {% if ticket.category == 'NUIAS' %}
+                    {% if ticket.category == 'INFRA' %}
                         {% if ticket.status == 'Finalizado' %}
                             <li>
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.id }}</a> 

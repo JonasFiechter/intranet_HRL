@@ -67,6 +67,12 @@
                             </form>
                         </div>
                     {% else %}
+                        <div class="content">
+                            <form method="POST">{% csrf_token %}
+                                <input style="display: none;" id="print-btn" name="print-btn" type="text" value="True">
+                                <button class="btn" type="submit" onclick="return confirm('Confirmar Impressão? \nChamado: {{ ticket.id }}');">Imprimir</button>
+                            </form>
+                        </div>
                     {% endif %}
                 </div>
                 <div class="message">
