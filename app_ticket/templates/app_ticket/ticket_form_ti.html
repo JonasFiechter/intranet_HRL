@@ -33,7 +33,9 @@
                     <li>Setor para atendimento {{ form.sector }}</li>
                     <li>Número da máquina {{ form.machine_number }}</li>
                     <li>Descrição do problema {{ form.description }}</li>
-                    <li class="button"><button type="submit">Enviar</button></li>
+                    <div class="btn-container">
+                        <li><button class="btn" type="submit">Enviar</button></li>
+                    </div>
                 </ul>
             </form>
                 {% else %}
@@ -43,7 +45,7 @@
                                 <p class="message-id">{{ message }}</p>
                             {% endfor %}
                             <div class="message-button">
-                                <a href="{% url 'url_home' %}"><button type="button">Ok</button></a>
+                                <a href="{% url 'url_home' %}"><button class="btn" type="button">Ok</button></a>
                             </div>
                         </div>
                 {% endif %}

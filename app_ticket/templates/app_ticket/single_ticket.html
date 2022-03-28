@@ -52,7 +52,7 @@
                             <form method="POST">{% csrf_token %}
                                 <div class="ticket-username-info"><p>{{ user.first_name }} {{ user.last_name }}</p></div>
                                 <input style="display: none;" id="answer-btn" name="answer-btn" type="text" value="True">
-                                <button class="btn" type="submit" onclick="confirm('Confirmar?');">Atender</button>
+                                <button class="btn" type="submit" onclick="return confirm('Confirmar?');">Atender</button>
                             </form>
                         </div>
                     {% elif not is_valid and ticket.status == 'Atendido' %}
@@ -66,7 +66,7 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <button class="btn" type="submit" onclick="confirm('{{ user }} \n Confirmar?');">FINALIZAR</button>
+                                    <button class="btn" type="submit" onclick="return confirm('{{ user }} \n Confirmar?');">FINALIZAR</button>
                                 </div>
                             </form>
                         </div>
@@ -74,7 +74,7 @@
                         <div class="content">
                             <form method="POST">{% csrf_token %}
                                 <input style="display: none;" id="print-btn" name="print-btn" type="text" value="True">
-                                <button class="btn" type="submit" onclick="confirm('Confirmar Impressão? \nChamado: {{ ticket.id }}');">Imprimir</button>
+                                <button class="btn" type="submit" onclick="return confirm('Confirmar Impressão? \nChamado: {{ ticket.id }}');">Imprimir</button>
                             </form>
                         </div>
                     {% endif %}

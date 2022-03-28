@@ -1,4 +1,6 @@
 from cgitb import text
+from datetime import datetime
+from sqlite3 import Date
 from django.shortcuts import render, redirect
 from .models import Ticket
 from .forms import TicketForm
@@ -9,6 +11,7 @@ import io
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
 from locale import setlocale, LC_ALL
+from datetime import datetime
 
 
 @login_required(redirect_field_name='url_login')
@@ -170,6 +173,8 @@ def ticket_single_view(request, ticket_id):
         p.line(x1=min_x+350, y1=90, x2=max_x-80, y2=min_x+90)
         p.drawCentredString(x=min_x+160, y=78, text=f'{ticket.requester_name.upper()}')
         p.drawCentredString(x=min_x+432, y=78, text=f'{ticket.response_user.upper()}')
+
+        p.drawString(x=min_x+50, y=40, text=f'{datetime.now().strftime("%A, %d, de %B de %Y")}')
 
         p.showPage()
         p.save()
