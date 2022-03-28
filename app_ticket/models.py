@@ -32,3 +32,7 @@ class Ticket(models.Model):
     category = models.CharField(max_length=255)
     patrimony = models.CharField(max_length=255)
     response_user = models.CharField(max_length=255, null=True)
+    serial_number = models.CharField(max_length=255, null=True)
+    machine_description = models.CharField(max_length=255, null=True)
+    phone_branch = models.CharField(max_length=255, null=True)
+    room_number = models.CharField(max_length=255, null=True)

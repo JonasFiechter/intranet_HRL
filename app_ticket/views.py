@@ -108,10 +108,10 @@ def ticket_single_view(request, ticket_id):
         p.drawString(160, 685, f"{ticket.date.strftime('%A, %d, de %B de %Y | %H:%M:%S')}")
 
         p.drawString(50, 670, f"Responsável técnico:")
-        p.drawString(160, 670, f"{ticket.response_user}")
+        p.drawString(160, 670, f"{ticket.response_user.upper()}")
 
         p.drawString(50, 655, f"Solicitante:")
-        p.drawString(160, 655, f"{ticket.requester_name}")
+        p.drawString(160, 655, f"{ticket.requester_name.upper()}")
 
         p.rect(45, 650, max_x-90, 62, stroke=1, fill=0)
         p.line(155, 650, 155, 712)
@@ -137,8 +137,6 @@ def ticket_single_view(request, ticket_id):
                     for l in t_list:
                         ticket_description += l
 
-
-        print(ticket_description)
         description_text = p.beginText(x=min_x+50, y=605)
 
         for line in ticket_description.splitlines(True):
@@ -168,7 +166,10 @@ def ticket_single_view(request, ticket_id):
         p.line(x1=min_x+45, y1=224, x2=max_x-45, y2=224)
         p.line(x1=min_x+45, y1=212, x2=max_x-45, y2=212)
         
-        
+        p.line(x1=min_x+80, y1=90, x2=min_x+250, y2=min_x+90)
+        p.line(x1=min_x+350, y1=90, x2=max_x-80, y2=min_x+90)
+        p.drawCentredString(x=min_x+160, y=78, text=f'{ticket.requester_name.upper()}')
+        p.drawCentredString(x=min_x+432, y=78, text=f'{ticket.response_user.upper()}')
 
         p.showPage()
         p.save()

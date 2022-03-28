@@ -48,7 +48,7 @@
                         {% if ticket.status == 'Finalizado' %}
                             <li>
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.id }}</a> 
-                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.description|slice:":150" }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.description|slice:":90" }}</a> 
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.machine_number }}</a> 
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.requester_name }}</a> 
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a>
