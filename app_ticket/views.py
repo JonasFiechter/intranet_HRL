@@ -15,7 +15,7 @@ from datetime import datetime
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_it(request):
     if request.user.groups.filter(name='GROUP-NUIAS').exists():
-        return render(request, 'app_ticket/ticket_center_ti.html', 
+        return render(request, 'app_ticket/it/ticket_center_it.html', 
                                 {'tickets': Ticket.objects.order_by('-id')})
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')
@@ -25,7 +25,7 @@ def ticket_center_view_it(request):
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_it_history(request):
     if request.user.groups.filter(name='GROUP-NUIAS').exists():
-        return render(request, 'app_ticket/ticket_center_ti_history.html', 
+        return render(request, 'app_ticket/it/ticket_center_it_history.html', 
                                 {'tickets': Ticket.objects.order_by('-id')})
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')
@@ -34,7 +34,7 @@ def ticket_center_view_it_history(request):
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_infra(request):
     if request.user.groups.filter(name='GROUP-INFRA').exists():
-        return render(request, 'app_ticket/ticket_center_infra.html', 
+        return render(request, 'app_ticket/infra/ticket_center_infra.html', 
                                 {'tickets': Ticket.objects.order_by('-id')})
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')
@@ -44,7 +44,7 @@ def ticket_center_view_infra(request):
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_infra_history(request):
     if request.user.groups.filter(name='GROUP-INFRA').exists():
-        return render(request, 'app_ticket/ticket_center_infra_history.html', 
+        return render(request, 'app_ticket/infra/ticket_center_infra_history.html', 
                                 {'tickets': Ticket.objects.order_by('-id')})
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')

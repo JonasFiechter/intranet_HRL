@@ -127,28 +127,6 @@ input {
     color: orange;
 }
 
-.message-success {
-    font-style: italic;
-    font-weight: 350;
-    display: grid;
-    max-width: 70rem;
-    margin: 0 auto;
-    font-size: 2.5rem;
-    color: rgb(0, 255, 21);
-    justify-content: center;
-    align-items: center;
-}
-
-.message-success p {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
-.message-id {
-   font-weight: 750;
-}
-
 .bg-1 {
     background-color: rgba(0, 0, 0, 0.548);
 }

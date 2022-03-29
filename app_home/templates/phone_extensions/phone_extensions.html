@@ -5,8 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../static/app_home/vendor/css/phone_extensions.css">
 </head>
 <body>
-    
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <div>
+                <a href="{% url 'url_dashboard' %}"> {{ user.first_name }} {{ user.last_name }} </a>
+                {% if user.first_name %}
+                    -
+                    <a style="color: orange" href="{% url 'url_logout' %}"> Sair</a>
+                {% endif %}
+            </div>
+            <nav>
+                <ul class="menu_ul">
+                    <li><a href="#">Abrir Chamado</a>
+                        <ul class="ul_1">
+                            <li><a href="{% url 'url_ticket_form_it' %}">Informática</a></li>
+                            <li><a href="{% url 'url_ticket_form_infra' %}">Infraestrutura</a></li>
+                            <li><a href="#">Motoristas</a></li>
+                            <li><a href="#">Patrimônio</a></li>
+                            <li><a href="#">Hotelaria</a></li>
+                            <li><a href="#">Eng. Clínica</a></li>
+                            <li><a href="#">Telefonia</a></li>
+                            <li><a href="#">Higienização</a></li>
+                            <li><a href="#">Preciso de ajuda</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#section-2">Galeria</a></li>
+                    <li><a href="#">Sistemas</a></li>
+                    <li><a href="">Central de Chamados</a>
+                        <ul class="ul_2">
+                            <li><a href="{% url 'url_ticket_center_it' %}">Informática</a></li>
+                            <li><a href="{% url 'url_ticket_center_infra' %}">Infraestrutura</a></li>
+                            <li><a href="#">Motoristas</a></li>
+                            <li><a href="#">Patrimônio</a></li>
+                            <li><a href="#">Hotelaria</a></li>
+                            <li><a href="#">Eng. Clínica</a></li>
+                            <li><a href="#">Telefonia</a></li>
+                            <li><a href="#">Higienização</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/accounts/login">Login</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <section class="section-screen main-bg">
+        <ul class="grid-title">
+            <li><h3>Térreo</h3></li>
+            <li><h3>1º Andar</h3></li>
+            <li><h3>2º Andar</h3></li>
+            <li><h3>3º Andar</h3></li>
+        </ul>
+        <div>
+            <ul class="grid">
+                <li>
+                    {% for branch in branches %}
+                        {% if branch.floor == 0 %}
+                            {{ branch.branch }} - {{ branch.sector }}<br>
+                        {% endif %}
+                    {% endfor %}
+                </li>
+                <li>{% for branch in branches %}
+                        {% if branch.floor == 1 %}
+                            {{ branch.branch }} - {{ branch.sector }}<br>
+                        {% endif %}
+                    {% endfor %}
+                </li>
+                <li>{% for branch in branches %}
+                        {% if branch.floor == 2 %}
+                            {{ branch.branch }} - {{ branch.sector }}<br>
+                        {% endif %}
+                    {% endfor %}
+                </li>
+                <li>{% for branch in branches %}
+                        {% if branch.floor == 3 %}
+                            {{ branch.branch }} - {{ branch.sector }} <br>
+                        {% endif %}
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+        <section class="btn"><a href="{% url 'url_home' %}">Voltar</a></section>
+    </section>
 </body>
 </html>
