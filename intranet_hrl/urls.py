@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app_home.views import home_view
+from app_home.views import home_view, phone_extensions_view
 from app_ticket.views import ticket_center_view_it, ticket_center_view_it_history, ticket_view_form_it, \
 ticket_view_form_infra, ticket_single_view, ticket_center_view_infra, ticket_center_view_infra_history
 from app_accounts.views import accounts_login_view, accounts_logout_view, accounts_dashboard_view, \
@@ -37,4 +37,5 @@ urlpatterns = [
     path('logout/', accounts_logout_view, name='url_logout'),
     path('dashboard/', accounts_dashboard_view, name='url_dashboard'),
     path('signup/', accounts_signup_view, name='url_signup'),
+    path('phone_extensions/', phone_extensions_view, name='url_phone_extensions'),
 ]
