@@ -36,3 +36,11 @@ class Ticket(models.Model):
     machine_description = models.CharField(max_length=255, null=True)
     phone_branch = models.CharField(max_length=255, null=True)
     room_number = models.CharField(max_length=255, null=True)
+
+
+class DriversTicket(models.Model):
+
+    def __str__(self):
+        return self.description
+
+    pass    

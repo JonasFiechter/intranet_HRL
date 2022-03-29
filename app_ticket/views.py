@@ -1,6 +1,4 @@
-from cgitb import text
 from datetime import datetime
-from sqlite3 import Date
 from django.shortcuts import render, redirect
 from .models import Ticket
 from .forms import TicketForm
@@ -15,7 +13,7 @@ from datetime import datetime
 
 
 @login_required(redirect_field_name='url_login')
-def ticket_center_view_ti(request):
+def ticket_center_view_it(request):
     if request.user.groups.filter(name='GROUP-NUIAS').exists():
         return render(request, 'app_ticket/ticket_center_ti.html', 
                                 {'tickets': Ticket.objects.order_by('-id')})
@@ -25,7 +23,7 @@ def ticket_center_view_ti(request):
 
 
 @login_required(redirect_field_name='url_login')
-def ticket_center_view_ti_history(request):
+def ticket_center_view_it_history(request):
     if request.user.groups.filter(name='GROUP-NUIAS').exists():
         return render(request, 'app_ticket/ticket_center_ti_history.html', 
                                 {'tickets': Ticket.objects.order_by('-id')})
@@ -186,7 +184,7 @@ def ticket_single_view(request, ticket_id):
     })
 
 
-def ticket_view_form_ti(request):
+def ticket_view_form_it(request):
     form = TicketForm(request.POST or None)
     cat_id = 0
     
@@ -201,10 +199,10 @@ def ticket_view_form_ti(request):
         ticket.save()
         messages.success(request, message=f'{id_}')
 
-        return render(request, 'app_ticket/ticket_form_ti.html', {'is_valid': is_valid})
+        return render(request, 'app_ticket/it/ticket_form_it.html', {'is_valid': is_valid})
     except:
         pass
-    return render(request, 'app_ticket/ticket_form_ti.html', {'form': form, 'cat_id': cat_id})
+    return render(request, 'app_ticket/it/ticket_form_it.html', {'form': form, 'cat_id': cat_id})
 
 
 def ticket_view_form_infra(request):
@@ -221,7 +219,7 @@ def ticket_view_form_infra(request):
         ticket.save()
         messages.success(request, message=f'{id_}')
 
-        return render(request, 'app_ticket/ticket_form_infra.html', {'is_valid': is_valid})
+        return render(request, 'app_ticket/infra/ticket_form_infra.html', {'is_valid': is_valid})
     except:
         pass
-    return render(request, 'app_ticket/ticket_form_infra.html', {'form': form, 'cat_id': cat_id,})
+    return render(request, 'app_ticket/infra/ticket_form_infra.html', {'form': form, 'cat_id': cat_id,})
