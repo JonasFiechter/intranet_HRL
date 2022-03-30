@@ -31,6 +31,7 @@ def ticket_center_view_it_history(request):
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
+
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_infra(request):
     if request.user.groups.filter(name='GROUP-INFRA').exists():
@@ -49,6 +50,115 @@ def ticket_center_view_infra_history(request):
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
+
+
+@login_required(redirect_field_name='url_login')
+def ticket_center_view_patrimony(request):
+    if request.user.groups.filter(name='GROUP-PATRIMONIO').exists():
+        return render(request, 'app_ticket/patrimony/ticket_center_patrimony.html',
+                                {'tickets': Ticket.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
+        
+        
+@login_required(redirect_field_name='url_login')
+def ticket_center_view_patrimony_history(request):
+    if request.user.groups.filter(name='GROUP-PATRIMONIO').exists():
+        return render(request, 'app_ticket/patrimony/ticket_center_patrimony_history.html',
+                                {'tickets': Ticket.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
+
+
+def ticket_view_form_it(request):
+    form = TicketForm(request.POST or None)
+    cat_id = 0
+    
+    try:
+        ticket = Ticket.objects.create(description=request.POST.get('description'), 
+                              sector_id=request.POST.get('sector'), 
+                              machine_number=request.POST.get('machine_number'), 
+                              requester_name=request.POST.get('requester_name'),
+                              category='NUIAS')
+        id_ = ticket.id
+        is_valid = True
+        ticket.save()
+        messages.success(request, message=f'{id_}')
+
+        return render(request, 'app_ticket/it/ticket_form_it.html', {'is_valid': is_valid})
+    except:
+        pass
+    return render(request, 'app_ticket/it/ticket_form_it.html', {'form': form, 'cat_id': cat_id})
+
+
+def ticket_view_form_infra(request):
+    form = TicketForm(request.POST or None)
+    cat_id = 0
+    
+    try:
+        ticket = Ticket.objects.create(description=request.POST.get('description'), 
+                              sector_id=request.POST.get('sector'),
+                              requester_name=request.POST.get('requester_name'),
+                              category='INFRA')
+        id_ = ticket.id
+        is_valid = True
+        ticket.save()
+        messages.success(request, message=f'{id_}')
+
+        return render(request, 'app_ticket/infra/ticket_form_infra.html', {'is_valid': is_valid})
+    except:
+        pass
+    return render(request, 'app_ticket/infra/ticket_form_infra.html', {'form': form, 'cat_id': cat_id,})
+
+
+def ticket_view_form_patrimony(request):
+    form = TicketForm(request.POST or None)
+    cat_id = 0
+    
+    try:
+        print('TEST')
+        ticket = Ticket.objects.create(description=request.POST.get('description'), 
+                              sector_id=request.POST.get('sector'),
+                              requester_name=request.POST.get('requester_name'),
+                              category='PATRIMONIO')
+        id_ = ticket.id
+        is_valid = True
+        ticket.save()
+        messages.success(request, message=f'{id_}')
+
+        return render(request, 'app_ticket/patrimony/ticket_form_patrimony.html', 
+        {'is_valid': is_valid})
+    except:
+        pass
+    return render(request, 'app_ticket/patrimony/ticket_form_patrimony.html', 
+        {'form': form, 'cat_id': cat_id,})
+
+
+def ticket_view_form_clinical_engeneering(request):
+    form = TicketForm(request.POST or None)
+    cat_id = 0
+    
+    try:
+        ticket = Ticket.objects.create(description=request.POST.get('description'), 
+                              sector_id=request.POST.get('sector'),
+                              requester_name=request.POST.get('requester_name'),
+                              machine_type=request.POST.get('machine_description'),
+                              serial_number=request.POST.get('serial_number'),
+                              category='INFRAESTRUTURA')
+        id_ = ticket.id
+        is_valid = True
+        ticket.save()
+        messages.success(request, message=f'{id_}')
+
+        return render(request, 'app_ticket/clinical_engeneering/ticket_form_clinical_engeneering.html', 
+        {'is_valid': is_valid})
+    except:
+        pass
+    return render(request, 'app_ticket/clinical_engeneering/ticket_form_clinical_engeneering.html', 
+        {'form': form, 'cat_id': cat_id,})
+
 
 
 def get_group_id(group_name):
@@ -183,43 +293,3 @@ def ticket_single_view(request, ticket_id):
         'ticket': ticket, 'users':users
     })
 
-
-def ticket_view_form_it(request):
-    form = TicketForm(request.POST or None)
-    cat_id = 0
-    
-    try:
-        ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get('sector'), 
-                              machine_number=request.POST.get('machine_number'), 
-                              requester_name=request.POST.get('requester_name'),
-                              category='NUIAS')
-        id_ = ticket.id
-        is_valid = True
-        ticket.save()
-        messages.success(request, message=f'{id_}')
-
-        return render(request, 'app_ticket/it/ticket_form_it.html', {'is_valid': is_valid})
-    except:
-        pass
-    return render(request, 'app_ticket/it/ticket_form_it.html', {'form': form, 'cat_id': cat_id})
-
-
-def ticket_view_form_infra(request):
-    form = TicketForm(request.POST or None)
-    cat_id = 0
-    
-    try:
-        ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get('sector'),
-                              requester_name=request.POST.get('requester_name'),
-                              category='INFRA')
-        id_ = ticket.id
-        is_valid = True
-        ticket.save()
-        messages.success(request, message=f'{id_}')
-
-        return render(request, 'app_ticket/infra/ticket_form_infra.html', {'is_valid': is_valid})
-    except:
-        pass
-    return render(request, 'app_ticket/infra/ticket_form_infra.html', {'form': form, 'cat_id': cat_id,})

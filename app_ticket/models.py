@@ -12,6 +12,16 @@ class Sector(models.Model):
         verbose_name_plural = 'Setores'
 
 
+class MachineType(models.Model):
+    machine_name = models.CharField(verbose_name='Máquinas Hospitalares', max_length=100)
+
+    def __str__(self) -> str:
+        return self.machine_name
+
+    class Meta:
+        verbose_name_plural = 'Máquinas Hospitalares'
+
+
 class Ticket(models.Model):
 
     def __str__(self) -> str:
@@ -38,6 +48,6 @@ class Ticket(models.Model):
     patrimony = models.CharField(max_length=255)
     response_user = models.CharField(verbose_name='Responsável', max_length=255, null=True)
     serial_number = models.CharField(verbose_name='Número de Série', max_length=255, null=True)
-    machine_description = models.CharField(verbose_name='Tipo da máquina', max_length=255, null=True)
+    machine_description = models.ForeignKey(MachineType, verbose_name='Tipo da máquina', on_delete=models.DO_NOTHING, max_length=255, null=True)
     phone_branch = models.CharField(verbose_name='Ramal', max_length=255, null=True)
     room_number = models.CharField(verbose_name='Número do quarto', max_length=255, null=True)

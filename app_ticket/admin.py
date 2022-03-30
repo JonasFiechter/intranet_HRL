@@ -1,5 +1,5 @@
 from django.contrib import admin
-from app_ticket.models import Ticket, Sector
+from app_ticket.models import Ticket, Sector, MachineType
 
 
 class TicketAdmin(admin.ModelAdmin):
@@ -10,5 +10,10 @@ class SectorAdmin(admin.ModelAdmin):
     list_display = ['id', 'sector_name']
 
 
+class MachineTypeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'machine_name']
+
+
 admin.site.register(Ticket, TicketAdmin)
 admin.site.register(Sector, SectorAdmin)
+admin.site.register(MachineType, MachineTypeAdmin)

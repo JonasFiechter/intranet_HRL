@@ -154,3 +154,18 @@ input {
     transition: 200ms ease-in;
     color: orange;
 }
+
+.message-success p {
+    color: rgb(73, 243, 149);
+    display: flex;
+    justify-content: center;
+}
+
+.message-id {
+    font-weight: 700;
+}
+
+.message-success div {
+    display: flex;
+    justify-content: center;
+}

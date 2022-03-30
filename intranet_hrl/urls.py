@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from app_home.views import home_view, phone_extensions_view
 from app_ticket.views import ticket_center_view_it, ticket_center_view_it_history, ticket_view_form_it, \
-ticket_view_form_infra, ticket_single_view, ticket_center_view_infra, ticket_center_view_infra_history
+ticket_view_form_infra, ticket_single_view, ticket_center_view_infra, ticket_center_view_infra_history, \
+ticket_center_view_patrimony, ticket_center_view_patrimony_history, ticket_view_form_patrimony, \
+ticket_view_form_clinical_engeneering
 from app_accounts.views import accounts_login_view, accounts_logout_view, accounts_dashboard_view, \
 accounts_signup_view
 
@@ -28,10 +30,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ticket_center_it/', ticket_center_view_it, name='url_ticket_center_it'),
     path('ticket_center_infra/', ticket_center_view_infra, name='url_ticket_center_infra'),
+    path('ticket_center_patrimony/', ticket_center_view_patrimony, name='url_ticket_center_patrimony'),
     path('ticket_center_it_history/', ticket_center_view_it_history, name='url_ticket_center_it_history'),
     path('ticket_center_infra_history/', ticket_center_view_infra_history, name='url_ticket_center_infra_history'),
+    path('ticket_center_patrimony_history/', ticket_center_view_patrimony_history, name='url_ticket_center_patrimony_history'),
     path('ticket_form_it/', ticket_view_form_it, name='url_ticket_form_it'),
     path('ticket_form_infra/', ticket_view_form_infra, name='url_ticket_form_infra'),
+    path('ticket_form_patrimony/', ticket_view_form_patrimony, name='url_ticket_form_patrimony'),
+    path('ticket_form_clinical_engeneering/', ticket_view_form_clinical_engeneering, name='url_ticket_form_clinical_engeneering'),
     path('<int:ticket_id>', ticket_single_view, name='url_single_ticket'),
     path('accounts/login/', accounts_login_view, name='url_login'),
     path('logout/', accounts_logout_view, name='url_logout'),
