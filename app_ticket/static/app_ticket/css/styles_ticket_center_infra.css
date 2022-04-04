@@ -90,7 +90,7 @@ li {
 
 .data-list ul li {
     display: grid;
-    grid-template-columns: 4% 1fr 14% 12% 14% 8% 5%;
+    grid-template-columns: 4% 1fr 14% 9% 10% 4% 8% 8% 7% 5%;
 }
 
 .data-list a {
@@ -117,10 +117,11 @@ li {
 
 .list-title ul {
     display: grid;
-    grid-template-columns: 4% 1fr 14% 12% 14% 8% 5%;
+    grid-template-columns: 4% 1fr 14% 9% 10% 4% 8% 8% 7% 5%;
 }
 
 .list-title ul li {
+    display: inline-block;
     padding-left: 1rem;
     font-weight: 700;
     color: aliceblue;
