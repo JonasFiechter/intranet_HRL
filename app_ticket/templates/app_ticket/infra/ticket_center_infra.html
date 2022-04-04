@@ -43,7 +43,7 @@
             </div>
             <ul>
                 {% for ticket in tickets %}
-                    {% if ticket.category == 'INFRA' %}
+                    {% if ticket.category == 'INFRA' or ticket.category == 'TELEFONIA' %}
                         {% if ticket.status == 'Aberto' %}
                             <li>
                                 <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.id }}</a> 

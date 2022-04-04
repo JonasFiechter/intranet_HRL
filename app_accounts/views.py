@@ -1,5 +1,3 @@
-import email
-from unicodedata import name
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages, auth
@@ -29,6 +27,7 @@ def accounts_logout_view(request):
     auth.logout(request)
     return redirect('url_home')
 
+
 @login_required(redirect_field_name='url_login')
 def accounts_dashboard_view(request):
     return render(request, 'app_accounts/dashboard.html')
@@ -43,8 +42,6 @@ def accounts_signup_view(request):
     last_name = request.POST.get('last_name')
     password = request.POST.get('password')
     password2 = request.POST.get('password2')
-
-    print(f'{email}, {first_name}, {last_name}, {password}')
 
     if len(first_name) == 0 or len(last_name) == 0:
         messages.error(request, message='Digite o seu nome corretamente!')

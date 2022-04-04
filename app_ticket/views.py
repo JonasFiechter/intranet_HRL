@@ -146,7 +146,7 @@ def ticket_view_form_clinical_engeneering(request):
                               requester_name=request.POST.get('requester_name'),
                               machine_type=request.POST.get('machine_description'),
                               serial_number=request.POST.get('serial_number'),
-                              category='INFRAESTRUTURA')
+                              category='INFRA')
         id_ = ticket.id
         is_valid = True
         ticket.save()
@@ -159,6 +159,27 @@ def ticket_view_form_clinical_engeneering(request):
     return render(request, 'app_ticket/clinical_engeneering/ticket_form_clinical_engeneering.html', 
         {'form': form, 'cat_id': cat_id,})
 
+
+def ticket_view_form_telephony(request):
+    form = TicketForm(request.POST or None)
+
+    try:
+        ticket = Ticket.objects.create(description=request.POST.get('description'), 
+                              sector_id=request.POST.get('sector'),
+                              requester_name=request.POST.get('requester_name'),
+                              phone_branch=request.POST.get('phone_branch'),
+                              category='INFRA')
+        id_ = ticket.id
+        is_valid = True
+        ticket.save()
+        messages.success(request, message=f'{id_}')
+
+        return render(request, 'app_ticket/telephony/ticket_form_telephony.html', 
+        {'is_valid': is_valid})
+    except:
+        pass
+    return render(request, 'app_ticket/telephony/ticket_form_telephony.html', 
+        {'form': form})
 
 
 def get_group_id(group_name):
