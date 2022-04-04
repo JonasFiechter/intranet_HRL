@@ -16,7 +16,7 @@ class MachineType(models.Model):
     machine_name = models.CharField(verbose_name='Máquinas Hospitalares', max_length=100)
 
     def __str__(self) -> str:
-        return self.machine_name
+        return str(self.machine_name)
 
     class Meta:
         verbose_name_plural = 'Máquinas Hospitalares'

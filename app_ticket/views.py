@@ -78,10 +78,10 @@ def ticket_view_form_it(request):
     
     try:
         ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get('sector'), 
-                              machine_number=request.POST.get('machine_number'), 
-                              requester_name=request.POST.get('requester_name'),
-                              category='NUIAS')
+                                sector_id=request.POST.get('sector'), 
+                                machine_number=request.POST.get('machine_number'), 
+                                requester_name=request.POST.get('requester_name'),
+                                category='NUIAS')
         id_ = ticket.id
         is_valid = True
         ticket.save()
@@ -99,9 +99,9 @@ def ticket_view_form_infra(request):
     
     try:
         ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get('sector'),
-                              requester_name=request.POST.get('requester_name'),
-                              category='INFRA')
+                                sector_id=request.POST.get('sector'),
+                                requester_name=request.POST.get('requester_name'),
+                                category='INFRA')
         id_ = ticket.id
         is_valid = True
         ticket.save()
@@ -115,14 +115,13 @@ def ticket_view_form_infra(request):
 
 def ticket_view_form_patrimony(request):
     form = TicketForm(request.POST or None)
-    cat_id = 0
     
     try:
         print('TEST')
         ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get('sector'),
-                              requester_name=request.POST.get('requester_name'),
-                              category='PATRIMONIO')
+                                sector_id=request.POST.get('sector'),
+                                requester_name=request.POST.get('requester_name'),
+                                category='PATRIMONIO')
         id_ = ticket.id
         is_valid = True
         ticket.save()
@@ -133,20 +132,20 @@ def ticket_view_form_patrimony(request):
     except:
         pass
     return render(request, 'app_ticket/patrimony/ticket_form_patrimony.html', 
-        {'form': form, 'cat_id': cat_id,})
+        {'form': form})
 
 
 def ticket_view_form_clinical_engeneering(request):
     form = TicketForm(request.POST or None)
-    cat_id = 0
     
     try:
         ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get('sector'),
-                              requester_name=request.POST.get('requester_name'),
-                              machine_type=request.POST.get('machine_description'),
-                              serial_number=request.POST.get('serial_number'),
-                              category='INFRA')
+                                sector_id=request.POST.get('sector'),
+                                requester_name=request.POST.get('requester_name'),
+                                machine_description_id=request.POST.get('machine_description'),
+                                serial_number=request.POST.get('serial_number'),
+                                category='INFRA')
+        
         id_ = ticket.id
         is_valid = True
         ticket.save()
@@ -156,8 +155,9 @@ def ticket_view_form_clinical_engeneering(request):
         {'is_valid': is_valid})
     except:
         pass
+
     return render(request, 'app_ticket/clinical_engeneering/ticket_form_clinical_engeneering.html', 
-        {'form': form, 'cat_id': cat_id,})
+        {'form': form})
 
 
 def ticket_view_form_telephony(request):
@@ -165,7 +165,7 @@ def ticket_view_form_telephony(request):
 
     try:
         ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get('sector'),
+                              sector_id=request.POST.get(' sector'),
                               requester_name=request.POST.get('requester_name'),
                               phone_branch=request.POST.get('phone_branch'),
                               category='INFRA')
@@ -179,6 +179,28 @@ def ticket_view_form_telephony(request):
     except:
         pass
     return render(request, 'app_ticket/telephony/ticket_form_telephony.html', 
+        {'form': form})
+
+
+def ticket_view_form_cleaning(request):
+    form = TicketForm(request.POST or None)
+
+    try:
+        ticket = Ticket.objects.create(description=request.POST.get('description'), 
+                              sector_id=request.POST.get('sector'),
+                              requester_name=request.POST.get('requester_name'),
+                              room_number=request.POST.get('room_number'),
+                              category='INFRA')
+        id_ = ticket.id
+        is_valid = True
+        ticket.save()
+        messages.success(request, message=f'{id_}')
+
+        return render(request, 'app_ticket/cleaning/ticket_form_cleaning.html', 
+        {'is_valid': is_valid})
+    except:
+        pass
+    return render(request, 'app_ticket/cleaning/ticket_form_cleaning.html', 
         {'form': form})
 
 

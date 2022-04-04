@@ -90,7 +90,7 @@ li {
 
 .data-list ul li {
     display: grid;
-    grid-template-columns: 4% 1fr 14% 9% 10% 4% 8% 8% 7% 5%;
+    grid-template-columns: 4% 1fr 14% 8% 14% 4% 5% 7% 5%;
 }
 
 .data-list a {
@@ -99,6 +99,10 @@ li {
     color: #000000;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+}
+
+.data-list a:nth-child(7) {
+    text-overflow: ellipsis;
 }
 
 .data-list div {
@@ -117,7 +121,7 @@ li {
 
 .list-title ul {
     display: grid;
-    grid-template-columns: 4% 1fr 14% 9% 10% 4% 8% 8% 7% 5%;
+    grid-template-columns: 4% 1fr 14% 8% 14% 4% 5% 7% 5%;
 }
 
 .list-title ul li {
