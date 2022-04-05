@@ -87,6 +87,12 @@ input {
     min-width: 20rem;
 }
 
+.option {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 .ticket-form .button {
     display: flex;
     align-items: center;

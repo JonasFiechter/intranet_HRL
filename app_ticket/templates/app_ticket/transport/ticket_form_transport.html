@@ -35,9 +35,9 @@
                         </li>
                         <li>
                             <label for="sector">Setor</label>
-                            <select name="sector" id="sector">
+                            <select class="option" name="sector" id="sector">
                                 {% for sector in sectors %}
-                                    <option value="{{ sector }}">{{ sector }}</option>
+                                    <option class="option" value="{{ sector }}">{{ sector }}</option>
                                 {% endfor %}
                             </select>
                         </li>
@@ -67,9 +67,9 @@
                         </li>
                         <li>
                             <label for="departure_hour">Hora de saída</label>
-                            <select name="departure_hour" id="departure_hour">
+                            <select class="option" name="departure_hour" id="departure_hour">
                                 {% for hour in hours %}
-                                    <option value="{{ hour }}">{{ hour }}</option>
+                                    <option class="option" value="{{ hour }}">{{ hour }}</option>
                                 {% endfor %}
                             </select>
                         </li>
@@ -87,9 +87,9 @@
                         </li>
                         <li>
                             <label for="transport_type">Tipo do transporte</label>
-                            <select name="transport-type" id="transport-type"></select>
+                            <select class="option" name="transport-type" id="transport-type"></select>
                             {% for type in types %}
-                                <option value="{{ type }}">{{ type }}</option>
+                                <option class="option" value="{{ type }}">{{ type }}</option>
                             {% endfor %}
                         </li>
                         <li>

@@ -1,4 +1,5 @@
 from datetime import datetime
+from tracemalloc import start
 from django.shortcuts import render, redirect
 from .models import Ticket, Sector, TransportRequest
 from .forms import TicketForm
@@ -225,8 +226,13 @@ def ticket_view_form_roomcare(request):
 
 def ticket_view_form_transport(request):
     sectors = Sector.objects.all()
+    hours = ['0' + str(i) + ':00' for i in range(10)]
+    hours += [str(i) + ':00' for i in range(12, 24)]
+
     return render(request, 'app_ticket/transport/ticket_form_transport.html', {
         'sectors': sectors,
+        'hours': hours,
+        
     })
 
 

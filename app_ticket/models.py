@@ -81,7 +81,7 @@ class TransportRequest(models.Model):
     local_number = models.IntegerField(verbose_name='Nº da rua', null=True)
     quarter_name = models.CharField(verbose_name='Bairro de destino', max_length=255, null=True)
     city_name = models.CharField(verbose_name='Cidade de destino', max_length=255, null=True)
-    departure_date = models.DateTimeField(verbose_name='Data de saída')
+    departure_date = models.CharField(verbose_name='Data de saída', max_length=255, null=True)
     departure_hour = models.CharField(verbose_name='Hora de partida', max_length=100, null=True)
     destination_contact = models.CharField(verbose_name='Contato no destino',max_length=255, null=True)
     contact_phone = models.CharField(verbose_name='Telefone do contato', max_length=255, null=True)
