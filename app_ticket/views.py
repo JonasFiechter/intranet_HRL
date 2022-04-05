@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.shortcuts import render, redirect
-from .models import Ticket
+from .models import Ticket, Sector, TransportRequest
 from .forms import TicketForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -66,6 +66,26 @@ def ticket_center_view_patrimony(request):
 def ticket_center_view_patrimony_history(request):
     if request.user.groups.filter(name='GROUP-PATRIMONIO').exists():
         return render(request, 'app_ticket/patrimony/ticket_center_patrimony_history.html',
+                                {'tickets': Ticket.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
+
+
+@login_required(redirect_field_name='url_login')
+def ticket_center_view_roomcare(request):
+    if request.user.groups.filter(name='GROUP-HOTELARIA').exists():
+        return render(request, 'app_ticket/roomcare/ticket_center_roomcare.html',
+                                {'tickets': Ticket.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
+
+
+@login_required(redirect_field_name='url_login')
+def ticket_center_view_roomcare_history(request):
+    if request.user.groups.filter(name='GROUP-HOTELARIA').exists():
+        return render(request, 'app_ticket/roomcare/ticket_center_roomcare_history.html',
                                 {'tickets': Ticket.objects.order_by('-id')})
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')
@@ -182,7 +202,7 @@ def ticket_view_form_telephony(request):
         {'form': form})
 
 
-def ticket_view_form_cleaning(request):
+def ticket_view_form_roomcare(request):
     form = TicketForm(request.POST or None)
 
     try:
@@ -190,18 +210,24 @@ def ticket_view_form_cleaning(request):
                               sector_id=request.POST.get('sector'),
                               requester_name=request.POST.get('requester_name'),
                               room_number=request.POST.get('room_number'),
-                              category='INFRA')
+                              category='HOTELARIA')
         id_ = ticket.id
         is_valid = True
         ticket.save()
         messages.success(request, message=f'{id_}')
 
-        return render(request, 'app_ticket/cleaning/ticket_form_cleaning.html', 
+        return render(request, 'app_ticket/roomcare/ticket_form_roomcare.html', 
         {'is_valid': is_valid})
     except:
         pass
-    return render(request, 'app_ticket/cleaning/ticket_form_cleaning.html', 
+    return render(request, 'app_ticket/roomcare/ticket_form_roomcare.html', 
         {'form': form})
+
+def ticket_view_form_transport(request):
+    sectors = Sector.objects.all()
+    return render(request, 'app_ticket/transport/ticket_form_transport.html', {
+        'sectors': sectors,
+    })
 
 
 def get_group_id(group_name):

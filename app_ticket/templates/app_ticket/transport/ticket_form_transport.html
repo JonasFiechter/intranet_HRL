@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/app_ticket/css/styles_ticket_form_transport.css">
+    <title>Ticket Transportes</title>
+</head>
+<body>
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <nav>
+                <ul>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <section class="section main-bg">
+        <div class="bg-1">
+            <div>
+                <h1>Formulário de Chamado - TRANSPORTES</h1>
+            </div>
+            <div class="message-error">
+            </div>
+            {% if not is_valid %}
+                <form method="POST" class="ticket-form">
+                    {% csrf_token %}
+                    <ul>
+                        <li>
+                            <label for="requester-name">Nome completo do Requisitante</label>
+                            <input name="requester-name" type="text">
+                        </li>
+                        <li>
+                            <label for="sector">Setor</label>
+                            <select name="sector" id="sector">
+                                {% for sector in sectors %}
+                                    <option value="{{ sector }}">{{ sector }}</option>
+                                {% endfor %}
+                            </select>
+                        </li>
+                        <li>
+                            <label for="phone-branch">Ramal</label>
+                            <input name="phone-branch" type="number">
+                        </li>
+                        <li>
+                            <label for="destination_address">Endereço de destino</label>
+                            <input name="destination_address" type="text">
+                        </li>
+                        <li>
+                            <label for="local_number">Número</label>
+                            <input name="local_number" type="number">
+                        </li>
+                        <li>
+                            <label for="quarter_name">Bairro</label>
+                            <input name="quarter_name" type="text">
+                        </li>
+                        <li>
+                            <label for="city">Cidade</label>
+                            <input name="city" type="text">
+                        </li>
+                        <li>
+                            <label for="departure_date">Data de saída</label>
+                            <input name="departure_date" type="datetime">
+                        </li>
+                        <li>
+                            <label for="departure_hour">Hora de saída</label>
+                            <select name="departure_hour" id="departure_hour">
+                                {% for hour in hours %}
+                                    <option value="{{ hour }}">{{ hour }}</option>
+                                {% endfor %}
+                            </select>
+                        </li>
+                        <li>
+                            <label for="destination_contact">Nome do contato no destino</label>
+                            <input name="destination_contact" type="text">
+                        </li>
+                        <li>
+                            <label for="contact_phone">Telefone do contato</label>
+                            <input name="contact_phone" type="text">
+                        </li>
+                        <li>
+                            <label for="requester-name">Nome completo do Requisitante</label>
+                            <input name="requester-name" type="text">
+                        </li>
+                        <li>
+                            <label for="transport_type">Tipo do transporte</label>
+                            <select name="transport-type" id="transport-type"></select>
+                            {% for type in types %}
+                                <option value="{{ type }}">{{ type }}</option>
+                            {% endfor %}
+                        </li>
+                        <li>
+                            <label for="patient_name">Nome completo do paciente</label>
+                            <input name="patient_name" type="text">
+                        </li>
+                        <li>
+                            <label for="patient_age">Idade do paciente</label>
+                            <input name="patient_age" type="number">
+                        </li>
+                        <div class="btn-container">
+                            <li><button class="btn" type="submit">Enviar</button></li>
+                        </div>
+                    </ul>
+                </form>
+            {% else %}
+                <div class="message-success">
+                    {% for message in messages %}
+                        <p>Chamado enviado com sucesso! Anote o número do chamado:</p>
+                        <p class="message-id">{{ message }}</p>
+                    {% endfor %}
+                    <div class="message-button">
+                        <a href="{% url 'url_home' %}"><button class="btn" type="button">Ok</button></a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+</body>
+</html>
