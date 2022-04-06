@@ -30,7 +30,7 @@
                     {% csrf_token %}
                     <ul>
                         <li>
-                            <label for="requester-name">Nome completo do Requisitante</label>
+                            <label for="requester-name">Nome completo do Requisitante</label><br>
                             <input name="requester-name" type="text">
                         </li>
                         <li>
@@ -63,7 +63,7 @@
                         </li>
                         <li>
                             <label for="departure_date">Data de saída</label>
-                            <input name="departure_date" type="datetime">
+                            <input name="departure_date" type="month">
                         </li>
                         <li>
                             <label for="departure_hour">Hora de saída</label>
@@ -82,15 +82,12 @@
                             <input name="contact_phone" type="text">
                         </li>
                         <li>
-                            <label for="requester-name">Nome completo do Requisitante</label>
-                            <input name="requester-name" type="text">
-                        </li>
-                        <li>
                             <label for="transport_type">Tipo do transporte</label>
-                            <select class="option" name="transport-type" id="transport-type"></select>
+                            <select class="option" name="transport-type" id="transport-type">
                             {% for type in types %}
-                                <option class="option" value="{{ type }}">{{ type }}</option>
+                                <option value="{{ type }}">{{ type }}</option>
                             {% endfor %}
+                            </select>
                         </li>
                         <li>
                             <label for="patient_name">Nome completo do paciente</label>
@@ -99,6 +96,10 @@
                         <li>
                             <label for="patient_age">Idade do paciente</label>
                             <input name="patient_age" type="number">
+                        </li>
+                        <li>
+                            Descrição
+                            {{ form.description }}
                         </li>
                         <div class="btn-container">
                             <li><button class="btn" type="submit">Enviar</button></li>

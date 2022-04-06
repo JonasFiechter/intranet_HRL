@@ -64,19 +64,28 @@ input {
 
 .ticket-form ul {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     list-style: none;
+}
+
+.ticket-form ul li:nth-child(15) {
+    grid-column: span 2;
+}
+
+.ticket-form ul li:nth-child(15) textarea {
+    max-height: 6rem;
+    grid-column: span 2;
 }
 
 .ticket-form ul li {
     display: flex;
-    gap: 2rem;
-    margin-bottom: 1rem;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: right;
+    padding-left: 3rem;
 }
 
 .ticket-form ul li input {
-    min-width: 40rem;
+    min-width: 30rem;
 }
 
 .ticket-form ul li option {
@@ -151,7 +160,7 @@ input {
 }
 
 .btn-container {
-    display: grid;
+    display: flex;
     justify-content: center;
 }
 
@@ -187,4 +196,8 @@ input {
 .message-success div {
     display: flex;
     justify-content: center;
+}
+
+.description-container {
+    display: block;
 }

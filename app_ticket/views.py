@@ -1,8 +1,7 @@
 from datetime import datetime
-from tracemalloc import start
 from django.shortcuts import render, redirect
 from .models import Ticket, Sector, TransportRequest
-from .forms import TicketForm
+from .forms import TicketForm, TransportRequestForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
@@ -224,15 +223,45 @@ def ticket_view_form_roomcare(request):
     return render(request, 'app_ticket/roomcare/ticket_form_roomcare.html', 
         {'form': form})
 
+
 def ticket_view_form_transport(request):
+    form = TransportRequestForm(request.POST or None)
     sectors = Sector.objects.all()
     hours = ['0' + str(i) + ':00' for i in range(10)]
     hours += [str(i) + ':00' for i in range(12, 24)]
+    types = ['Administrativo', 'Materiais', 'Suporte avançado', 'Suporte básico', 'Outros']
+
+    print(request.POST.get('description'))
+
+    try:
+        pass
+        # ticket = TransportRequest.objects.create(description=request.POST.get('description'),
+        #     date=
+        #     requester_name=
+        #     sector=
+        #     response_user=
+        #     phone_branch=
+        #     destination_address=
+        #     local_number=
+        #     quarter_name=
+        #     city_name=
+        #     departure_date=
+        #     departure_hour=
+        #     destination_contact=
+        #     contact_phone=
+        #     transport_type=
+        #     patient_name=
+        #     patient_age=)
+
+    
+    finally:
+        pass
 
     return render(request, 'app_ticket/transport/ticket_form_transport.html', {
         'sectors': sectors,
         'hours': hours,
-        
+        'types': types,
+        'form': form,
     })
 
 
