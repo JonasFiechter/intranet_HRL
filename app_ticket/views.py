@@ -92,6 +92,26 @@ def ticket_center_view_roomcare_history(request):
         return redirect('url_dashboard')
 
 
+@login_required(redirect_field_name='url_login')
+def ticket_center_view_transport(request):
+    if request.user.groups.filter(name='GROUP-TRANSPORTES').exists():
+        return render(request, 'app_ticket/transport/ticket_center_transport.html',
+                                {'tickets': TransportRequest.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
+
+
+@login_required(redirect_field_name='url_login')
+def ticket_center_view_transport_history(request):
+    if request.user.groups.filter(name='GROUP-TRANSPORTES').exists():
+        return render(request, 'app_ticket/transport/ticket_center_transport_history.html',
+                                {'tickets': TransportRequest.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
+
+
 def ticket_view_form_it(request):
     form = TicketForm(request.POST or None)
     cat_id = 0
