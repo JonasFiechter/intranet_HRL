@@ -1,5 +1,6 @@
 from datetime import datetime
 from email import message
+from unicodedata import category
 from django.shortcuts import render, redirect
 from .models import Ticket, Sector, TransportRequest
 from .forms import TicketForm, TransportRequestForm
@@ -277,7 +278,8 @@ def ticket_view_form_transport(request):
                             contact_phone=request.POST.get('contact_phone'),
                             transport_type=request.POST.get('transport_type'),
                             patient_name=request.POST.get('patient_name'),
-                            patient_age=request.POST.get('patient_age')
+                            patient_age=request.POST.get('patient_age'),
+                            category='TRANSPORTE'
                             )
             print(request.POST.get('transport_type'))
             id_ = ticket.id
