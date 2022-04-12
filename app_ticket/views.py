@@ -279,6 +279,7 @@ def ticket_view_form_transport(request):
                             patient_name=request.POST.get('patient_name'),
                             patient_age=request.POST.get('patient_age')
                             )
+            print(request.POST.get('transport_type'))
             id_ = ticket.id
             is_valid = True
             ticket.save()
