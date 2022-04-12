@@ -88,3 +88,4 @@ class TransportRequest(models.Model):
     transport_type = models.CharField(verbose_name='Tipo de transporte', max_length=255, null=True)
     patient_name = models.CharField(verbose_name='Nome do paciente', max_length=255, null=True)
     patient_age = models.IntegerField(verbose_name='Idade do paciente', null=True)
+    category = models.CharField(verbose_name='Setor responsável', max_length=255, null=True)

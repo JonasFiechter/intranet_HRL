@@ -47,27 +47,27 @@
                 {% for ticket in tickets %}
                     {% if ticket.status == 'Aberto' %}
                         <li>
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.id }}</a> 
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.departure_date }}</a> 
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.departure_hour }}</a> 
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.requester_name }}</a> 
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.city_name }}</a>
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.transport_type }}</a>
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.phone_branch }}</a> 
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.response_user }}</a>
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.status }}</a>
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.id }}</a> 
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.departure_date }}</a> 
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.departure_hour }}</a> 
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.requester_name }}</a> 
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.city_name }}</a>
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.transport_type }}</a>
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.phone_branch }}</a> 
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.response_user }}</a>
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.status }}</a>
                         </li>
                     {% elif ticket.status == 'Atendido' %}
                         <li>
-                            <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.id }}</a> 
-                            <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.departure_date }}</a> 
-                            <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.departure_hour }}</a> 
-                            <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.requester_name }}</a> 
-                            <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.city_name }}</a> 
-                            <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.transport_type }}</a> 
-                            <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.phone_branch }}</a> 
-                            <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.response_user }}</a>
-                            <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.status }}</a>
+                            <a class="answered" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.id }}</a> 
+                            <a class="answered" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.departure_date }}</a> 
+                            <a class="answered" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.departure_hour }}</a> 
+                            <a class="answered" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.requester_name }}</a> 
+                            <a class="answered" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.city_name }}</a> 
+                            <a class="answered" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.transport_type }}</a> 
+                            <a class="answered" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.phone_branch }}</a> 
+                            <a class="answered" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.response_user }}</a>
+                            <a class="answered" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.status }}</a>
                         </li>
                     {% endif %}
                 {% endfor %}

@@ -94,7 +94,7 @@ def ticket_center_view_roomcare_history(request):
 
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_transport(request):
-    if request.user.groups.filter(name='GROUP-TRANSPORTES').exists():
+    if request.user.groups.filter(name='GROUP-TRANSPORTE').exists():
         return render(request, 'app_ticket/transport/ticket_center_transport.html',
                                 {'tickets': TransportRequest.objects.order_by('-id')})
     else:
@@ -104,7 +104,7 @@ def ticket_center_view_transport(request):
 
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_transport_history(request):
-    if request.user.groups.filter(name='GROUP-TRANSPORTES').exists():
+    if request.user.groups.filter(name='GROUP-TRANSPORTE').exists():
         return render(request, 'app_ticket/transport/ticket_center_transport_history.html',
                                 {'tickets': TransportRequest.objects.order_by('-id')})
     else:
@@ -289,8 +289,11 @@ def get_group_id(group_name):
     return Group.objects.get(name=group_name).id
 
 
-def ticket_single_view(request, ticket_id):
-    ticket = Ticket.objects.get(id=ticket_id)
+def ticket_single_view(request, ticket_id, ticket_type):
+    if ticket_type == 'NORMAL':
+        ticket = Ticket.objects.get(id=ticket_id)
+    elif ticket_type == 'TRANSPORTE':
+        ticket = TransportRequest.objects.get(id=ticket_id)
     is_valid = False
     users = User.objects.filter(groups=get_group_id('GROUP-' + ticket.category))
 
