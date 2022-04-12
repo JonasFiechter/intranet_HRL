@@ -1,4 +1,5 @@
 from datetime import datetime
+from email import message
 from django.shortcuts import render, redirect
 from .models import Ticket, Sector, TransportRequest
 from .forms import TicketForm, TransportRequestForm
@@ -251,38 +252,53 @@ def ticket_view_form_transport(request):
     hours += [str(i) + ':00' for i in range(12, 24)]
     types = ['Administrativo', 'Materiais', 'Suporte avançado', 'Suporte básico', 'Outros']
 
-    print(request.POST.get('description'))
-
-    try:
-        pass
-        # ticket = TransportRequest.objects.create(description=request.POST.get('description'),
-        #     date=
-        #     requester_name=
-        #     sector=
-        #     response_user=
-        #     phone_branch=
-        #     destination_address=
-        #     local_number=
-        #     quarter_name=
-        #     city_name=
-        #     departure_date=
-        #     departure_hour=
-        #     destination_contact=
-        #     contact_phone=
-        #     transport_type=
-        #     patient_name=
-        #     patient_age=)
-
-    
-    finally:
-        pass
-
-    return render(request, 'app_ticket/transport/ticket_form_transport.html', {
+    if request.method != 'POST':
+        return render(request, 'app_ticket/transport/ticket_form_transport.html', {
         'sectors': sectors,
         'hours': hours,
         'types': types,
-        'form': form,
-    })
+        'form': form,})
+
+
+    else:
+        try:
+            ticket = TransportRequest.objects.create(
+                            description=request.POST.get('description'),
+                            requester_name=request.POST.get('requester_name'),
+                            sector_id=Sector.objects.get(sector_name=(request.POST.get('sector'))).id,
+                            phone_branch=request.POST.get('phone_branch'),
+                            destination_address=request.POST.get('destination_address'),
+                            local_number=request.POST.get('local_number'),
+                            quarter_name=request.POST.get('quarter_name'),
+                            city_name=request.POST.get('city'),
+                            departure_date=request.POST.get('departure_date'),
+                            departure_hour=request.POST.get('departure_hour'),
+                            destination_contact=request.POST.get('destination_contact'),
+                            contact_phone=request.POST.get('contact_phone'),
+                            transport_type=request.POST.get('transport_type'),
+                            patient_name=request.POST.get('patient_name'),
+                            patient_age=request.POST.get('patient_age')
+                            )
+            id_ = ticket.id
+            is_valid = True
+            ticket.save()
+            messages.success(request, message=f'{id_}')
+
+            return render(request, 'app_ticket/transport/ticket_form_transport.html', {
+                'is_valid': is_valid
+            })
+
+        except:
+            print('ERRO!')
+            print(request.POST.get('requester_name'))
+            messages.error(request, message='OCORREU UM ERRO!')
+            return render(request, 'app_ticket/transport/ticket_form_transport.html', {
+            'sectors': sectors,
+            'hours': hours,
+            'types': types,
+            'form': form,})
+
+
 
 
 def get_group_id(group_name):

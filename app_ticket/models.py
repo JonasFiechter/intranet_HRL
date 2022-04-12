@@ -71,10 +71,10 @@ class TransportRequest(models.Model):
                                        (t_answered,'Atendido'),
                                        (t_closed,'Finalizado')], default=t_open)
 
-    description = models.TextField(verbose_name='Descrição', max_length=500)
+    description = models.TextField(verbose_name='Descrição', max_length=500, null=True)
     date = models.DateTimeField(verbose_name='Data', auto_now_add=True)
     requester_name = models.CharField(verbose_name='Requisitante', max_length=255)
-    sector = models.ForeignKey(Sector, verbose_name='Setor', on_delete=models.DO_NOTHING)
+    sector = models.ForeignKey(Sector, verbose_name='Setor', on_delete=models.DO_NOTHING, null=True)
     response_user = models.CharField(verbose_name='Responsável', max_length=255, null=True)
     phone_branch = models.CharField(verbose_name='Ramal', max_length=255, null=True)
     destination_address = models.CharField(verbose_name='Endereço de destino', max_length=500, null=True)
