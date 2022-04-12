@@ -259,8 +259,7 @@ def ticket_view_form_transport(request):
         'hours': hours,
         'types': types,
         'form': form,})
-
-
+        
     else:
         try:
             ticket = TransportRequest.objects.create(
