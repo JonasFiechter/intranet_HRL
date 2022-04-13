@@ -21,7 +21,7 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="{% url 'url_ticket_center_it_history' %}">Histórico</a></li>
+                    <li><a href="{% url 'url_ticket_center_transport_history' %}">Histórico</a></li>
                     <li><a href="/admin">Admin</a></li>
                 </ul>
             </nav>
@@ -54,7 +54,7 @@
                             <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.city_name }}</a>
                             <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.transport_type }}</a>
                             <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.phone_branch }}</a> 
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.response_user }}</a>
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}"></a>
                             <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.status }}</a>
                         </li>
                     {% elif ticket.status == 'Atendido' %}

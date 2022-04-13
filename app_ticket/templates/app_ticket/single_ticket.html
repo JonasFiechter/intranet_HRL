@@ -72,15 +72,15 @@
                                 <input style="display: none;" id="answer-btn" name="answer-btn" type="text" value="True">
                                 <button class="btn" type="submit" onclick="return confirm('Confirmar?');">Atender</button>
                                 {% if ticket.category == 'INFRA' %}
-                                <div><a href="{% url 'url_ticket_center_infra' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_infra' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% elif ticket.category == 'HOTELARIA' %}
-                                <div><a href="{% url 'url_ticket_center_roomcare' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_roomcare' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% elif ticket.category == 'NUIAS' %}
-                                <div><a href="{% url 'url_ticket_center_it' %}"><button class="btn" type="button">Voltar</button></a></div>
-                                {% elif ticket.category == 'TRANSPORTES' %}
-                                <div><a href="{% url 'url_ticket_center_transport' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_it' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                {% elif ticket.category == 'TRANSPORTE' %}
+                                    <div><a href="{% url 'url_ticket_center_transport' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% elif ticket.category == 'PATRIMONIO' %}
-                                <div><a href="{% url 'url_ticket_center_patrimony' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_patrimony' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% endif %}
                             </form>
                         </div>
@@ -96,35 +96,35 @@
                                 </div>
                                 <div>
                                     <button class="btn" type="submit" onclick="return confirm('{{ user }} \n Confirmar?');">FINALIZAR</button>
-                                </div>
+                                    </div>
                                 {% if ticket.category == 'INFRA' %}
-                                <div><a href="{% url 'url_ticket_center_infra' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_infra' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% elif ticket.category == 'HOTELARIA' %}
-                                <div><a href="{% url 'url_ticket_center_roomcare' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_roomcare' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% elif ticket.category == 'NUIAS' %}
-                                <div><a href="{% url 'url_ticket_center_it' %}"><button class="btn" type="button">Voltar</button></a></div>
-                                {% elif ticket.category == 'TRANSPORTES' %}
-                                <div><a href="{% url 'url_ticket_center_transport' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_it' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                {% elif ticket.category == 'TRANSPORTE' %}
+                                    <div><a href="{% url 'url_ticket_center_transport' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% elif ticket.category == 'PATRIMONIO' %}
-                                <div><a href="{% url 'url_ticket_center_patrimony' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_patrimony' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% endif %}
                             </form>
                         </div>
                     {% else %}
                         <div class="content">
                             <form method="POST">{% csrf_token %}
-                                <input style="display: none;" id="print-btn" name="print-btn" type="text" value="True">
-                                <button class="btn" type="submit" onclick="return confirm('Confirmar Impressão? \nChamado: {{ ticket.id }}');">Imprimir</button>
+                                    <input style="display: none;" id="print-btn" name="print-btn" type="text" value="True">
+                                    <button class="btn" type="submit" onclick="return confirm('Confirmar Impressão? \nChamado: {{ ticket.id }}');">Imprimir</button>
                                 {% if ticket.category == 'INFRA' %}
-                                <div><a href="{% url 'url_ticket_center_infra' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_infra' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% elif ticket.category == 'HOTELARIA' %}
-                                <div><a href="{% url 'url_ticket_center_roomcare' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_roomcare' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% elif ticket.category == 'NUIAS' %}
-                                <div><a href="{% url 'url_ticket_center_it' %}"><button class="btn" type="button">Voltar</button></a></div>
-                                {% elif ticket.category == 'TRANSPORTES' %}
-                                <div><a href="{% url 'url_ticket_center_transport' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_it' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                {% elif ticket.category == 'TRANSPORTE' %}
+                                    <div><a href="{% url 'url_ticket_center_transport' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% elif ticket.category == 'PATRIMONIO' %}
-                                <div><a href="{% url 'url_ticket_center_patrimony' %}"><button class="btn" type="button">Voltar</button></a></div>
+                                    <div><a href="{% url 'url_ticket_center_patrimony' %}"><button class="btn" type="button">Voltar</button></a></div>
                                 {% endif %}
                             </form>
                         </div>
