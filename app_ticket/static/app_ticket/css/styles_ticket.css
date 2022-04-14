@@ -171,6 +171,7 @@ input {
 }
 
 .warning {
+    color: black;
     padding-bottom: 1rem;
     display: flex;
     font-size: 2rem;
