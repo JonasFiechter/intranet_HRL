@@ -114,6 +114,18 @@ a {
 
 .menu li:hover .ul_2, .menu li.over .ul_2 {
     display:grid;
+    min-width: 11rem;
+}
+
+.menu li .ul_3 {
+    position: absolute;
+    background-color: rgb(18, 8, 71);
+    top: 6rem;
+    display:none;
+    }
+
+.menu li:hover .ul_3, .menu li.over .ul_3 {
+    display:grid;
     min-width: 19rem;
 }
 
