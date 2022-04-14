@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app_home.views import home_view, phone_extensions_view
+from app_home.views import *
 from app_ticket.views import *
 from app_accounts.views import *
 
@@ -48,4 +48,5 @@ urlpatterns = [
     path('dashboard/', accounts_dashboard_view, name='url_dashboard'),
     path('signup/', accounts_signup_view, name='url_signup'),
     path('phone_extensions/', phone_extensions_view, name='url_phone_extensions'),
+    path('help_me/', help_me_view, name='url_help_me'),
 ]
