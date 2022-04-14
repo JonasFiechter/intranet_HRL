@@ -98,7 +98,7 @@ a {
     background-color: rgb(18, 8, 71);
     top: 6rem;
     display:none;
-    }
+}
 
 .menu li:hover .ul_1, .menu li.over .ul_1 {
     display:grid;
@@ -110,7 +110,7 @@ a {
     background-color: rgb(18, 8, 71);
     top: 6rem;
     display:none;
-    }
+}
 
 .menu li:hover .ul_2, .menu li.over .ul_2 {
     display:grid;

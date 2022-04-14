@@ -169,3 +169,14 @@ input {
     display: flex;
     justify-content: center;
 }
+
+.warning {
+    padding-bottom: 1rem;
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+}
+
+.warning a:hover {
+    color: orange;
+}
