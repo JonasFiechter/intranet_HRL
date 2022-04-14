@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app_ticket/css/styles_ticket_center_clinical_engeneering.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <aside class="menu">
+        <section class="menu-content">
+            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+            <div>
+                <a href="{% url 'url_dashboard' %}"> {{ user.first_name }} {{ user.last_name }} </a>
+                {% if user.first_name %}
+                    -
+                    <a style="color: orange" href="{% url 'url_logout' %}"> Sair</a>
+                {% endif %}
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'url_ticket_center_clinical_engeneering' %}">Central</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <section class="section main-bg">
+        <div><h1>Central de chamados - ENGENHARIA CLINICA</h1></div>
+        <div class="data-list">
+            <div class="list-title">
+                <ul>
+                    <li>ID</li>
+                    <li>Descrição</li>
+                    <li>Máquina</li>
+                    <li>Nº Serial</li>
+                    <li>Nome</li>
+                    <li>Data</li>
+                    <li>Responsável</li>
+                    <li>Setor</li>
+                    <li>Status</li>
+                </ul>
+            </div>
+            <ul>
+                {% for ticket in tickets %}
+                    {% if ticket.category == 'ENGENHARIA' %}
+                        {% if ticket.status == 'Finalizado' %}
+                            <li>
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.id }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.description|slice:":90" }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.machine_description }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.serial_number }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.requester_name }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a>
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.response_user }}</a>
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.sector }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.status }}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

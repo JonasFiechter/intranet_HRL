@@ -96,7 +96,7 @@ def ticket_center_view_roomcare_history(request):
 
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_transport(request):
-    if request.user.groups.filter(name='GROUP-TRANSPORTE').exists():
+    if request.user.groups.filter(name='GROUP-ENGENHARIA').exists():
         return render(request, 'app_ticket/transport/ticket_center_transport.html',
                                 {'tickets': TransportRequest.objects.order_by('-id')})
     else:
@@ -106,9 +106,29 @@ def ticket_center_view_transport(request):
 
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_transport_history(request):
-    if request.user.groups.filter(name='GROUP-TRANSPORTE').exists():
+    if request.user.groups.filter(name='GROUP-ENGENHARIA').exists():
         return render(request, 'app_ticket/transport/ticket_center_transport_history.html',
                                 {'tickets': TransportRequest.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
+
+
+@login_required(redirect_field_name='url_login')
+def ticket_center_view_clinical_engeneering(request):
+    if request.user.groups.filter(name='GROUP-TRANSPORTE').exists():
+        return render(request, 'app_ticket/clinical_engeneering/ticket_center_clinical_engeneering.html',
+                                {'tickets': Ticket.objects.order_by('-id')})
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
+
+
+@login_required(redirect_field_name='url_login')
+def ticket_center_view_clinical_engeneering_history(request):
+    if request.user.groups.filter(name='GROUP-TRANSPORTE').exists():
+        return render(request, 'app_ticket/clinical_engeneering/ticket_center_clinical_engeneering_history.html',
+                                {'tickets': Ticket.objects.order_by('-id')})
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
@@ -186,7 +206,7 @@ def ticket_view_form_clinical_engeneering(request):
                                 requester_name=request.POST.get('requester_name'),
                                 machine_description_id=request.POST.get('machine_description'),
                                 serial_number=request.POST.get('serial_number'),
-                                category='INFRA')
+                                category='ENGENHARIA')
         
         id_ = ticket.id
         is_valid = True

@@ -46,23 +46,23 @@
                     {% if ticket.category == 'PATRIMONIO' %}
                         {% if ticket.status == 'Aberto' %}
                             <li>
-                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.id }}</a> 
-                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.description|slice:":90" }}</a> 
-                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.requester_name }}</a> 
-                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a>
-                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}"></a>
-                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.sector }}</a> 
-                                <a class="normal" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.status }}</a>
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.id }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.description|slice:":90" }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.requester_name }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a>
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}"></a>
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.sector }}</a> 
+                                <a class="normal" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.status }}</a>
                             </li>
                         {% elif ticket.status == 'Atendido' %}
                             <li>
-                                <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.id }}</a> 
-                                <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.description|slice:":150" }}</a> 
-                                <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.requester_name }}</a> 
-                                <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a> 
-                                <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.response_user }}</a> 
-                                <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.sector }}</a> 
-                                <a class="answered" href="{% url 'url_single_ticket' ticket.id %}">{{ ticket.status }}</a>
+                                <a class="answered" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.id }}</a> 
+                                <a class="answered" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.description|slice:":150" }}</a> 
+                                <a class="answered" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.requester_name }}</a> 
+                                <a class="answered" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.date|date:'d/m/Y H:i:s' }}</a> 
+                                <a class="answered" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.response_user }}</a> 
+                                <a class="answered" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.sector }}</a> 
+                                <a class="answered" href="{% url 'url_single_ticket' ticket.id 'NORMAL' %}">{{ ticket.status }}</a>
                             </li>
                         {% endif %}
                     {% endif %}
