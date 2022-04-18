@@ -89,7 +89,7 @@ a {
     min-height: 100vh;
 }
 
-.section-screen div {
+.section-screen .title {
     padding-top: 12rem;
 }
 
@@ -179,4 +179,11 @@ a {
 
 .grid .content h2 {
     padding-bottom: 1rem;
+}
+
+.title {
+    font-size: 2rem;
+    color:#FFFFFF;
+    display: flex;
+    justify-content: center;
 }
