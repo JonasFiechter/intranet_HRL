@@ -66,7 +66,7 @@ ROOT_URLCONF = 'intranet_hrl.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'intranet_hrl/templates/partials'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
