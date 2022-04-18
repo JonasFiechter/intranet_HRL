@@ -10,23 +10,7 @@
 </head>
 <script></script>
 <body>
-    <aside class="menu">
-        <section class="menu-content">
-            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
-            <div>
-                <a href="{% url 'url_dashboard' %}"> {{ user.first_name }} {{ user.last_name }} </a>
-                {% if user.first_name %}
-                    -
-                    <a style="color: orange" href="{% url 'url_logout' %}"> Sair</a>
-                {% endif %}
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="/admin">Admin</a></li>
-                </ul>
-            </nav>
-        </section>
-    </aside>
+    {% include '_tickets_header.html' %}
     <section class="section ticket-info main-bg">
         <div class="ticket-view-block">
             <nav>

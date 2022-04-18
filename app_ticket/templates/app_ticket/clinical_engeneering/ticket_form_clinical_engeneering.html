@@ -8,16 +8,7 @@
     <title>Ticket Nuias</title>
 </head>
 <body>
-    <aside class="menu">
-        <section class="menu-content">
-            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
-            <nav>
-                <ul>
-                    <li><a href="/admin">Admin</a></li>
-                </ul>
-            </nav>
-        </section>
-    </aside>
+    {% include '_tickets_header.html' %}
     <section class="section main-bg">
         <div class="warning">
             <p>Caso não tenha certeza se este é o setor certo para solucionar o seu problema 

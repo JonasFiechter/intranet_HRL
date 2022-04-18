@@ -300,7 +300,6 @@ def ticket_view_form_transport(request):
                             patient_age=request.POST.get('patient_age'),
                             category='TRANSPORTE'
                             )
-            print(request.POST.get('transport_type'))
             id_ = ticket.id
             is_valid = True
             ticket.save()
@@ -311,16 +310,12 @@ def ticket_view_form_transport(request):
             })
 
         except:
-            print('ERRO!')
-            print(request.POST.get('requester_name'))
             messages.error(request, message='OCORREU UM ERRO!')
             return render(request, 'app_ticket/transport/ticket_form_transport.html', {
             'sectors': sectors,
             'hours': hours,
             'types': types,
             'form': form,})
-
-
 
 
 def get_group_id(group_name):
