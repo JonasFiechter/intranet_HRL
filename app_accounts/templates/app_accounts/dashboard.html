@@ -9,16 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <aside class="menu">
-        <section class="menu-content">
-            <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
-            <nav>
-                <ul>
-                    <li><a href="/admin">Admin</a></li>
-                </ul>
-            </nav>
-        </section>
-    </aside>
+    {% include '_tickets_central_header.html' %}
     <section class="main-bg">
         <div class="container">
             <h1>Olá, {{ user.first_name }} {{ user.last_name }}</h1>
