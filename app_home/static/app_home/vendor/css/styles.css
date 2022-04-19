@@ -139,7 +139,8 @@ a {
 }
 
 .grid div {
-    background-color: rgba(128, 128, 128, 0.623);
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.527);
     display: flex;
     padding-top: 0;
     align-items: center;
@@ -170,4 +171,33 @@ a {
     border-bottom: 0.2rem solid orange;
     color: orange;
     transition: 200ms ease-in;
+}
+
+.gap {
+    padding-top: 40rem;
+}
+
+.blog-container {
+    max-width: 160rem;
+    margin: 0 auto;
+    min-height: 60rem;
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+
+.grid-blog {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3rem;
+}
+
+.grid-blog li {
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
