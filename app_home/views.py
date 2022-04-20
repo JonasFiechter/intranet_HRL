@@ -19,9 +19,6 @@ def phone_extensions_view(request):
 def help_me_view(request):
     functions = FunctionsBySector.objects.all()
 
-    for function in functions:
-        print(function.sector.sector_name)
-
     return render(request, 'help_me/help_me.html', {
         'functions': functions
     })
