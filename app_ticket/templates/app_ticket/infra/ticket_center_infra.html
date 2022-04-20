@@ -8,7 +8,24 @@
     <link rel="stylesheet" href="{% static 'app_ticket/css/styles_ticket_center_infra.css' %}">
     <title>Document</title>
 </head>
-    {% include '_tickets_central_header.html' %}
+<aside class="menu">
+    <section class="menu-content">
+        <a href="{% url 'url_home' %}"><h1>HRL - Hospital Regional do Litoral</h1></a>
+        <div>
+            <a href="{% url 'url_dashboard' %}"> {{ user.first_name }} {{ user.last_name }} </a>
+            {% if user.first_name %}
+                -
+                <a style="color: orange" href="{% url 'url_logout' %}"> Sair</a>
+            {% endif %}
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'url_ticket_center_infra_history' %}">Histórico</a></li>
+                <li><a href="/admin">Admin</a></li>
+            </ul>
+        </nav>
+    </section>
+</aside>
     <section class="section main-bg">
         <div><h1>Central de chamados - INFRAESTRUTURA</h1></div>
         <div class="data-list">
