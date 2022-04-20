@@ -18,6 +18,9 @@ from django.urls import path
 from app_home.views import *
 from app_ticket.views import *
 from app_accounts.views import *
+from app_blog.views import *
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('intranet/', home_view, name='url_home'),
@@ -50,3 +53,6 @@ urlpatterns = [
     path('phone_extensions/', phone_extensions_view, name='url_phone_extensions'),
     path('help_me/', help_me_view, name='url_help_me'),
 ]
+
+# This line creates a new path with the file name as a url to render in the html
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
