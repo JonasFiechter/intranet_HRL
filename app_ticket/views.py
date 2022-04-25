@@ -1,6 +1,3 @@
-from datetime import datetime
-from email import message
-from unicodedata import category
 from django.shortcuts import render, redirect
 from .models import Ticket, Sector, TransportRequest
 from .forms import TicketForm, TransportRequestForm
@@ -359,8 +356,8 @@ def ticket_single_view(request, ticket_id, ticket_type):
     if request.POST.get('print-btn'):
         buffer = io.BytesIO()
         p = canvas.Canvas(buffer)
-        pdf_generator(ticket, p, buffer)
 
+        ticket, p, buffer = pdf_generator(ticket, p, buffer)
         return FileResponse(buffer, as_attachment=True, filename=f'ticket_{ticket.id}.pdf')
 
     return render(request, 'app_ticket/single_ticket.html', {
