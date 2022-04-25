@@ -23,6 +23,10 @@ a {
     color: #FFFFFF;
 }
 
+p {
+    padding: 0;
+}
+
 .main-bg {
     background-image: url('../img/liquid-cheese.svg');
     background-size: cover;
@@ -205,13 +209,23 @@ a {
     padding-bottom: 1rem;
 }
 
-.grid-blog li p {
+.grid-blog li .post-details {
     padding-bottom: 1rem;
     padding-top: 1rem;
 }
 
+.post-link {
+    padding: 2rem;
+    display: block;
+}
+
+.post-link a:hover {
+    color: orange;
+}
+
 .img {
     max-width: 100%;
+    max-height: 40rem;
 }
 
 .pagination {

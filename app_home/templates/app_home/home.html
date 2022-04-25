@@ -39,8 +39,9 @@
                         {% if post.img %}
                             <img class="img" src="{{ post.img.url }}" alt="">
                         {% endif %}
-                        <p>{{ post.author }} - {{ post.date|date:'d/m/Y H:i:s' }}</p>
-                        <p>{{ post.description }}</p>
+                        <p class="post-details">{{ post.author }} - {{ post.date|date:'d/m/Y H:i:s' }}</p>
+                        <p>{{ post.description|safe|truncatechars:500 }}</p>
+                        <h3 class="post-link"><a href="#">Leia mais...</a></h3>
                     </li>
                 {% endfor %}
             </ul>

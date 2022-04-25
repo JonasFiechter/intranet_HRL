@@ -21,6 +21,7 @@ from app_accounts.views import *
 from app_blog.views import *
 from django.conf.urls.static import static
 from django.conf import settings
+from django.urls import include
 
 urlpatterns = [
     path('intranet/', home_view, name='url_home'),
@@ -52,6 +53,7 @@ urlpatterns = [
     path('signup/', accounts_signup_view, name='url_signup'),
     path('phone_extensions/', phone_extensions_view, name='url_phone_extensions'),
     path('help_me/', help_me_view, name='url_help_me'),
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 # This line creates a new path with the file name as a url to render in the html
