@@ -6,9 +6,10 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def home_view(request):
-    posts = Post.objects.order_by('-id')
+    posts = Post.objects.all().order_by('-id')
     paginator = Paginator(posts, 3)
-    posts = paginator.get_page(request.GET.get('page'))
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
 
     return render(request, 'app_home/home.html', {'posts': posts})
 

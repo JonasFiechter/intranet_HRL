@@ -186,14 +186,14 @@ a {
 .grid-blog {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 3rem;
 }
 
 .grid-blog li {
     color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0.5);
-    min-height: 20rem;
+    min-height: 12rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -212,4 +212,19 @@ a {
 
 .img {
     max-width: 100%;
+}
+
+.pagination {
+    display: flex;
+    padding: 1rem;
+}
+
+.pagination li {
+    padding-top: 1rem;
+    padding-left: 0.3rem;
+}
+
+.pagination li a {
+    padding: 1rem;
+    background-color: rgb(18, 8, 71);
 }
