@@ -22,6 +22,7 @@ from app_blog.views import *
 from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import include
+from app_file_storage.views import messages_view
 
 urlpatterns = [
     path('intranet/', home_view, name='url_home'),
@@ -54,6 +55,8 @@ urlpatterns = [
     path('phone_extensions/', phone_extensions_view, name='url_phone_extensions'),
     path('help_me/', help_me_view, name='url_help_me'),
     path('summernote/', include('django_summernote.urls')),
+    path('messages_test/', messages_view, name='url_messages_test'),
+    path('filer/', include('filer.urls')),
 ]
 
 # This line creates a new path with the file name as a url to render in the html

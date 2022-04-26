@@ -51,9 +51,21 @@ INSTALLED_APPS = [
     'app_ticket',
     'app_accounts',
     'app_blog',
+    'app_file_storage',
+    'easy_thumbnails',
+    'filer',
+    'mptt',
 ]
 
 INSTALLED_APPS += ('django_summernote', )
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

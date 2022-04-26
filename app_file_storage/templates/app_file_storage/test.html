@@ -1,0 +1,25 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app_home/vendor/css/styles.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include '_header.html' %}
+    <section style="padding-top: 20rem;" class="section">
+        <div class='file-system-container'>
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message.name }}</li>
+                    <li style="display: flex; color: black;"><a style="color: black;" href="{{ message.file }}">{{ message.file }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
