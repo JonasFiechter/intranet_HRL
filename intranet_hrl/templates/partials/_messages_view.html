@@ -1,0 +1,6 @@
+{% load static %}
+<ul class="messages-ul">
+    {% for message in messages %}
+        <li><a href="{{ message.file }}">{{ message.name }}</a></li>
+    {% endfor %}
+</ul>

@@ -12,16 +12,12 @@
     {% include '_header.html' %}
     <section class="section">
         <div class='file-system-container'>
-            <ul style="display: flex; padding-top: 15rem; display: flex; flex-direction: column;">
-                {% for message in messages %}
-                    <li>{{ message.name }}</li>
-                    <li><a href="{{ message.file }}">{{ message.file }}</a></li>
-                {% endfor %}
-            </ul>
-            {% if history != 'files' %}
-                <h1><a style="color: black;" href="/messages_test/{{history}}">Voltar {{ history }}</a></h1>
-            {% else %}
-                <h1><a style="color: black;" href="/messages_test/files/files">Voltar {{ history }}</a></h1>
+            {% if history %}
+                {% if history != 'files' %}
+                    <h1><a style="color: black;" href="/messages_test/{{history}}">Voltar</a></h1>
+                {% else %}
+                    <h1><a style="color: black;" href="/messages_test/files/files">Voltar</a></h1>
+                {% endif %}
             {% endif %}
             <ul style="display: flex; padding-top: 15rem; display: flex; flex-direction: column;">
                 {% for dir in dirs %}
