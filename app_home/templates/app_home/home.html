@@ -12,7 +12,7 @@
 <body class="main-bg">
     <section class="section-screen">
         <div class="grid">
-            <div style="display: block; padding-top: 0;">
+            <div>
                 <ul class="menu-grid">
                     <a href="https://www.eprotocolo.pr.gov.br/spiweb/entrada.do" target="_blank"><li>E-Protocolo</li></a>
                     <a href="http://lcalab.ddns.net:8080/ConcentWeb/servlet/hlab8000?0,0,,," target="_blank"><li>LCALAB</li></a>
@@ -27,7 +27,9 @@
                     <a href="/messages_test/root/root"><li>Item 4</li></a>
                 </ul>
             </div>
-            <div class="messages-container">{% include '_messages_view.html'%}</div>
+            <div class="messages-container">
+                {% include '_messages_view.html'%}
+            </div>
             <div><h1>SITE EM CONSTRUÇÃO</h1></div>
         </div>
     </section>

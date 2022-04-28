@@ -145,10 +145,7 @@ p {
 .grid div {
     color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0.527);
-    display: flex;
     padding-top: 0;
-    align-items: center;
-    justify-content: center;
 }
 
 .grid div:nth-child(1) {
@@ -163,8 +160,16 @@ p {
     grid-template-rows: repeat(11, 1fr);
 }
 
+.menu-grid a {
+    display: flex;
+    min-width: 25rem;
+    align-items: center;
+    justify-content: center;
+}
+
 .menu-grid a li {
     min-height: 98%;
+    min-width: 100%;
     background-color: rgb(18, 8, 71);
     display: flex;
     align-items: center;
@@ -241,4 +246,53 @@ p {
 .pagination li a {
     padding: 1rem;
     background-color: rgb(18, 8, 71);
+}
+
+.messages-container {
+    padding-left: 3rem;
+    display: flexbox;
+    max-height: 100%;
+}
+
+.messages-title {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    min-width: 100%;
+    max-height: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.messages-title .link {
+    padding-right: 3rem;
+    display: flex;
+    justify-content: right;
+}
+
+.messages-ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    min-width: 100%;
+    max-height: 4rem;
+}
+
+.messages-ul a {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.messages-ul:hover {
+    background-color: #ffffff69;
+}
+
+.messages-ul .link {
+    padding-right: 3rem;
+    display: flex;
+    justify-content: right;
+}
+
+.messages-ul .link:hover {
+    color: orange;
 }

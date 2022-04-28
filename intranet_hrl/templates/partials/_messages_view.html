@@ -1,6 +1,18 @@
 {% load static %}
-<ul class="messages-ul">
-    {% for message in messages %}
-        <li><a href="{{ message.file }}">{{ message.name }}</a></li>
-    {% endfor %}
-</ul>
+    <ul class="messages-title">
+        <li>Data</li>
+        <li>Setor responsável</li>
+        <li>Assunto</li>
+        <li class="link">Anexo</li>
+
+    </ul>
+    <ul class="">
+        {% for message in messages %}
+            <li class="messages-ul">
+                <a href="">{{ message.date }}</a>
+                <a href="">{{ message.sector }}</a>
+                <a href="">{{ message.name }}</a>
+                <a class="link" href="{{ message.file }}">Link</a>
+            </li>
+        {% endfor %}
+    </ul>
