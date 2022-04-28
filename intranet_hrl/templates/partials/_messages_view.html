@@ -13,10 +13,10 @@
                 <a href="">{{ message.date }}</a>
                 <a href="">{{ message.sector }}</a>
                 <a href="">{{ message.name }}</a>
-                <a class="link" href="{{ message.file }}">Link</a>
+                <a class="link" href="{{ message.file }}" target="blank">Link</a>
             </li>
         {% endfor %}
     </ul>
     {% if messages_overlay %}
-        <a class="show-all" href="#">Mostrar todos</a>
+        <a class="show-all" href="{% url 'url_messages' %}">Mostrar todos</a>
     {% endif %}

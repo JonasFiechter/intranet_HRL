@@ -1,17 +1,14 @@
 from django.shortcuts import render
 from .models import Messages
 import os
+from django.core.paginator import Paginator
 
 # Create your views here.
 
-def messages_view(request, last_dir, next_dir):
+def files_view_test(request, last_dir, next_dir):
+
     #  Here is a test trying to render the folders and files in a path that could be
     # passed as a request throught the url
-    
-    messages = Messages.objects.all()
-
-    for message in messages:
-        message.file = '/media/' + str(message.file)
 
     dirs = []
     files = []
@@ -32,8 +29,16 @@ def messages_view(request, last_dir, next_dir):
         files = [f for f in files]
         break
 
-    return render(request, 'app_file_storage/test.html', {'messages': messages, 
-                                                          'dirs': dirs,
+    return render(request, 'app_file_storage/test.html', {'dirs': dirs,
                                                           'files': files,
                                                           'last_dir': last_dir,
                                                           'history': history})
+
+def messages_view(request):
+    messages = Messages.objects.all().order_by('-id')
+
+    for message in messages:
+        message.file = '/media/' + str(message.file)
+        print(message.name, message.file)
+
+    return render(request, 'app_file_storage/messages.html', {'messages': messages,})

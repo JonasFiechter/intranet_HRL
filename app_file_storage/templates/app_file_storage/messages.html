@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'app_file_storage/vendor/css/styles.css' %}">
+</head>
+
+{% include '_tickets_header.html' %}
+<body>
+    <section class="section-screen main-bg">
+        <div class="padding-top"></div>
+        <div class="main-view">
+            <h2 class="messages-title-h2">Comunicados e Memorandos</h2>
+            <ul class="messages-title">
+                <li>Data</li>
+                <li>Setor responsável</li>
+                <li>Assunto</li>
+                <li class="link">Anexo</li>
+            </ul>
+            <ul class="">
+                {% for message in messages %}
+                    <li class="messages-ul">
+                        <a href="">{{ message.date }}</a>
+                        <a href="">{{ message.sector }}</a>
+                        <a href="">{{ message.name }}</a>
+                        <a class="link" href="{{ message.file }}" target="blank">Link</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
+
+{% include '_footer.html' %}

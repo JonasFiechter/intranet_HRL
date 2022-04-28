@@ -39,5 +39,5 @@ def help_me_view(request):
     functions = FunctionsBySector.objects.all()
 
     return render(request, 'help_me/help_me.html', {
-        'functions': functions
+        'functions': functions,
     })
