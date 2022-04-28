@@ -7,11 +7,20 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def home_view(request):
+    messages_overlay = False
+
     posts = Post.objects.all().order_by('-id')
-    paginator = Paginator(posts, 3)
+    posts_paginator = Paginator(posts, 3)
     page = request.GET.get('page')
-    posts = paginator.get_page(page)
-    messages = Messages.objects.all()
+    posts = posts_paginator.get_page(page)
+
+    messages = Messages.objects.all().order_by('-id')
+    if len(messages) > 7:
+        messages_overlay = True
+    messages_paginator = Paginator(messages, 7)
+    messages_page = request.GET.get('messages_page')
+    messages = messages_paginator.get_page(messages_page)
+
 
     for message in messages:
         message.file = '/media/' + str(message.file)
@@ -19,7 +28,8 @@ def home_view(request):
 
 
     return render(request, 'app_home/home.html', {'posts': posts,
-                                                  'messages': messages})
+                                                  'messages': messages,
+                                                  'messages_overlay': messages_overlay})
 
 def phone_extensions_view(request):
     branches = PhoneExtensions.objects.all()

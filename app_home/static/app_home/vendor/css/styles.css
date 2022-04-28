@@ -153,6 +153,19 @@ p {
     background-color: rgb(18, 8, 71);
 }
 
+.grid div:nth-child(2) {
+    max-height: 40rem;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.grid div:nth-child(3) {
+    min-height: 26rem;
+    padding: 2rem;
+    padding-bottom: 0;
+    margin: 0;
+}
+
 .menu-grid {
     min-height: 70rem;
     padding-top: 0;
@@ -250,17 +263,18 @@ p {
 
 .messages-container {
     padding-left: 3rem;
-    display: flexbox;
-    max-height: 100%;
+    padding-right: 3rem;
+    display: block;
+    max-height: 40rem;
 }
 
 .messages-title {
+    font-weight: 600;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    min-width: 100%;
     max-height: 4rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 .messages-title .link {
@@ -272,7 +286,6 @@ p {
 .messages-ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    min-width: 100%;
     max-height: 4rem;
 }
 
@@ -281,6 +294,7 @@ p {
     display: flex;
     align-items: center;
     padding-bottom: 2rem;
+    padding-left: 1rem;
 }
 
 .messages-ul:hover {
@@ -288,11 +302,30 @@ p {
 }
 
 .messages-ul .link {
-    padding-right: 3rem;
     display: flex;
     justify-content: right;
+    padding-right: 2rem;
 }
 
 .messages-ul .link:hover {
+    color: orange;
+}
+
+.messages-title-h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.show-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.show-all:hover {
     color: orange;
 }
