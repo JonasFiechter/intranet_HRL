@@ -58,6 +58,7 @@ urlpatterns = [
     path('messages_test/<str:last_dir>/<str:next_dir>', messages_view, name='url_messages_test'),
     path('filer/', include('filer.urls')),
     path('messages/', messages_view, name='url_messages'),
+    path('blog_admin/', blog_admin_view, name='url_blog_admin'),
 ]
 
 # This line creates a new path with the file name as a url to render in the html

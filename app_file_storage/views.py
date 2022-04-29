@@ -39,6 +39,5 @@ def messages_view(request):
 
     for message in messages:
         message.file = '/media/' + str(message.file)
-        print(message.name, message.file)
 
     return render(request, 'app_file_storage/messages.html', {'messages': messages,})

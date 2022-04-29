@@ -21,11 +21,8 @@ def home_view(request):
     messages_page = request.GET.get('messages_page')
     messages = messages_paginator.get_page(messages_page)
 
-
     for message in messages:
         message.file = '/media/' + str(message.file)
-        print(message.name, message.file)
-
 
     return render(request, 'app_home/home.html', {'posts': posts,
                                                   'messages': messages,
