@@ -1,4 +1,3 @@
-from turtle import title
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
