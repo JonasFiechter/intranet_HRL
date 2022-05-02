@@ -10,8 +10,6 @@ from reportlab.pdfgen import canvas
 from .pdf_generator import pdf_generator
 
 
-
-
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_it(request):
     if request.user.groups.filter(name='GROUP-NUIAS').exists():

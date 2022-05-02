@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'app_accounts',
     'app_blog',
     'app_file_storage',
+    'app_quality',
     'easy_thumbnails',
     'filer',
     'mptt',
