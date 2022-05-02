@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <script type="text/javascript" src="/admin/jsi18n/"></script>
+    <script type="text/javascript" src="/static/admin/js/core.js"></script>
+    <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+    <script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+    <script type="text/javascript" src="/static/admin/js/actions.min.js"></script>
+    <script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+    <script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+    <link rel="stylesheet" href="{% static 'admin/css/forms.css' %}"/> 
+    <link rel="stylesheet" href="{% static 'admin/css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'app_quality/vendor/css/styles.css' %}"/>
+
+</head>
+{% include '_header.html' %}
+<body>
+    <section class="section-screen main-bg">
+        <div class="padding-top"></div>
+        <div class="main-view">
+            <div class="title-container">
+                <h1>Notificação de situação adversa</h1>
+            </div>
+            <div class="form-container">
+                {% if not is_valid %}
+                    <form method="post" enctype="multipart/form-data" class="form-grid-container">
+                        {% csrf_token %}
+                        <ul class="form-grid">
+                            <label for="name" class="field-description">Nome do Notificante</label>
+                            <input name="name" type="text">
+                            <li class="field-description">Data</li>
+                            <li>{{ form.date }}</li>
+                            <li class="field-description">Autor</li>
+                            <li>{{ form.author }}</li>
+                            <li class="field-description">Imagem</li>
+                            <div>{{ form.img }}</div>
+                            <li></li>
+                            <li class="btn-container">
+                                <button 
+                                    onclick="return confirm('Confirmar envio?')" 
+                                    class="form-btn" 
+                                    type="submit">Enviar</button>
+                            </li>
+                        </ul>
+                    </form>
+                {% else %}
+                    <div class="form-title-container">
+                        <h3>{{ message }}</h3>
+                    </div>
+                    <div class="message-container">
+                        <a href="{% url 'url_blog_admin' %}">Clique aqui para retornar</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</body>
+{% include '_footer.html' %}
+</html>

@@ -4,6 +4,7 @@ from app_ticket.models import *
 
 class TicketAdmin(admin.ModelAdmin):
     list_display = ['id', 'requester_name', 'sector', 'date', 'description', 'category', 'response_user', 'status']
+    link_display = ['requester_name']
 
 
 class SectorAdmin(admin.ModelAdmin):

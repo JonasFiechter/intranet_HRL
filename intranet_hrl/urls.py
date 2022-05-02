@@ -61,6 +61,7 @@ urlpatterns = [
     path('messages/', messages_view, name='url_messages'),
     path('blog_admin/', blog_admin_view, name='url_blog_admin'),
     path('quality_admin/', quality_admin_view, name='url_quality_admin'),
+    path('notification_form/', notification_form_view, name='url_notification_form'),
 ]
 
 # This line creates a new path with the file name as a url to render in the html
