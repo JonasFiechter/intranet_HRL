@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
+
 def home_view(request):
     messages_overlay = False
 
@@ -28,9 +29,11 @@ def home_view(request):
                                                   'messages': messages,
                                                   'messages_overlay': messages_overlay})
 
+
 def phone_extensions_view(request):
     branches = PhoneExtensions.objects.all()
     return render(request, 'phone_extensions/phone_extensions.html', {'branches': branches})
+
 
 def help_me_view(request):
     functions = FunctionsBySector.objects.all()

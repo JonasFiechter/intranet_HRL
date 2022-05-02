@@ -19,6 +19,7 @@ from app_home.views import *
 from app_ticket.views import *
 from app_accounts.views import *
 from app_blog.views import *
+from app_quality.views import *
 from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import include
@@ -59,6 +60,7 @@ urlpatterns = [
     path('filer/', include('filer.urls')),
     path('messages/', messages_view, name='url_messages'),
     path('blog_admin/', blog_admin_view, name='url_blog_admin'),
+    path('quality_admin/', quality_admin_view, name='url_quality_admin'),
 ]
 
 # This line creates a new path with the file name as a url to render in the html

@@ -33,7 +33,7 @@ def files_view_test(request, last_dir, next_dir):
                                                           'files': files,
                                                           'last_dir': last_dir,
                                                           'history': history})
-
+   
 def messages_view(request):
     messages = Messages.objects.all().order_by('-id')
 
