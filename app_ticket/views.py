@@ -266,7 +266,7 @@ def ticket_view_form_transport(request):
     form = TransportRequestForm(request.POST or None)
     sectors = Sector.objects.all()
     hours = ['0' + str(i) + ':00' for i in range(10)]
-    hours += [str(i) + ':00' for i in range(12, 24)]
+    hours += [str(i) + ':00' for i in range(10, 24)]
     types = ['Administrativo', 'Materiais', 'Suporte avançado', 'Suporte básico', 'Outros']
 
     if request.method != 'POST':
