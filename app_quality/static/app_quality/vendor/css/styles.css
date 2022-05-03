@@ -170,13 +170,18 @@ p {
 }
 
 .form-grid {
-    width: 120rem;
+    width: 80rem;
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
 }
 
-.form-grid :nth-child(12) {
+.form-grid :nth-child(9) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.form-grid :nth-child(13) {
     grid-column-start: 1;
     grid-column-end: 3;
 }
@@ -218,19 +223,20 @@ p {
 
 .patient-option {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .patient-option .patient-options {
+    justify-content: space-around;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.400);
     display: flex;
     align-items: center;
     flex-direction: row;
-    padding-left: 2rem;
 }
 
 .patient-option p {
     padding-right: 1rem;
-    padding-left: 4rem;
 }
 
 .patient-options input {
@@ -238,7 +244,32 @@ p {
     max-width: 3rem;
 }
 
-.form-btn-container {
-    background-color: black;
+.patient-option-option {
     display: flex;
+    flex-direction: row;
+}
+
+.form-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-btn {
+    margin: 0 auto;
+    max-width: 20rem;
+}
+
+.description-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.description-box textarea {
+    max-height: 10rem;
+    min-width: 100%;
+}
+
+.hidden {
+    display: none;
 }

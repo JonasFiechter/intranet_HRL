@@ -8,7 +8,7 @@
 
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'app_quality/vendor/css/styles.css' %}"/>
-
+    <script src="../../static/app_quality/vendor/js/script.js"></script>
 </head>
 {% include '_header.html' %}
 <body>
@@ -46,10 +46,14 @@
                             <li class="patient-option">
                                 <label for="with_patient">Envolveu paciente?</label>
                                     <div class="patient-options">
-                                    <p>Sim</p>
-                                    <input name="with_patient" type="radio">
-                                    <p>Não</p>
-                                    <input name="with_patient" type="radio">
+                                        <div class="patient-option-option">                                    
+                                            <p>Sim</p>
+                                            <input name="with_patient" type="radio">
+                                        </div>
+                                        <div class="patient-option-option">
+                                            <p>Não</p>
+                                            <input name="with_patient" type="radio">
+                                        </div>
                                 </div>
                             </li>
                             <li>
@@ -59,6 +63,10 @@
                             <li>
                                 <label for="chart-number">Nº prontuário</label>
                                 <input name="chart-number" type="text">
+                            </li>
+                            <li class="description-container">
+                                <label for="description">Descrição</label>
+                                <div class="description-box">{{ form.description }}</div>
                             </li>
                             <li>
                                 <label for="brand-manufacturer">Marca/Fabricante</label>
