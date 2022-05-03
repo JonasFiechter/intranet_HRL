@@ -23,18 +23,55 @@
                     <form method="post" enctype="multipart/form-data" class="form-grid-container">
                         {% csrf_token %}
                         <ul class="form-grid">
-                            <label for="name" class="field-description">Nome do Notificante</label>
-                            <input name="name" type="text">
-                            <li class="field-description">Autor</li>
-                            <li>{{ form.author }}</li>
-                            <li class="field-description">Imagem</li>
-                            <div>{{ form.img }}</div>
-                            <li></li>
-                            <label for="day">Dia da ocorrência</label>
-                            <input type="date" name="day" value="12/23/2008" required>
-                            <label for="time">Hora da ocorrência</label>
-                            <input type="time" name="time" value="" required>
-                            <li class="btn-container">
+                            <li>
+                                <label for="name">Nome do Notificante</label>
+                                <input name="name" type="text">
+                            </li>
+                            <li>
+                                <label for="phone">Telefone</label>
+                                <input name="phone" type="text">
+                            </li>
+                            <li>
+                                <label for="function">Função</label>
+                                <input name="phone" type="text">
+                            </li>
+                            <li>
+                                <label for="sector">Setor</label>
+                                <input name="sector" type="text">
+                            </li>
+                            <li>
+                                <label for="day">Data da ocorrência</label>
+                                <input type="datetime-local" name="day" required>
+                            </li>
+                            <li class="patient-option">
+                                <label for="with_patient">Envolveu paciente?</label>
+                                    <div class="patient-options">
+                                    <p>Sim</p>
+                                    <input name="with_patient" type="radio">
+                                    <p>Não</p>
+                                    <input name="with_patient" type="radio">
+                                </div>
+                            </li>
+                            <li>
+                                <label for="patient-name">Nome do paciente</label>
+                                <input name="patient-name" type="text">
+                            </li>
+                            <li>
+                                <label for="chart-number">Nº prontuário</label>
+                                <input name="chart-number" type="text">
+                            </li>
+                            <li>
+                                <label for="brand-manufacturer">Marca/Fabricante</label>
+                                <input name="brand-manufacturer" type="text">
+                            </li>
+                            <li>
+                                <label for="batch">Lote</label>
+                                <input name="batch" type="text">
+                            </li>
+                            <li>
+                                <label for="expiration-date">Data de validade</label>
+                                <input name="expiration-date" type="date">
+                            </li class="form-btn-container">
                                 <button 
                                     onclick="return confirm('Confirmar envio?')" 
                                     class="form-btn" 

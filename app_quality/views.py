@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from app_file_storage.models import Messages
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import NotificationForm
 
 # Create your views here.
 
@@ -17,5 +16,4 @@ def quality_admin_view(request):
 
 
 def notification_form_view(request):
-    form = NotificationForm(request.POST or None)
-    return render(request, 'app_quality/notification_form.html', {'form': form})
+    return render(request, 'app_quality/notification_form.html')
