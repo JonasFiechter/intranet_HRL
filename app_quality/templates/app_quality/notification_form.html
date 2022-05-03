@@ -7,15 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Document</title>
-    <script type="text/javascript" src="/admin/jsi18n/"></script>
-    <script type="text/javascript" src="/static/admin/js/core.js"></script>
-    <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
-    <script type="text/javascript" src="/static/admin/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
-    <script type="text/javascript" src="/static/admin/js/actions.min.js"></script>
-    <script type="text/javascript" src="/static/admin/js/calendar.js"></script>
-    <script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
-    <link rel="stylesheet" href="{% static 'admin/css/forms.css' %}"/> 
     <link rel="stylesheet" href="{% static 'app_quality/vendor/css/styles.css' %}"/>
 
 </head>
@@ -34,13 +25,15 @@
                         <ul class="form-grid">
                             <label for="name" class="field-description">Nome do Notificante</label>
                             <input name="name" type="text">
-                            <li class="field-description">Data</li>
-                            <li>{{ form.date }}</li>
                             <li class="field-description">Autor</li>
                             <li>{{ form.author }}</li>
                             <li class="field-description">Imagem</li>
                             <div>{{ form.img }}</div>
                             <li></li>
+                            <label for="day">Dia da ocorrência</label>
+                            <input type="date" name="day" value="12/23/2008" required>
+                            <label for="time">Hora da ocorrência</label>
+                            <input type="time" name="time" value="" required>
                             <li class="btn-container">
                                 <button 
                                     onclick="return confirm('Confirmar envio?')" 
