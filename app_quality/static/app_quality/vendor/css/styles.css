@@ -181,7 +181,7 @@ p {
     grid-column-end: 3;
 }
 
-.form-grid :nth-child(13) {
+.form-grid :nth-child(14) {
     grid-column-start: 1;
     grid-column-end: 3;
 }
@@ -205,6 +205,7 @@ p {
     min-height: 4rem;
     min-width: 12rem;
     border: none;
+    margin: 0 auto;
 }
 
 .form-btn:hover {
@@ -272,4 +273,27 @@ p {
 
 .hidden {
     display: none;
+}
+
+.drug-option .drug-options {
+    justify-content: space-around;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.400);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.drug-option p {
+    padding-right: 1rem;
+}
+
+.drug-options input {
+    display: block;
+    max-width: 3rem;
+}
+
+.drug-option-option {
+    display: flex;
+    flex-direction: row;
 }

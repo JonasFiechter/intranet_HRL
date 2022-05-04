@@ -56,11 +56,11 @@
                                         </div>
                                 </div>
                             </li>
-                            <li class="hidden patient-form">
+                            <li class="patient-form">
                                 <label for="patient-name">Nome do paciente</label>
                                 <input name="patient-name" type="text">
                             </li>
-                            <li class="hidden patient-form">
+                            <li class="patient-form">
                                 <label for="chart-number">Nº prontuário</label>
                                 <input name="chart-number" type="text">
                             </li>
@@ -68,22 +68,36 @@
                                 <label for="description">Descrição</label>
                                 <div class="description-box">{{ form.description }}</div>
                             </li>
-                            <li>
+                            <li class="drug-option">
+                                <label for="with-drug-option">Caso de farmacovigilância ou tecnovigilância?</label>
+                                    <div class="drug-options">
+                                        <div class="drug-option-option">                                    
+                                            <p>Sim</p>
+                                            <input class="yes-no-drug" name="with-drug-option" value="yes" type="radio">
+                                        </div>
+                                        <div class="drug-option-option">
+                                            <p>Não</p>
+                                            <input class="yes-no-drug" name="with-drug-option" value="no" type="radio">
+                                        </div>
+                                </div>                            </li>
+                            <li class="drug-form">
                                 <label for="brand-manufacturer">Marca/Fabricante</label>
                                 <input name="brand-manufacturer" type="text">
                             </li>
-                            <li>
+                            <li class="drug-form">
                                 <label for="batch">Lote</label>
                                 <input name="batch" type="text">
                             </li>
-                            <li>
+                            <li class="drug-form">
                                 <label for="expiration-date">Data de validade</label>
                                 <input name="expiration-date" type="date">
-                            </li class="form-btn-container">
-                                <button 
-                                    onclick="return confirm('Confirmar envio?')" 
-                                    class="form-btn" 
-                                    type="submit">Enviar</button>
+                            </li>
+                                <div class="form-btn-container">
+                                    <button 
+                                        onclick="return confirm('Confirmar envio?')" 
+                                        class="form-btn" 
+                                        type="submit">Enviar</button>
+                                </div>
                             </li>
                         </ul>
                     </form>
