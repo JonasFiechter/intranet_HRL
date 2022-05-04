@@ -8,10 +8,10 @@
 
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'app_quality/vendor/css/styles.css' %}"/>
-    <script src="../../static/app_quality/vendor/js/script.js"></script>
 </head>
 {% include '_header.html' %}
 <body>
+
     <section class="section-screen main-bg">
         <div class="padding-top"></div>
         <div class="main-view">
@@ -48,19 +48,19 @@
                                     <div class="patient-options">
                                         <div class="patient-option-option">                                    
                                             <p>Sim</p>
-                                            <input class="yes-no" name="with-patient" value="yes" type="radio">
+                                            <input class="yes-no" name="with-patient-option" value="yes" type="radio">
                                         </div>
                                         <div class="patient-option-option">
                                             <p>Não</p>
-                                            <input class="yes-no" name="with-patient" value="no" type="radio">
+                                            <input class="yes-no" name="with-patient-option" value="no" type="radio">
                                         </div>
                                 </div>
                             </li>
-                            <li>
+                            <li class="hidden patient-form">
                                 <label for="patient-name">Nome do paciente</label>
                                 <input name="patient-name" type="text">
                             </li>
-                            <li>
+                            <li class="hidden patient-form">
                                 <label for="chart-number">Nº prontuário</label>
                                 <input name="chart-number" type="text">
                             </li>
@@ -99,5 +99,6 @@
         </div>
     </section>
 </body>
+<script src="../../static/app_quality/vendor/js/script.js"></script>
 {% include '_footer.html' %}
 </html>
