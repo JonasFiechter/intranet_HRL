@@ -33,15 +33,15 @@
                             </li>
                             <li>
                                 <label for="function">Função</label>
-                                <input name="phone" type="text">
+                                <input name="function" type="text">
                             </li>
                             <li>
                                 <label for="sector">Setor</label>
                                 <input name="sector" type="text">
                             </li>
                             <li>
-                                <label for="day">Data da ocorrência</label>
-                                <input type="datetime-local" name="day" required>
+                                <label for="date">Data da ocorrência</label>
+                                <input type="datetime-local" name="date" required>
                             </li>
                             <li class="patient-option">
                                 <label for="with_patient">Envolveu paciente?</label>
@@ -79,7 +79,12 @@
                                             <p>Não</p>
                                             <input class="yes-no-drug" name="with-drug-option" value="no" type="radio">
                                         </div>
-                                </div>                            </li>
+                                </div>                            
+                            </li>
+                            <li class="drug-form">
+                                <label for="product-name">Nome do produto</label>
+                                <input name="product-name" type="text">
+                            </li>
                             <li class="drug-form">
                                 <label for="brand-manufacturer">Marca/Fabricante</label>
                                 <input name="brand-manufacturer" type="text">
@@ -103,10 +108,10 @@
                     </form>
                 {% else %}
                     <div class="form-title-container">
-                        <h3>{{ message }}</h3>
+                        <h3>Sua notificação foi enviada com sucesso. Anote o nº do protocolo: {{ id_ }}</h3>
                     </div>
                     <div class="message-container">
-                        <a href="{% url 'url_blog_admin' %}">Clique aqui para retornar</a>
+                        <a href="{% url 'url_home' %}">Clique aqui para retornar</a>
                     </div>
                 {% endif %}
             </div>
