@@ -1,10 +1,11 @@
 'use strict'
 
-console.log('works')
+console.log('works');
 
 function check_delete(post_title) {
-    console.log('function working')
-    return confirm(`Confirmar remoção do post: \n${post_title}`)
+    if (confirm(`Confirmar remoção do post: \n${post_title}`)) {
+        console.log('working')
+    }
 }
 
 let btn_radio = document.querySelectorAll('.yes-no');

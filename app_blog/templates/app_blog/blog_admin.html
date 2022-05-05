@@ -62,8 +62,7 @@
                                     <p>{{ post.author }}</p>
                                     <p>{{ post.id }}</p>
                                     <a href="#">Editar</a>
-                                    <a href="{% url 'url_blog_admin' 'delete' post.id %}"
-                                       onclick="check_delete('{{post.title}}')">
+                                    <a href="javascript:check_delete('{{post.title}}')">
                                        Delete
                                     </a>
                                 </div>
