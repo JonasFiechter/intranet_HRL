@@ -254,3 +254,7 @@ p {
     color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0.582);
 }
+.message-page-container {
+    display: flex;
+    flex-direction: column;
+}

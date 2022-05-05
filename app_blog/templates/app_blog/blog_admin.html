@@ -41,14 +41,7 @@
                             </li>
                         </ul>
                     </form>
-                {% else %}
-                    <div class="form-title-container">
-                        <h3>{{ message }}</h3>
-                    </div>
-                    <div class="message-container">
-                        <a href="{% url 'url_blog_admin' %}">Clique aqui para retornar</a>
-                    </div>
-                {% endif %}
+
                 <div class="list-container">
                     <div class="list-title-container">
                         <h3>Manutenção</h3>
@@ -62,7 +55,8 @@
                                     <p>{{ post.author }}</p>
                                     <p>{{ post.id }}</p>
                                     <a href="#">Editar</a>
-                                    <a href="javascript:check_delete('{{post.title}}')">
+                                    <a href="javascript:check_delete('{{post.title}}', 
+                                    '{% url 'url_blog_admin' 'delete' post.id %}')">
                                        Delete
                                     </a>
                                 </div>
@@ -70,6 +64,16 @@
                         </div>
                     </div>
                 </div>
+                {% else %}
+                    <div class="message-page-container">
+                        <div class="form-message-container">
+                            <h3>{{ message }}</h3>
+                        </div>
+                        <div class="message-container">
+                            <a href="{% url 'url_blog_admin' 'none' 0 %}">Clique aqui para retornar</a>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </section>

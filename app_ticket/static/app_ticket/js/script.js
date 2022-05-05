@@ -1,17 +1,7 @@
 'use strict'
 
-console.log('works');
-
-function confirm_btn(message) {
-    if (confirm(message)) {
-        return
-    } else {window.location.replace('#')}
-}
-
-function check_delete(post_title, url) {
-    if (confirm(`Confirmar remoção do post: \n${post_title}`)) {
-        window.location.replace(url)
-    }
+function check_delete(post_title) {
+    return confirm(`Confirmar remoção do post: \n${post_title}`)
 }
 
 let btn_radio = document.querySelectorAll('.yes-no');
