@@ -59,7 +59,7 @@ urlpatterns = [
     path('messages_test/<str:last_dir>/<str:next_dir>', files_view_test, name='url_messages_test'),
     path('filer/', include('filer.urls')),
     path('messages/', messages_view, name='url_messages'),
-    path('blog_admin/', blog_admin_view, name='url_blog_admin'),
+    path('blog_admin/<str:action>/<int:post_id>', blog_admin_view, name='url_blog_admin'),
     path('quality_admin/', quality_admin_view, name='url_quality_admin'),
     path('notification_form/', notification_form_view, name='url_notification_form'),
 ]

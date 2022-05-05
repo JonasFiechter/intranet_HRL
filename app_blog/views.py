@@ -11,7 +11,10 @@ from .models import *
 #     return render(request, 'HTML HERE')
 
 @login_required(redirect_field_name='url_login')
-def blog_admin_view(request):
+def blog_admin_view(request, action, post_id):
+    print(action, post_id)
+    posts = Post.objects.order_by('-id')
+
     if request.user.groups.filter(name='GROUP-ENGENHARIA').exists():
         is_valid = False
         form = PostForm(request.POST, request.FILES)
@@ -25,7 +28,8 @@ def blog_admin_view(request):
                                                                     'form': form})
 
         return render(request, 'app_blog/blog_admin.html', {'form': form,
-                                                            'is_valid': is_valid,})
+                                                            'is_valid': is_valid,
+                                                            'posts': posts})
 
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')

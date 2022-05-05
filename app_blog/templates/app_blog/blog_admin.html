@@ -49,9 +49,26 @@
                         <a href="{% url 'url_blog_admin' %}">Clique aqui para retornar</a>
                     </div>
                 {% endif %}
-                <div class="side-menu-container">
-                    <div class="menu-title-container">
+                <div class="list-container">
+                    <div class="list-title-container">
                         <h3>Manutenção</h3>
+                    </div>
+                    <div class="list-body-container">
+                        <div class="post-properties">
+                            {% for post in posts %}
+                                <div class="post-item">
+                                    <a href="#"><h3>{{ post.title }}</h3></a>
+                                    <p>{{ post.date|date:'d/m/Y' }}</p>
+                                    <p>{{ post.author }}</p>
+                                    <p>{{ post.id }}</p>
+                                    <a href="#">Editar</a>
+                                    <a href="{% url 'url_blog_admin' 'delete' post.id %}"
+                                       onclick="check_delete('{{post.title}}')">
+                                       Delete
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,4 +76,5 @@
     </section>
 </body>
 {% include '_footer.html' %}
+<script src="../../static/app_blog/vendor/js/script.js"></script>
 </html>

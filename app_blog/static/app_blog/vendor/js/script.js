@@ -3,6 +3,7 @@
 console.log('works')
 
 function check_delete(post_title) {
+    console.log('function working')
     return confirm(`Confirmar remoção do post: \n${post_title}`)
 }
 
