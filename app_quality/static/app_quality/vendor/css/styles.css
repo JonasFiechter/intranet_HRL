@@ -181,6 +181,11 @@ p {
     grid-column-end: 3;
 }
 
+.form-grid :nth-child(10) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
 .form-grid :nth-child(15) {
     grid-column-start: 1;
     grid-column-end: 3;

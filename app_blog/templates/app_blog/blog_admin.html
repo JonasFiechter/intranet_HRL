@@ -16,13 +16,13 @@
             <div class="title-container">
                 <h1>Blog Administration</h1>
             </div>
-            <div class="form-container">
+            <div class="main-container">
                 {% if not is_valid %}
-                    <div class="form-title-container">
-                        <h3>Novo Post</h3>
-                    </div>
                     <form method="post" enctype="multipart/form-data" class="form-grid-container">
                         {% csrf_token %}
+                        <div class="form-title-container">
+                            <h3>Novo Post</h3>
+                        </div>
                         <ul class="form-grid">
                             <li class="field-description">Título</li>
                             <li>{{ form.title }}</li>
@@ -49,6 +49,11 @@
                         <a href="{% url 'url_blog_admin' %}">Clique aqui para retornar</a>
                     </div>
                 {% endif %}
+                <div class="side-menu-container">
+                    <div class="menu-title-container">
+                        <h3>Manutenção</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

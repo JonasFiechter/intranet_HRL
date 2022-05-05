@@ -15,11 +15,9 @@ def blog_admin_view(request):
     if request.user.groups.filter(name='GROUP-ENGENHARIA').exists():
         is_valid = False
         form = PostForm(request.POST, request.FILES)
-        print('not valid yet')
 
         if form.is_valid():
             form.save()
-            print('is_valid')
             is_valid = True
             message = 'Post enviado com sucesso!'
             return render(request, 'app_blog/blog_admin.html', {'is_valid': is_valid,

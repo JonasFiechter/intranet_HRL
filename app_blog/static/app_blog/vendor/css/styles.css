@@ -154,6 +154,12 @@ p {
     display:block
 }
 
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
 .form-title-container {
     display: flex;
     justify-content: center;
@@ -163,6 +169,7 @@ p {
 .form-grid-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .form-title-container h3 {
@@ -193,6 +200,7 @@ p {
     color: #FFFFFF;
     min-height: 4rem;
     min-width: 12rem;
+    margin: 0 auto;
     border: none;
 }
 
