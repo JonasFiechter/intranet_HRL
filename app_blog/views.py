@@ -46,8 +46,26 @@ def blog_admin_view(request, action, post_id):
                                                             'posts': posts})
     #  In case of edit button is pressed
     if action == 'edit':
+        
         edit_mode = True
-        form = PostForm(request.POST, request.FILES, instance=post_id)
+        post = Post.objects.get(id=post_id)
+        form = PostForm(instance=post)
+        
+        if request.method == 'POST':
+            form = PostForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                form.save()
+                is_valid = True
+                message = 'Post ALTERADO com sucesso!'
+
+                return render(request, 'app_blog/blog_admin.html', {'form': form,
+                                            'is_valid': is_valid,
+                                            'posts': posts,
+                                            'edit_mode': edit_mode,
+                                            'message': message})
+            else:
+                print('error')
+
         return render(request, 'app_blog/blog_admin.html', {'form': form,
                                                     'is_valid': is_valid,
                                                     'posts': posts,

@@ -33,12 +33,19 @@
                             <li class="field-description">Imagem</li>
                             <div>{{ form.img }}</div>
                             <li></li>
-                            <li class="btn-container">
-                                <button 
-                                    onclick="return confirm('Confirmar envio?')" 
-                                    class="form-btn" 
-                                    type="submit">Enviar</button>
-                            </li>
+                            {% if not edit_mode %}
+                                <li class="btn-container">
+                                    <button 
+                                        onclick="return confirm('Confirmar envio?')" 
+                                        class="form-btn" 
+                                        type="submit">Enviar</button>
+                                </li>
+                            {% else %}
+                                <li class="btn-container">
+                                    <button class="form-btn" 
+                                            type="submit">Salvar</button>
+                                </li>
+                            {% endif %}
                         </ul>
                     </form>
 
