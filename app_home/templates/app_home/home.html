@@ -10,8 +10,8 @@
 </head>
 {% include '_header.html' %}
 <body class="main-bg">
-    <section class="section-screen">
-        <div class="grid">
+    <section class="section-screen" id="section-1">
+        <div class="grid padding-top">
             <div>
                 <ul class="menu-grid">
                     <a href="https://www.eprotocolo.pr.gov.br/spiweb/entrada.do" target="_blank"><li>E-Protocolo</li></a>
@@ -34,9 +34,15 @@
                 <h3>Site em construção</h3>
             </div>
         </div>
+        <div class="section-2-btn">
+            <a href="#section-2">Ultimas postagens</a>
+        </div>
     </section>
     <section id="section-2" class="section-screen">
-        <div class="blog-container">
+        <div class="blog-container padding-top-2">
+            <div class="section-1-btn">
+                <a href="#section-1">Ir para o topo</a>
+            </div>
             <ul class="grid-blog">
                 {% for post in posts %}
                     <li><h1>{{ post.title }}</h1>
