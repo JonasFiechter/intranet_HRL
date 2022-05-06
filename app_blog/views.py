@@ -14,7 +14,10 @@ def post_view(request, post_id):
 
 
 def blog_view(request):
-    return render(request, 'app_blog/blog.html')
+    posts = Post.objects.order_by('-id')
+    return render(request, 'app_blog/blog.html', {
+                                                'posts': posts,
+                                                })
 
 
 @login_required(redirect_field_name='url_login')

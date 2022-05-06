@@ -12,3 +12,4 @@ class Messages(models.Model):
     sector = models.CharField(verbose_name='Setor', max_length=255, null=True)
     date = models.DateTimeField(verbose_name='Data', auto_now=True)
     visible = models.BooleanField(verbose_name='Visível', default=True)
+    
