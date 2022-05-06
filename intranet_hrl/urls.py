@@ -23,7 +23,7 @@ from app_quality.views import *
 from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import include
-from app_file_storage.views import files_view_test, messages_view
+from app_file_storage.views import files_view_test, messages_view, messages_admin_view
 
 urlpatterns = [
     path('intranet/', home_view, name='url_home'),
@@ -59,9 +59,12 @@ urlpatterns = [
     path('messages_test/<str:last_dir>/<str:next_dir>', files_view_test, name='url_messages_test'),
     path('filer/', include('filer.urls')),
     path('messages/', messages_view, name='url_messages'),
+    path('blog/', blog_view, name='url_blog'),
+    path('post/<int:post_id>/', post_view, name='url_post'),
     path('blog_admin/<str:action>/<int:post_id>', blog_admin_view, name='url_blog_admin'),
     path('quality_admin/', quality_admin_view, name='url_quality_admin'),
     path('notification_form/', notification_form_view, name='url_notification_form'),
+    path('messages_admin/', messages_admin_view, name='url_messages_admin'),
 ]
 
 # This line creates a new path with the file name as a url to render in the html

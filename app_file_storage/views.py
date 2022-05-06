@@ -41,3 +41,7 @@ def messages_view(request):
         message.file = '/media/' + str(message.file)
 
     return render(request, 'app_file_storage/messages.html', {'messages': messages,})
+
+
+def messages_admin_view(request):
+    return render(request, 'app_file_storage/messages_admin.html')

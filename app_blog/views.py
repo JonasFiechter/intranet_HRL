@@ -8,8 +8,14 @@ from .models import *
 
 # Create your views here.
 
-# def single_post_view(request):
-#     return render(request, 'HTML HERE')
+def post_view(request, post_id):
+    post = Post.objects.get(id=post_id)
+    return render(request, 'app_blog/post.html', {'post': post})
+
+
+def blog_view(request):
+    return render(request, 'app_blog/blog.html')
+
 
 @login_required(redirect_field_name='url_login')
 def blog_admin_view(request, action, post_id):
@@ -71,6 +77,7 @@ def blog_admin_view(request, action, post_id):
                                                     'posts': posts,
                                                     'edit_mode': edit_mode})
 
+    #  In case of user that does not belong to the group of user of this section
     else:
         messages.error(request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')

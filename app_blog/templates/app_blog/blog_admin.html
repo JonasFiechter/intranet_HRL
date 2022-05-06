@@ -21,7 +21,11 @@
                     <form method="post" enctype="multipart/form-data" class="form-grid-container">
                         {% csrf_token %}
                         <div class="form-title-container">
-                            <h3>Novo Post</h3>
+                            {% if edit_mode %}
+                                <h3>Editar Post</h3>
+                            {% else %}
+                                <h3>Novo Post</h3>
+                            {% endif %}
                         </div>
                         <ul class="form-grid">
                             <li class="field-description">Título</li>

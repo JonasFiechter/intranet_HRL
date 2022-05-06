@@ -135,6 +135,12 @@ p {
     max-width: 160rem;
 }
 
+.main-view-blog {
+    margin: 0 auto;
+    display: block;
+    max-width: 120rem;
+}
+
 .padding-top {
     display: flex;
     padding-top: 10rem;
@@ -255,6 +261,45 @@ p {
     background-color: rgba(0, 0, 0, 0.582);
 }
 .message-page-container {
+    text-align: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.post-container {
+    background-color: rgba(0, 0, 0, 0.514);
+}
+
+.post-header-container {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.post-img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+}
+
+.post-description-container {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    padding-bottom: 4rem;
+}
+
+.padding-botton {
+    padding-bottom: 10rem;
+}
+
+.img {
+    max-width: 80rem;
 }
