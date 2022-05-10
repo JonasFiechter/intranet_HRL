@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Messages
 import os
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -42,5 +44,13 @@ def messages_view(request):
     return render(request, 'app_file_storage/messages.html', {'messages': messages,})
 
 
+@login_required(redirect_field_name='url_login')
 def messages_admin_view(request):
-    return render(request, 'app_file_storage/messages_admin.html')
+    
+    #  Check if the group below is linked to the active user
+    if request.user.groups.filter(name='GROUP-QUALIDADE').exists():
+        return render(request, 'app_file_storage/messages_admin.html')
+
+    else:
+        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        return redirect('url_dashboard')
