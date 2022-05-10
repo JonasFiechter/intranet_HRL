@@ -53,29 +53,28 @@
                             {% endif %}
                         </ul>
                     </form>
-
-                <div class="list-container">
-                    <div class="list-title-container">
-                        <h3>Manutenção</h3>
-                    </div>
-                    <div class="list-body-container">
-                        <div class="post-properties">
-                            {% for post in posts %}
-                                <div class="post-item">
-                                    <a href="#"><h3>{{ post.title }}</h3></a>
-                                    <p>{{ post.date|date:'d/m/Y' }}</p>
-                                    <p>{{ post.author }}</p>
-                                    <p>{{ post.id }}</p>
-                                    <a href="{% url 'url_blog_admin' 'edit' post.id %}">Editar</a>
-                                    <a href="javascript:check_delete('{{post.title}}', 
-                                    '{% url 'url_blog_admin' 'delete' post.id %}')">
-                                       Delete
-                                    </a>
-                                </div>
-                            {% endfor %}
+                    <div class="list-container">
+                        <div class="list-title-container">
+                            <h3>Manutenção</h3>
+                        </div>
+                        <div class="list-body-container">
+                            <div class="post-properties">
+                                {% for post in posts %}
+                                    <div class="post-item">
+                                        <a href="#"><h3>{{ post.title }}</h3></a>
+                                        <p>{{ post.date|date:'d/m/Y' }}</p>
+                                        <p>{{ post.author }}</p>
+                                        <p>{{ post.id }}</p>
+                                        <a href="{% url 'url_blog_admin' 'edit' post.id %}">Editar</a>
+                                        <a href="javascript:check_delete('{{post.title}}', 
+                                        '{% url 'url_blog_admin' 'delete' post.id %}')">
+                                        Delete
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% else %}
                     <div class="message-page-container">
                         <div class="form-message-container">

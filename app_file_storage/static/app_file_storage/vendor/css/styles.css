@@ -129,6 +129,10 @@ p {
     min-width: 19rem;
 }
 
+.padding-top {
+    padding-top: 20rem;
+}
+
 .messages-container {
     padding-left: 3rem;
     padding-right: 3rem;
