@@ -27,7 +27,7 @@
             </ul>
             <ul style="display: flex; padding-top: 2rem; display: flex; flex-direction: column;">
                 {% for file in files %}
-                    <li><a href="{{ file }}" >{{ file }}</a></li>
+                    <li><a href="{{ file.path }}" >{{ file.file }}</a></li>
                 {% endfor %}
             </ul>
         </div>
