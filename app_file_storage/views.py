@@ -16,7 +16,6 @@ def files_view_test(request, last_dir, next_dir):
     root_dir = r'./media'
 
     if next_dir != 'files':
-
         history = last_dir
         history_list = last_dir.split('.')
         history_last = history_list.pop()
@@ -27,16 +26,14 @@ def files_view_test(request, last_dir, next_dir):
     for root, _dirs, files in os.walk(root_dir + '/' + next_dir):
         dirs = [d for d in _dirs]
         files = [{'path': str(root[1:] + '/' + f), 'file': f} for f in files]
-
-        print(f'files > {files} dirs > {dirs} root > {root}')
+        # print(f'files > {files} dirs > {dirs} root > {root}')
         break
-
 
     return render(request, 'app_file_storage/test.html', {'dirs': dirs,
                                                           'files': files,
                                                           'last_dir': last_dir,
                                                           'history': history})
-   
+
 def messages_view(request):
     messages = Messages.objects.all().order_by('-id')
 
