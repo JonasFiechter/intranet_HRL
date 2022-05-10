@@ -206,3 +206,8 @@ p {
     display: flex;
     padding-top: 10rem;
 }
+
+.file-system-container {
+    display: block;
+    padding-left: 2rem;
+}

@@ -17,11 +17,11 @@ def files_view_test(request, last_dir, next_dir):
 
     if next_dir != 'files':
         history = last_dir
-        history_list = last_dir.split('.')
+        history_list = last_dir.split(':')
         history_last = history_list.pop()
-        history = history.replace(f'.{history_last}', f'/{history_last}')
-        last_dir = last_dir + '.' + next_dir
-        next_dir = last_dir.replace('.', '/') + '/'
+        history = history.replace(f':{history_last}', f'/{history_last}')
+        last_dir = last_dir + ':' + next_dir
+        next_dir = last_dir.replace(':', '/') + '/'
 
     for root, _dirs, files in os.walk(root_dir + '/' + next_dir):
         dirs = [d for d in _dirs]
@@ -36,7 +36,6 @@ def files_view_test(request, last_dir, next_dir):
 
 def messages_view(request):
     messages = Messages.objects.all().order_by('-id')
-
     for message in messages:
         message.file = '/media/' + str(message.file)
 
