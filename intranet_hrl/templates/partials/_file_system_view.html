@@ -1,0 +1,26 @@
+{% load static %}
+<div class='file-system-container'>
+    {% if history %}
+        {% if history != 'files' %}
+            <h1><a style="color: black;" href="/messages_test/{{history}}">Voltar</a></h1>
+        {% else %}
+            <h1><a style="color: black;" href="/messages_test/files/files">Voltar</a></h1>
+        {% endif %}
+    {% endif %}
+    <ul style="display: flex; padding-top: 15rem; display: flex; flex-direction: column;">
+        {% for dir in dirs %}
+            <li>
+                <a href="{% url 'url_messages_test' last_dir dir %}">
+                    <img src="{% static 'app_file_storage/vendor/img/folder-svgrepo-com.svg' %}"
+                    width="15"
+                    height="15"> {{ dir }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <ul style="display: flex; padding-top: 2rem; display: flex; flex-direction: column;">
+        {% for file in files %}
+            <li><a href="{{ file.path }}" target="_blank" >{{ file.file }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
