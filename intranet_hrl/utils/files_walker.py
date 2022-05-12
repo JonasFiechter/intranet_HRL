@@ -5,17 +5,14 @@ def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history=''):
     on_root = False
     path = root_dir
 
-    last_dir = path.replace('', '')
-    last_dir = path.replace('./', ':')
-
     if next_dir != 'root':
-        path += '/' + next_dir
-    
+        path = last_dir.replace(':', '/') + '/' + next_dir
     else:
-        on_root = True
+        last_dir = path.replace('./', '')
 
+    if last_dir != 'blank' and next_dir != 'root':
+        last_dir += ':' + next_dir
     
-
     print(f'path before walk - {path}\n')
     for root, _dirs, files in os.walk(path):
         dirs = [d for d in _dirs]
