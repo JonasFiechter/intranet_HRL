@@ -13,6 +13,10 @@ def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history=''):
     if last_dir != 'blank' and next_dir != 'root':
         last_dir += ':' + next_dir
     
+    dirs = [d for d in last_dir.split(':')]
+    history = dirs.pop()
+    print(f'history {history} | dirs {dirs}')
+    
     print(f'path before walk - {path}\n')
     for root, _dirs, files in os.walk(path):
         dirs = [d for d in _dirs]
