@@ -54,7 +54,7 @@
                             <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.city_name }}</a>
                             <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.transport_type }}</a>
                             <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.phone_branch }}</a> 
-                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}"></a>
+                            <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.response_user }}</a>
                             <a class="normal" href="{% url 'url_single_ticket' ticket.id 'TRANSPORTE' %}">{{ ticket.status }}</a>
                         </li>
                     {% endif %}
