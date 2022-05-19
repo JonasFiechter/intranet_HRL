@@ -15,7 +15,7 @@ from pathlib import Path
 import os
 
 # Path to a secure hash txt file
-secret_key_path = r'C:\Users\USER\Desktop\DEV\secure_\SECRET_KEY.txt'
+secret_key_path = r'C:\Users\USER\Desktop\SECRET_KEY.txt'
 
 # Little function to read the hash into the path
 def secret_key_reader(path_):
