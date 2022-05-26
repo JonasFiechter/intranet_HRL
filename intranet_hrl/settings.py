@@ -10,17 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-import tzdata
 from pathlib import Path
 import os
 
 # Path to a secure hash txt file
-secret_key_path = r'C:\Users\USER\Desktop\SECRET_KEY.txt'
+secret_key_path = r'C:\Users\USER\Documents\SECRET_KEY.txt'
 
 # Little function to read the hash into the path
+
+
 def secret_key_reader(path_):
     file = open(path_)
     return file.read()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -63,7 +65,7 @@ INSTALLED_APPS += ('django_summernote', )
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
-    #'easy_thumbnails.processors.scale_and_crop',
+    # 'easy_thumbnails.processors.scale_and_crop',
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )

@@ -13,40 +13,44 @@ from .pdf_generator import pdf_generator
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_it(request):
     if request.user.groups.filter(name='GROUP-NUIAS').exists():
-        return render(request, 'app_ticket/it/ticket_center_it.html', 
-                                {'tickets': Ticket.objects.order_by('-id')})
+        return render(request, 'app_ticket/it/ticket_center_it.html',
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_it_history(request):
     if request.user.groups.filter(name='GROUP-NUIAS').exists():
-        return render(request, 'app_ticket/it/ticket_center_it_history.html', 
-                                {'tickets': Ticket.objects.order_by('-id')})
+        return render(request, 'app_ticket/it/ticket_center_it_history.html',
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_infra(request):
     if request.user.groups.filter(name='GROUP-INFRA').exists():
-        return render(request, 'app_ticket/infra/ticket_center_infra.html', 
-                                {'tickets': Ticket.objects.order_by('-id')})
+        return render(request, 'app_ticket/infra/ticket_center_infra.html',
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_infra_history(request):
     if request.user.groups.filter(name='GROUP-INFRA').exists():
-        return render(request, 'app_ticket/infra/ticket_center_infra_history.html', 
-                                {'tickets': Ticket.objects.order_by('-id')})
+        return render(request, 'app_ticket/infra/ticket_center_infra_history.html',
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
@@ -54,19 +58,21 @@ def ticket_center_view_infra_history(request):
 def ticket_center_view_patrimony(request):
     if request.user.groups.filter(name='GROUP-PATRIMONIO').exists():
         return render(request, 'app_ticket/patrimony/ticket_center_patrimony.html',
-                                {'tickets': Ticket.objects.order_by('-id')})
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
-        
-        
+
+
 @login_required(redirect_field_name='url_login')
 def ticket_center_view_patrimony_history(request):
     if request.user.groups.filter(name='GROUP-PATRIMONIO').exists():
         return render(request, 'app_ticket/patrimony/ticket_center_patrimony_history.html',
-                                {'tickets': Ticket.objects.order_by('-id')})
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
@@ -74,9 +80,10 @@ def ticket_center_view_patrimony_history(request):
 def ticket_center_view_roomcare(request):
     if request.user.groups.filter(name='GROUP-HOTELARIA').exists():
         return render(request, 'app_ticket/roomcare/ticket_center_roomcare.html',
-                                {'tickets': Ticket.objects.order_by('-id')})
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
@@ -84,9 +91,10 @@ def ticket_center_view_roomcare(request):
 def ticket_center_view_roomcare_history(request):
     if request.user.groups.filter(name='GROUP-HOTELARIA').exists():
         return render(request, 'app_ticket/roomcare/ticket_center_roomcare_history.html',
-                                {'tickets': Ticket.objects.order_by('-id')})
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
@@ -94,9 +102,10 @@ def ticket_center_view_roomcare_history(request):
 def ticket_center_view_transport(request):
     if request.user.groups.filter(name='GROUP-ENGENHARIA').exists():
         return render(request, 'app_ticket/transport/ticket_center_transport.html',
-                                {'tickets': TransportRequest.objects.order_by('-id')})
+                      {'tickets': TransportRequest.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
@@ -104,9 +113,10 @@ def ticket_center_view_transport(request):
 def ticket_center_view_transport_history(request):
     if request.user.groups.filter(name='GROUP-ENGENHARIA').exists():
         return render(request, 'app_ticket/transport/ticket_center_transport_history.html',
-                                {'tickets': TransportRequest.objects.order_by('-id')})
+                      {'tickets': TransportRequest.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
@@ -114,9 +124,10 @@ def ticket_center_view_transport_history(request):
 def ticket_center_view_clinical_engeneering(request):
     if request.user.groups.filter(name='GROUP-TRANSPORTE').exists():
         return render(request, 'app_ticket/clinical_engeneering/ticket_center_clinical_engeneering.html',
-                                {'tickets': Ticket.objects.order_by('-id')})
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
@@ -124,22 +135,25 @@ def ticket_center_view_clinical_engeneering(request):
 def ticket_center_view_clinical_engeneering_history(request):
     if request.user.groups.filter(name='GROUP-TRANSPORTE').exists():
         return render(request, 'app_ticket/clinical_engeneering/ticket_center_clinical_engeneering_history.html',
-                                {'tickets': Ticket.objects.order_by('-id')})
+                      {'tickets': Ticket.objects.order_by('-id')})
     else:
-        messages.error(request, message='Você não tem permissão para acessar esta sessão!')
+        messages.error(
+            request, message='Você não tem permissão para acessar esta sessão!')
         return redirect('url_dashboard')
 
 
 def ticket_view_form_it(request):
     form = TicketForm(request.POST or None)
     cat_id = 0
-    
+
     try:
-        ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                                sector_id=request.POST.get('sector'), 
-                                machine_number=request.POST.get('machine_number'), 
-                                requester_name=request.POST.get('requester_name'),
-                                category='NUIAS')
+        ticket = Ticket.objects.create(description=request.POST.get('description'),
+                                       sector_id=request.POST.get('sector'),
+                                       machine_number=request.POST.get(
+                                           'machine_number'),
+                                       requester_name=request.POST.get(
+                                           'requester_name'),
+                                       category='NUIAS')
         id_ = ticket.id
         is_valid = True
         ticket.save()
@@ -154,12 +168,13 @@ def ticket_view_form_it(request):
 def ticket_view_form_infra(request):
     form = TicketForm(request.POST or None)
     cat_id = 0
-    
+
     try:
-        ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                                sector_id=request.POST.get('sector'),
-                                requester_name=request.POST.get('requester_name'),
-                                category='INFRA')
+        ticket = Ticket.objects.create(description=request.POST.get('description'),
+                                       sector_id=request.POST.get('sector'),
+                                       requester_name=request.POST.get(
+                                           'requester_name'),
+                                       category='INFRA')
         id_ = ticket.id
         is_valid = True
         ticket.save()
@@ -168,98 +183,106 @@ def ticket_view_form_infra(request):
         return render(request, 'app_ticket/infra/ticket_form_infra.html', {'is_valid': is_valid})
     except:
         pass
-    return render(request, 'app_ticket/infra/ticket_form_infra.html', {'form': form, 'cat_id': cat_id,})
+    return render(request, 'app_ticket/infra/ticket_form_infra.html', {'form': form, 'cat_id': cat_id, })
 
 
 def ticket_view_form_patrimony(request):
     form = TicketForm(request.POST or None)
-    
+
     try:
         print('TEST')
-        ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                                sector_id=request.POST.get('sector'),
-                                requester_name=request.POST.get('requester_name'),
-                                category='PATRIMONIO')
+        ticket = Ticket.objects.create(description=request.POST.get('description'),
+                                       sector_id=request.POST.get('sector'),
+                                       requester_name=request.POST.get(
+                                           'requester_name'),
+                                       category='PATRIMONIO')
         id_ = ticket.id
         is_valid = True
         ticket.save()
         messages.success(request, message=f'{id_}')
 
-        return render(request, 'app_ticket/patrimony/ticket_form_patrimony.html', 
-        {'is_valid': is_valid})
+        return render(request, 'app_ticket/patrimony/ticket_form_patrimony.html',
+                      {'is_valid': is_valid})
     except:
         pass
-    return render(request, 'app_ticket/patrimony/ticket_form_patrimony.html', 
-        {'form': form})
+    return render(request, 'app_ticket/patrimony/ticket_form_patrimony.html',
+                  {'form': form})
 
 
 def ticket_view_form_clinical_engeneering(request):
     form = TicketForm(request.POST or None)
-    
+
     try:
-        ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                                sector_id=request.POST.get('sector'),
-                                requester_name=request.POST.get('requester_name'),
-                                machine_description_id=request.POST.get('machine_description'),
-                                serial_number=request.POST.get('serial_number'),
-                                category='ENGENHARIA')
-        
+        ticket = Ticket.objects.create(description=request.POST.get('description'),
+                                       sector_id=request.POST.get('sector'),
+                                       requester_name=request.POST.get(
+                                           'requester_name'),
+                                       machine_description_id=request.POST.get(
+                                           'machine_description'),
+                                       serial_number=request.POST.get(
+                                           'serial_number'),
+                                       category='ENGENHARIA')
+
         id_ = ticket.id
         is_valid = True
         ticket.save()
         messages.success(request, message=f'{id_}')
 
-        return render(request, 'app_ticket/clinical_engeneering/ticket_form_clinical_engeneering.html', 
-        {'is_valid': is_valid})
+        return render(request, 'app_ticket/clinical_engeneering/ticket_form_clinical_engeneering.html',
+                      {'is_valid': is_valid})
     except:
         pass
 
-    return render(request, 'app_ticket/clinical_engeneering/ticket_form_clinical_engeneering.html', 
-        {'form': form})
+    return render(request, 'app_ticket/clinical_engeneering/ticket_form_clinical_engeneering.html',
+                  {'form': form})
 
 
 def ticket_view_form_telephony(request):
     form = TicketForm(request.POST or None)
 
     try:
-        ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get(' sector'),
-                              requester_name=request.POST.get('requester_name'),
-                              phone_branch=request.POST.get('phone_branch'),
-                              category='INFRA')
+        ticket = Ticket.objects.create(description=request.POST.get('description'),
+                                       sector_id=request.POST.get(' sector'),
+                                       requester_name=request.POST.get(
+                                           'requester_name'),
+                                       phone_branch=request.POST.get(
+                                           'phone_branch'),
+                                       category='INFRA')
         id_ = ticket.id
         is_valid = True
         ticket.save()
         messages.success(request, message=f'{id_}')
 
-        return render(request, 'app_ticket/telephony/ticket_form_telephony.html', 
-        {'is_valid': is_valid})
+        return render(request, 'app_ticket/telephony/ticket_form_telephony.html',
+                      {'is_valid': is_valid})
     except:
         pass
-    return render(request, 'app_ticket/telephony/ticket_form_telephony.html', 
-        {'form': form})
+    return render(request, 'app_ticket/telephony/ticket_form_telephony.html',
+                  {'form': form})
 
 
 def ticket_view_form_roomcare(request):
     form = TicketForm(request.POST or None)
 
     try:
-        ticket = Ticket.objects.create(description=request.POST.get('description'), 
-                              sector_id=request.POST.get('sector'),
-                              requester_name=request.POST.get('requester_name'),
-                              room_number=request.POST.get('room_number'),
-                              category='HOTELARIA')
+        ticket = Ticket.objects.create(description=request.POST.get('description'),
+                                       sector_id=request.POST.get('sector'),
+                                       requester_name=request.POST.get(
+                                           'requester_name'),
+                                       room_number=request.POST.get(
+                                           'room_number'),
+                                       category='HOTELARIA')
         id_ = ticket.id
         is_valid = True
         ticket.save()
         messages.success(request, message=f'{id_}')
 
-        return render(request, 'app_ticket/roomcare/ticket_form_roomcare.html', 
-        {'is_valid': is_valid})
+        return render(request, 'app_ticket/roomcare/ticket_form_roomcare.html',
+                      {'is_valid': is_valid})
     except:
         pass
-    return render(request, 'app_ticket/roomcare/ticket_form_roomcare.html', 
-        {'form': form})
+    return render(request, 'app_ticket/roomcare/ticket_form_roomcare.html',
+                  {'form': form})
 
 
 def ticket_view_form_transport(request):
@@ -267,35 +290,37 @@ def ticket_view_form_transport(request):
     sectors = Sector.objects.all()
     hours = ['0' + str(i) + ':00' for i in range(10)]
     hours += [str(i) + ':00' for i in range(10, 24)]
-    types = ['Administrativo', 'Materiais', 'Suporte avançado', 'Suporte básico', 'Outros']
+    types = ['Administrativo', 'Materiais',
+             'Suporte avançado', 'Suporte básico', 'Outros']
 
     if request.method != 'POST':
         return render(request, 'app_ticket/transport/ticket_form_transport.html', {
-        'sectors': sectors,
-        'hours': hours,
-        'types': types,
-        'form': form,})
-        
+            'sectors': sectors,
+            'hours': hours,
+            'types': types,
+            'form': form, })
+
     else:
         try:
             ticket = TransportRequest.objects.create(
-                            description=request.POST.get('description'),
-                            requester_name=request.POST.get('requester_name'),
-                            sector_id=Sector.objects.get(sector_name=(request.POST.get('sector'))).id,
-                            phone_branch=request.POST.get('phone_branch'),
-                            destination_address=request.POST.get('destination_address'),
-                            local_number=request.POST.get('local_number'),
-                            quarter_name=request.POST.get('quarter_name'),
-                            city_name=request.POST.get('city'),
-                            departure_date=request.POST.get('departure_date'),
-                            departure_hour=request.POST.get('departure_hour'),
-                            destination_contact=request.POST.get('destination_contact'),
-                            contact_phone=request.POST.get('contact_phone'),
-                            transport_type=request.POST.get('transport_type'),
-                            patient_name=request.POST.get('patient_name'),
-                            patient_age=request.POST.get('patient_age'),
-                            category='TRANSPORTE'
-                            )
+                description=request.POST.get('description'),
+                requester_name=request.POST.get('requester_name'),
+                sector_id=Sector.objects.get(
+                    sector_name=(request.POST.get('sector'))).id,
+                phone_branch=request.POST.get('phone_branch'),
+                destination_address=request.POST.get('destination_address'),
+                local_number=request.POST.get('local_number'),
+                quarter_name=request.POST.get('quarter_name'),
+                city_name=request.POST.get('city'),
+                departure_date=request.POST.get('departure_date'),
+                departure_hour=request.POST.get('departure_hour'),
+                destination_contact=request.POST.get('destination_contact'),
+                contact_phone=request.POST.get('contact_phone'),
+                transport_type=request.POST.get('transport_type'),
+                patient_name=request.POST.get('patient_name'),
+                patient_age=request.POST.get('patient_age'),
+                category='TRANSPORTE'
+            )
             id_ = ticket.id
             is_valid = True
             ticket.save()
@@ -308,10 +333,10 @@ def ticket_view_form_transport(request):
         except:
             messages.error(request, message='OCORREU UM ERRO!')
             return render(request, 'app_ticket/transport/ticket_form_transport.html', {
-            'sectors': sectors,
-            'hours': hours,
-            'types': types,
-            'form': form,})
+                'sectors': sectors,
+                'hours': hours,
+                'types': types,
+                'form': form, })
 
 
 def get_group_id(group_name):
@@ -324,7 +349,8 @@ def ticket_single_view(request, ticket_id, ticket_type):
     elif ticket_type == 'TRANSPORTE':
         ticket = TransportRequest.objects.get(id=ticket_id)
     is_valid = False
-    users = User.objects.filter(groups=get_group_id('GROUP-' + ticket.category))
+    users = User.objects.filter(
+        groups=get_group_id('GROUP-' + ticket.category))
 
     if request.POST.get('answer-btn'):
         ticket.response_user = str(request.user)
@@ -332,8 +358,8 @@ def ticket_single_view(request, ticket_id, ticket_type):
         ticket.save()
         messages.success(request, message='Chamado atendido!')
         return render(request, 'app_ticket/single_ticket.html', {
-            'ticket': ticket, 'users':users
-            })
+            'ticket': ticket, 'users': users
+        })
 
     if request.POST.get('user-input'):
         user_input = request.POST.get('user-input')
@@ -346,11 +372,11 @@ def ticket_single_view(request, ticket_id, ticket_type):
             is_valid = True
 
             return render(request, 'app_ticket/single_ticket.html', {
-                'ticket': ticket, 'is_valid':is_valid
-                })
+                'ticket': ticket, 'is_valid': is_valid
+            })
         except:
             pass
-    
+
     if request.POST.get('print-btn'):
         buffer = io.BytesIO()
         p = canvas.Canvas(buffer)
@@ -359,6 +385,5 @@ def ticket_single_view(request, ticket_id, ticket_type):
         return FileResponse(buffer, as_attachment=True, filename=f'ticket_{ticket.id}.pdf')
 
     return render(request, 'app_ticket/single_ticket.html', {
-        'ticket': ticket, 'users':users
+        'ticket': ticket, 'users': users
     })
-
