@@ -31,7 +31,27 @@
                 {% include '_messages_view.html'%}
             </div>
             <div>
-                <h3>Site em construção</h3>
+                <div class='file-system-container'>
+                    {% if history %}
+                        <h1><a style="color: black;" href="{% url 'url_messages_test' history.last_dir history.next_dir %}">Voltar</a></h1>
+                    {% endif %}
+                    <ul style="display: flex; padding-top: 15rem; display: flex; flex-direction: column;">
+                        {% for dir in dirs %}
+                            <li>
+                                <a href="{% url 'url_messages_test' last_dir dir %}">
+                                    <img src="{% static 'app_file_storage/vendor/img/folder-svgrepo-com.svg' %}"
+                                    width="15"
+                                    height="15"> {{ dir }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <ul style="display: flex; padding-top: 2rem; display: flex; flex-direction: column;">
+                        {% for file in files %}
+                            <li><a href="{% url 'url_home' %}{{file.path}}">{{ file.file }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="section-2-btn">

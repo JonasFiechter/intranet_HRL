@@ -3,18 +3,16 @@ from .models import Messages
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from intranet_hrl.utils.files_walker import files_walker
+from .components.files_walker import files_walker
 
 # Create your views here.
 
-
 def files_view_test(request, last_dir, next_dir):
-
     #  Here is a test trying to render the folders and files in a path that could be
     # passed as a request throught the url
-
     root_dir = r'./media'
     dirs, files, last_dir, history = files_walker(root_dir, last_dir, next_dir)
+    print(dirs, files, last_dir, history)
 
     return render(request, 'app_file_storage/test.html', {'dirs': dirs,
                                                           'files': files,

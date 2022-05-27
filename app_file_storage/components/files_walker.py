@@ -1,6 +1,10 @@
 import os
 
+def test():
+    print('works')
+
 def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history={}):
+    on_root = False
     path = root_dir
 
     if ':' not in last_dir:
@@ -29,6 +33,3 @@ def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history={}):
 
     # print(f'end of function - {root_dir}, {last_dir}, {next_dir}\n')
     return  dirs, files, last_dir, history
-
-def test():
-    print('works')
