@@ -56,7 +56,7 @@ urlpatterns = [
     path('phone_extensions/', phone_extensions_view, name='url_phone_extensions'),
     path('help_me/', help_me_view, name='url_help_me'),
     path('summernote/', include('django_summernote.urls')),
-    path('messages_test/<str:last_dir>/<str:next_dir>', files_view_test, name='url_messages_test'),
+    path('messages_test/', files_view_test, name='url_messages_test'),
     path('filer/', include('filer.urls')),
     path('messages/', messages_view, name='url_messages'),
     path('blog/', blog_view, name='url_blog'),

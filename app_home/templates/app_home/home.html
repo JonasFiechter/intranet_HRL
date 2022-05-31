@@ -19,39 +19,15 @@
                     <a href="https://expresso.pr.gov.br/expressoMail1_2/index.php" target="_blank"><li>Expresso</li></a>
                     <a href="http://10.29.0.10/suportetecnico_funeas/tela_inicial/" target="_blank"><li>Intranet FUNEAS</li></a>
                     <a href="http://10.29.0.10/intranet_nova/" target="_blank"><li>Intranet SESA</li></a>
-                    <a href=""><li>Item 3</li></a>
+                    <a href="{% url 'url_messages_test'%}"><li>Item 3</li></a>
                     <a href="http://191.252.204.47/" target="_blank"><li>RX / TOMO (ANTIGO)</li></a>
                     <a href="https://laudos.mobilemed.com.br/" target="_blank"><li>RX / TOMO (NOVO)</li></a>
                     <a href="http://ponto.sesa.parana/" target="_blank"><li>Ponto SESA</li></a>
-                    <a href="{% url 'url_phone_extensions' %}" target="_blank"><li>Lista de RAMAIS</li></a>
-                    <a href="/messages_test/blank/root"><li>Item 4</li></a>
+                    <a href="{% url 'url_phone_extensions'%}" target="_blank"><li>Lista de RAMAIS</li></a>
+                    <a href="/messages_test/"><li>Item 4</li></a>
                 </ul>
             </div>
             <div class="messages-container">
-                {% include '_messages_view.html'%}
-            </div>
-            <div>
-                <div class='file-system-container'>
-                    {% if history %}
-                        <h1><a style="color: black;" href="{% url 'url_messages_test' history.last_dir history.next_dir %}">Voltar</a></h1>
-                    {% endif %}
-                    <ul style="display: flex; padding-top: 15rem; display: flex; flex-direction: column;">
-                        {% for dir in dirs %}
-                            <li>
-                                <a href="{% url 'url_messages_test' last_dir dir %}">
-                                    <img src="{% static 'app_file_storage/vendor/img/folder-svgrepo-com.svg' %}"
-                                    width="15"
-                                    height="15"> {{ dir }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    <ul style="display: flex; padding-top: 2rem; display: flex; flex-direction: column;">
-                        {% for file in files %}
-                            <li><a href="{% url 'url_home' %}{{file.path}}">{{ file.file }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
             </div>
         </div>
         <div class="section-2-btn">
