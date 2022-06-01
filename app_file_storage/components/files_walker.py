@@ -1,7 +1,5 @@
 import os
 
-def test():
-    print('works')
 
 def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history={}):
     on_root = False
@@ -33,3 +31,16 @@ def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history={}):
 
     # print(f'end of function - {root_dir}, {last_dir}, {next_dir}\n')
     return  dirs, files, last_dir, history
+
+
+def files_walker_2(root_dir, folder):
+
+    print(folder)
+    for root, dirs, files in os.walk(root_dir + '/' + folder):
+        dirs = [d for d in dirs]
+        files = [{'path': str(root + '/' + f), 'file': f} for f in files]
+        break
+
+    last_dir = ''
+    history = ''
+    return dirs, files, last_dir, history
