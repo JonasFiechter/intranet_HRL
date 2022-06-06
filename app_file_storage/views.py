@@ -15,9 +15,10 @@ def files_view_test(request):
         folder = request.GET['f']
     except:
         folder = ''
+        last_dir = ''
 
     # dirs, files, last_dir, history = files_walker(root_dir, last_dir='blank', next_dir='root')
-    dirs, files, last_dir, history = files_walker_2(root_dir, folder=folder)
+    dirs, files, last_dir, history = files_walker_2(root_dir, folder=folder, last_dir=last_dir)
 
     return render(request, 'app_file_storage/test.html', {'dirs': dirs,
                                                           'files': files,
