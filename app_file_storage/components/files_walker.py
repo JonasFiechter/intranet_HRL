@@ -35,6 +35,8 @@ def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history={}):
 
 def files_walker_2(root_dir, folder):
 
+    dirs = []
+    files = []
     print(folder)
     for root, dirs, files in os.walk(root_dir + '/' + folder):
         dirs = [d for d in dirs]
