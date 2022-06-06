@@ -37,11 +37,15 @@ def files_walker_2(root_dir, folder):
 
     dirs = []
     files = []
-    print(folder)
+    
+    print(f'path before walk > {root_dir} + {folder}')
+
     for root, dirs, files in os.walk(root_dir + '/' + folder):
         dirs = [d for d in dirs]
         files = [{'path': str(root + '/' + f), 'file': f} for f in files]
         break
+
+    print(f'files: {files} | dirs: {dirs}')
 
     last_dir = ''
     history = ''
