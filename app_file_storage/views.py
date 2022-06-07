@@ -1,3 +1,4 @@
+from importlib.resources import path
 from logging import root
 from django.shortcuts import render, redirect
 from .models import Messages
@@ -12,13 +13,14 @@ def files_view_test(request):
     root_dir = r'./media'
 
     try:
-        folder = request.GET['f']
+        path = request.GET['f']
+        last_dir = ''
     except:
-        folder = ''
+        path = ''
         last_dir = ''
 
     # dirs, files, last_dir, history = files_walker(root_dir, last_dir='blank', next_dir='root')
-    dirs, files, last_dir, history = files_walker_2(root_dir, folder=folder, last_dir=last_dir)
+    dirs, files, last_dir, history = files_walker_2(root_dir, path=path, last_dir=last_dir)
 
     return render(request, 'app_file_storage/test.html', {'dirs': dirs,
                                                           'files': files,

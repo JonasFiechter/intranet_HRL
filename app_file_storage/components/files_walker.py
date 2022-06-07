@@ -33,20 +33,27 @@ def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history={}):
     return  dirs, files, last_dir, history
 
 
-def files_walker_2(root_dir, folder, last_dir):
+def files_walker_2(root_dir, path, last_dir):
 
     dirs = []
     files = []
+    if path:
+        last_dir = path.split(':')[0]
+        path = path.split(':')[1]
+    print(f'last_dir: {last_dir} | path: {path}')
 
-    print(f'path before walk > {root_dir} + {folder}')
+    print(f'path before walk > {root_dir} + {path}')
 
-    for root, dirs, files in os.walk(root_dir + '/' + folder):
-        dirs = [d for d in dirs]
-        files = [{'path': str(root + '/' + f), 'file': f} for f in files]
-        break
+    try:
+        for root, dirs, files in os.walk(root_dir + '/' + path):
+            dirs = [d for d in dirs]
+            files = [{'path': str(root + '/' + f), 'file': f} for f in files]
+            break
+    except:
+        print('error ocurred!')
 
     print(f'files: {files} | dirs: {dirs}')
 
-    last_dir = folder
+    last_dir = path
     history = ''
     return dirs, files, last_dir, history

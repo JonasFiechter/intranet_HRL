@@ -6,7 +6,7 @@
     <ul style="display: flex; padding-top: 15rem; display: flex; flex-direction: column;">
         {% for dir in dirs %}
             <li>
-                <a href="{% url 'url_messages_test'%}?f={{ dir }}">
+                <a href="{% url 'url_messages_test'%}?f={{ last_dir }}:{{ dir }}">
                     <img src="{% static 'app_file_storage/vendor/img/folder-svgrepo-com.svg' %}"
                     width="15"
                     height="15"> {{ dir }}
