@@ -1,30 +1,29 @@
-from importlib.resources import path
-from logging import root
 from django.shortcuts import render, redirect
 from .models import Messages
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .components.files_walker import files_walker, files_walker_2
+from .components.files_walker import files_walker
 
 # Create your views here.
 
 def files_view_test(request):
-    root_dir = r'./media'
 
+    # This method gives to the files_walker method the basic parameters to walk throught the path
+    # and unpack the results to pass then throught the render method using dicts.
+    # dirs and files are dicts with a dict for each 'dir' or 'file' inside it.
+    # see more inside components/files_walker.py
+
+    root_dir = r'./media'
     try:
         path = request.GET['f']
-        last_dir = ''
     except:
         path = ''
-        last_dir = ''
 
-    # dirs, files, last_dir, history = files_walker(root_dir, last_dir='blank', next_dir='root')
-    dirs, files, last_dir, history = files_walker_2(root_dir, path=path, last_dir=last_dir)
+    dirs, files, history = files_walker(root_dir, path=path)
 
     return render(request, 'app_file_storage/test.html', {'dirs': dirs,
                                                           'files': files,
-                                                          'last_dir': last_dir,
                                                           'history': history})
 
 

@@ -1,7 +1,7 @@
 import os
 
 
-def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history={}):
+def files_walker_old(root_dir, last_dir, next_dir, dirs=[], files=[], history={}):
     on_root = False
     path = root_dir
 
@@ -33,27 +33,27 @@ def files_walker(root_dir, last_dir, next_dir, dirs=[], files=[], history={}):
     return  dirs, files, last_dir, history
 
 
-def files_walker_2(root_dir, path, last_dir):
+def files_walker(root_dir, path, dirs=[], files=[]):
 
-    dirs = []
-    files = []
-    if path:
-        last_dir = path.split(':')[0]
-        path = path.split(':')[1]
-    print(f'last_dir: {last_dir} | path: {path}')
+    # The way that this method works can be a little tricky but is much smaller than the older one
+    # The first check is determine if the history string will be populated based on the position of
+    # the path, because if path is one of the child of the root folder it will return to the root
+    # folder, and if it is empty (because is the root folder itself) it just goes empty
 
-    print(f'path before walk > {root_dir} + {path}')
+    history = '/'.join(path.split('/')[:-1])
+    if not history and path != '/':
+        history = '/'
+        
+    print(f'\nhistory: {history} | path: {path}')
 
-    try:
-        for root, dirs, files in os.walk(root_dir + '/' + path):
-            dirs = [d for d in dirs]
-            files = [{'path': str(root + '/' + f), 'file': f} for f in files]
-            break
-    except:
-        print('error ocurred!')
+    # This loop breaks on the first walk inside the path given. And returns to lists with dicts
+    # one for every directory and other for each file inside the path.
 
-    print(f'files: {files} | dirs: {dirs}')
+    for root, dirs, files in os.walk(root_dir + '/' + path):
+        dirs = [{'name': d, 'path': path + '/' + d} for d in dirs]
+        files = [{ 'file': f, 'path': str(root + '/' + f)} for f in files]
+        break
 
-    last_dir = path
-    history = ''
-    return dirs, files, last_dir, history
+    print(f'\nfiles: {files} | dirs: {dirs}')
+
+    return dirs, files, history

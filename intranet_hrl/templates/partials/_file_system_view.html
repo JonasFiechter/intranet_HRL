@@ -1,15 +1,15 @@
 {% load static %}
 <div class='file-system-container'>
     {% if history %}
-        <h1><a style="color: black;" href="{% url 'url_messages_test'%}">Voltar</a></h1>
+        <h1><a style="color: black;" href="{% url 'url_messages_test'%}?f={{ history }}">Voltar</a></h1>
     {% endif %}
     <ul style="display: flex; padding-top: 15rem; display: flex; flex-direction: column;">
         {% for dir in dirs %}
             <li>
-                <a href="{% url 'url_messages_test'%}?f={{ last_dir }}:{{ dir }}">
+                <a href="{% url 'url_messages_test'%}?f={{ dir.path }}">
                     <img src="{% static 'app_file_storage/vendor/img/folder-svgrepo-com.svg' %}"
                     width="15"
-                    height="15"> {{ dir }}
+                    height="15"> {{ dir.name }}
                 </a>
             </li>
         {% endfor %}
