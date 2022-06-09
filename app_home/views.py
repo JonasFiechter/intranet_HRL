@@ -3,11 +3,21 @@ from .models import PhoneExtensions, FunctionsBySector
 from app_blog.models import Post
 from app_file_storage.models import Messages
 from django.core.paginator import Paginator
+from app_file_storage.components.files_walker import files_walker
 
 # Create your views here.
 
-
 def home_view(request):
+
+    #  Calling the files walker function
+    root_dir = r'./media'
+    try:
+        path = request.GET['f']
+    except:
+        path = ''
+
+    dirs, files, history = files_walker(root_dir, path)
+
     messages_overlay = False
 
     posts = Post.objects.all().order_by('-id')
@@ -27,7 +37,10 @@ def home_view(request):
 
     return render(request, 'app_home/home.html', {'posts': posts,
                                                   'messages': messages,
-                                                  'messages_overlay': messages_overlay})
+                                                  'messages_overlay': messages_overlay,
+                                                  'dirs': dirs,
+                                                  'files': files,
+                                                  'history': history,})
 
 
 def phone_extensions_view(request):

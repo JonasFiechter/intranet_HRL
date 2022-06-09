@@ -43,8 +43,6 @@ def files_walker(root_dir, path, dirs=[], files=[]):
     history = '/'.join(path.split('/')[:-1])
     if not history and path != '/':
         history = '/'
-        
-    print(f'\nhistory: {history} | path: {path}')
 
     # This loop breaks on the first walk inside the path given. And returns to lists with dicts
     # one for every directory and other for each file inside the path.
@@ -53,7 +51,5 @@ def files_walker(root_dir, path, dirs=[], files=[]):
         dirs = [{'name': d, 'path': path + '/' + d} for d in dirs]
         files = [{ 'file': f, 'path': str(root + '/' + f)} for f in files]
         break
-
-    print(f'\nfiles: {files} | dirs: {dirs}')
 
     return dirs, files, history

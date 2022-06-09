@@ -25,6 +25,8 @@ def blog_admin_view(request, action, post_id):
 
     is_valid = False
     form = PostForm(request.POST, request.FILES)
+    
+    #  create a instance for the all the posts
     posts = Post.objects.order_by('-id')
     
     #  Check if the group below is linked to the active user
@@ -48,8 +50,8 @@ def blog_admin_view(request, action, post_id):
                 is_valid = True
                 message = 'Post enviado com sucesso!'
                 return render(request, 'app_blog/blog_admin.html', {'is_valid': is_valid,
-                                                                        'message': message,
-                                                                        'form': form})
+                                                                    'message': message,
+                                                                    'form': form})
 
             return render(request, 'app_blog/blog_admin.html', {'form': form,
                                                                 'is_valid': is_valid,

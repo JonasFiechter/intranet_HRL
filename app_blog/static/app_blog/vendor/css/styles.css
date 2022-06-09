@@ -168,7 +168,7 @@ p {
 
 .main-container {
     display: grid;
-    grid-template-columns: 83rem 1fr;
+    grid-template-columns: 100rem 1fr;
     gap: 3rem;
 }
 
@@ -293,7 +293,6 @@ p {
 }
 
 .post-description-container {
-    color: #FFFFFF;
     display: flex;
     flex-direction: column;
     padding-left: 15rem;
@@ -301,7 +300,8 @@ p {
     padding-bottom: 4rem;
 }
 
-.post-description-container p {
+.post-description > p {
+    color: #FFFFFF;
     text-justify: distribute;
 }
 
