@@ -30,8 +30,13 @@
             <div class="messages-container">
                 {% include '_messages_view.html' %}
             </div>
-            <div>
-                {% include '_file_system_view.html' %}
+            <div class="file-system-container">
+                <div class="file-system-title">
+                    <h2>Sistema de arquivos</h2>
+                </div>
+                <div class="file-system-container-box">
+                    {% include '_file_system_view.html' %}
+                </div>
             </div>
         </div>
         <div class="section-2-btn">

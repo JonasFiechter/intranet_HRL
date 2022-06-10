@@ -1,8 +1,8 @@
 {% load static %}
-<div class='file-system-container'>
-    {% if history %}
-        <h1><a style="color: black;" href="?f={{ history }}">Voltar</a></h1>
-    {% endif %}
+{% if history %}
+    <h2><a style="color: black;" href="?f={{ history }}">Voltar</a></h2>
+{% endif %}
+<div class="folder-container">
     <ul>
         {% for dir in dirs %}
             <li>
@@ -14,6 +14,8 @@
             </li>
         {% endfor %}
     </ul>
+</div>
+<div class="file-container">
     <ul>
         {% for file in files %}
             <li><a href="{% url 'url_home' %}{{file.path}}">{{ file.file }}</a></li>

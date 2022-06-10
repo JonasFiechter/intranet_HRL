@@ -1,22 +1,22 @@
 {% load static %}
-    <h2 class="messages-title-h2">Comunicados e Memorandos</h2>
-    <ul class="messages-title">
-        <li>Data</li>
-        <li>Setor responsável</li>
-        <li>Assunto</li>
-        <li class="link">Anexo</li>
+<h2 class="messages-title-h2">Comunicados e Memorandos</h2>
+<ul class="messages-title">
+    <li>Data</li>
+    <li>Setor responsável</li>
+    <li>Assunto</li>
+    <li class="link">Anexo</li>
 
-    </ul>
-    <ul class="">
-        {% for message in messages %}
-            <li class="messages-ul">
-                <a href="">{{ message.date }}</a>
-                <a href="">{{ message.sector }}</a>
-                <a href="">{{ message.name }}</a>
-                <a class="link" href="{{ message.file }}" target="blank">Link</a>
-            </li>
-        {% endfor %}
-    </ul>
-    {% if messages_overlay %}
-        <a class="show-all" href="{% url 'url_messages' %}">Mostrar todos</a>
-    {% endif %}
+</ul>
+<ul class="">
+    {% for message in messages %}
+        <li class="messages-ul">
+            <a href="">{{ message.date }}</a>
+            <a href="">{{ message.sector }}</a>
+            <a href="">{{ message.name }}</a>
+            <a class="link" href="{{ message.file }}" target="blank">Link</a>
+        </li>
+    {% endfor %}
+</ul>
+{% if messages_overlay %}
+    <a class="show-all" href="{% url 'url_messages' %}">Mostrar todos</a>
+{% endif %}

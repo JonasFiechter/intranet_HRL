@@ -146,24 +146,27 @@ p {
     grid-template-columns: 25rem 1fr;
 }
 
-.grid div {
-    color: #FFFFFF;
-    background-color: rgba(0, 0, 0, 0.527);
-    padding-top: 0;
+.grid div .menu-grid {
+    background-color: rgb(18, 8, 71);
 }
 
 .grid div:nth-child(1) {
     grid-row: span 2;
-    background-color: rgb(18, 8, 71);
 }
 
 .grid div:nth-child(2) {
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.527);
+    padding-top: 0;
     max-height: 40rem;
     padding-bottom: 0;
     margin: 0;
 }
 
 .grid div:nth-child(3) {
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.527);
+    padding-top: 0;
     min-height: 26rem;
     padding: 2rem;
     padding-bottom: 0;
@@ -320,7 +323,6 @@ p {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    font-weight: 600;
     text-align: center;
 }
 
@@ -370,4 +372,24 @@ p {
     border-bottom: 0.2rem solid orange;
     color: orange;
     transition: 200ms ease-in;
+}
+
+.file-system-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-system-container-box {
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.file-system-title h2 {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.folder-container {
+    display: flex;
+    flex-direction: column;
 }
