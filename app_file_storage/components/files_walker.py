@@ -13,9 +13,12 @@ def files_walker(root_dir, path, dirs=[], files=[]):
     # path_list = path.split('/')
     # The content of the path splited items can be usefull to solve the problem with the children 
     # of the root folder that was only True when inside the second level below the root, so this 
-    # if can solve this little issue  
-    if not path.split('/')[0] and path.split('/')[1]:
-        history = '/'
+    # 'if' can solve this little issue  
+    try:
+        if not path.split('/')[0] and path.split('/')[1]:
+            history = '/'
+    except:
+        pass
 
     # print(f'history => {history} path_list => {path_list}')
 
