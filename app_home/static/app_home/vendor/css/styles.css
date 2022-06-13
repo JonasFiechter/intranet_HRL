@@ -402,6 +402,10 @@ p {
     flex-direction: column;
 }
 
-.folder {
-    
+.folder:hover {
+    color: orange;
+}
+
+.file:hover {
+    color: orange;
 }
