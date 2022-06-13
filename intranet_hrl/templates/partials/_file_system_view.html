@@ -6,7 +6,7 @@
     <ul>
         {% for dir in dirs %}
             <li>
-                <a href="?f={{ dir.path }}">
+                <a class="folder" href="?f={{ dir.path }}">
                     <img src="{% static 'app_file_storage/vendor/img/folder-svgrepo-com.svg' %}"
                     width="15"
                     height="15"> {{ dir.name }}
@@ -18,7 +18,7 @@
 <div class="file-container">
     <ul>
         {% for file in files %}
-            <li><a href="{% url 'url_home' %}{{file.path}}">{{ file.file }}</a></li>
+            <li><a class="file" href="{% url 'url_home' %}{{file.path}}">{{ file.file }}</a></li>
         {% endfor %}
     </ul>
 </div>

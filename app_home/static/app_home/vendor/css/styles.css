@@ -155,21 +155,11 @@ p {
 }
 
 .grid div:nth-child(2) {
-    color: #FFFFFF;
-    padding-top: 0;
-    max-height: 40rem;
-    padding-bottom: 0;
-    margin: 0;
+
 }
 
 .grid div:nth-child(3) {
-    color: #FFFFFF;
-    background-color: rgba(0, 0, 0, 0.527);
-    padding-top: 0;
-    min-height: 26rem;
-    padding: 2rem;
-    padding-bottom: 0;
-    margin: 0;
+
 }
 
 .menu-grid {
@@ -273,6 +263,11 @@ p {
     padding-right: 3rem;
     display: block;
     max-height: 40rem;
+    color: #FFFFFF;
+    padding-top: 0;
+    min-height: 20rem;
+    padding-bottom: 0;
+    margin: 0;
 }
 
 .messages-title {
@@ -375,12 +370,19 @@ p {
 }
 
 .file-system-container {
+    background-color: rgba(0, 0, 0, 0.527);
     display: flex;
     flex-direction: column;
+    color: #FFFFFF;
+    padding-top: 0;
+    min-height: 26rem;
+    padding: 2rem;
+    padding-bottom: 0;
+    margin: 0;
 }
 
 .file-system-container-box {
-    display: block;
+    display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
@@ -393,4 +395,13 @@ p {
 .folder-container {
     display: flex;
     flex-direction: column;
+}
+
+.file-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.folder {
+    
 }
