@@ -168,7 +168,7 @@ p {
 
 .main-container {
     display: grid;
-    grid-template-columns: 100rem 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
 }
 
@@ -266,6 +266,7 @@ p {
     color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0.582);
 }
+
 .message-page-container {
     text-align: center;
     align-items: center;
