@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Messages
-from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .components.files_walker import files_walker
 
 # Create your views here.
 
-def files_view_test(request):
+def storage_admin_view(request):
 
     # This method gives to the files_walker method the basic parameters to walk throught the path
     # and unpack the results to pass then throught the render method using dicts.
@@ -22,7 +21,7 @@ def files_view_test(request):
 
     dirs, files, history = files_walker(root_dir, path=path)
 
-    return render(request, 'app_file_storage/test.html', {'dirs': dirs,
+    return render(request, 'app_file_storage/storage_admin.html', {'dirs': dirs,
                                                           'files': files,
                                                           'history': history})
 
