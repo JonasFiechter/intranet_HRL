@@ -22,8 +22,8 @@ def storage_admin_view(request):
     dirs, files, history = files_walker(root_dir, path=path)
 
     return render(request, 'app_file_storage/storage_admin.html', {'dirs': dirs,
-                                                          'files': files,
-                                                          'history': history})
+                                                                    'files': files,
+                                                                    'history': history})
 
 
 def messages_view(request):

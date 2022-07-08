@@ -23,7 +23,7 @@ def files_walker(root_dir, path, dirs=[], files=[]):
     # print(f'history => {history} path_list => {path_list}')
 
     # This loop breaks on the first walk inside the path given. And returns to lists with dicts
-    # one for every directory and other for each file inside the path.
+    # one for every directory and another for each file inside the path.
 
     for root, dirs, files in os.walk(root_dir + '/' + path):
         dirs = [{'name': d, 'path': path + '/' + d} for d in dirs]
