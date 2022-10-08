@@ -5,7 +5,9 @@ console.log('works');
 function confirm_btn(message) {
     if (confirm(message)) {
         return
-    } else {window.location.replace('#')}
+    } else {
+        window.location.replace('#')
+    }
 }
 
 function check_delete(post_title, url) {
