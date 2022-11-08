@@ -14,15 +14,12 @@ from pathlib import Path
 import os
 
 # Path to a secure hash txt file
-secret_key_path = '/home/mage/SECRET_KEY_IHRL.txt'
+secret_key_path = r"C:\Users\Mage\Documents\SECRET_KEY_IHRL.txt"
 
 # Little function to read the hash into the path
-
-
 def secret_key_reader(path_):
     file = open(path_)
     return file.read()
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
