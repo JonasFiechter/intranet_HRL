@@ -33,7 +33,7 @@ def accounts_dashboard_view(request):
     return render(request, 'app_accounts/dashboard.html')
 
 
-def accounts_signup_view(request):
+def accounts_signup_view(request): 
     if request.method != 'POST':
         return render(request, 'app_accounts/signup.html')
 

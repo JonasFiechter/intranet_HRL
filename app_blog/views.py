@@ -9,6 +9,7 @@ from .models import *
 
 def post_view(request, post_id):
     post = Post.objects.get(id=post_id)
+    print(post.img.url)
     return render(request, 'app_blog/post.html', {'post': post})
 
 
